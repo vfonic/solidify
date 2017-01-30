@@ -2,7 +2,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../test_app/config/environment', __FILE__)
 ActiveRecord::Migrator.migrations_paths = [
-  File.expand_path('dummy/db/migrate', __dir__)
+  File.expand_path('../test_app/db/migrate', __FILE__)
 ]
 ActiveRecord::Migrator
   .migrations_paths << File.expand_path('../db/migrate', __dir__)
@@ -25,7 +25,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Liquor::Engine.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
