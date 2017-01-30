@@ -1,5 +1,7 @@
+require 'rails/engine'
+
 module Liquor
-  class Engine < Rails::Engine
+  class Engine < ::Rails::Engine
     isolate_namespace Liquor
     engine_name 'liquor'
 

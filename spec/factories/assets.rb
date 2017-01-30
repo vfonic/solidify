@@ -3,14 +3,11 @@ module Liquor
   FactoryGirl.define do
     factory :asset, class: Asset do
       theme_id 1
-      content_type 'MyString'
-      public_url 'MyString'
-      size 1
       key 'simple'
       file do
         Rack::Test::UploadedFile.new(
           File.join(
-            Rails.root, 'spec', 'data', 'simple.liquid'
+            Liquor::Engine.root, 'spec', 'data', 'simple.liquid'
           )
         )
       end
@@ -20,7 +17,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'assets', 'shop.js.liquid'
+              Liquor::Engine.root, 'spec', 'data', 'assets', 'shop.js.liquid'
             )
           )
         end
@@ -31,7 +28,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'snippets', 'open-graph-tags.liquid'
+              Liquor::Engine.root, 'spec', 'data', 'snippets', 'open-graph-tags.liquid'
             )
           )
         end
@@ -42,7 +39,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'assets', 'style.scss.liquid'
+              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss.liquid'
             )
           )
         end
@@ -53,7 +50,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'assets',
+              Liquor::Engine.root, 'spec', 'data', 'assets',
               'style_with_asset_url_filter.scss.liquid'
             )
           )
@@ -65,7 +62,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'assets', 'style.scss'
+              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss'
             )
           )
         end
@@ -76,7 +73,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Rails.root, 'spec', 'data', 'assets', 'style.scss.css'
+              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss.css'
             )
           )
         end

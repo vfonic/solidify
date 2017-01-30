@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 module Liquor
   RSpec.describe ScssAssetCompiler do
     describe '#compile' do
