@@ -7,3 +7,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+/spec/test_app/log/*
+!/spec/test_app/log/.keep
+/spec/test_app/tmp
+/spec/test_app/db/*.sqlite3

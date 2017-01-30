@@ -1,6 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../test_app/config/environment', __FILE__)
+ActiveRecord::Migrator.migrations_paths = [
+  File.expand_path('dummy/db/migrate', __dir__)
+]
+ActiveRecord::Migrator
+  .migrations_paths << File.expand_path('../db/migrate', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
