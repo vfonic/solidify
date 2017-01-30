@@ -9,7 +9,7 @@ module Liquor
         cache: false,
         full_exception: true
       }
-      Sass::Engine.new(@template, options).render
+      ::Sass::Engine.new(@template, options).render
     end
   end
 end

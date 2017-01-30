@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 module Liquor
   RSpec.describe AssetPostprocessor do
     context 'assets/style.scss.liquid' do
