@@ -29,7 +29,7 @@ module Liquor
           theme
         ).compile
 
-        asset_url = 'https://shopify-split.s3.amazonaws.com' \
+        asset_url = 'https://bucket-name.s3.amazonaws.com' \
                     "/themes/#{theme.id}/assets/arrow-down.svg"
         expected = <<~HEREDOC
                 body {

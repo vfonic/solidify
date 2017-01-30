@@ -3,13 +3,14 @@ require 'rails_helper'
 module Liquor
   RSpec.describe UrlFilters, type: :helper do
     describe '#asset_url' do
+
       it 'returns correct asset_url for theme' do
         theme = create(:theme)
         context = double('@context', registers: { theme: theme })
         helper.instance_variable_set(:@context, context)
 
         expect(helper.asset_url('shop.js'))
-          .to eq('https://shopify-split.s3.amazonaws.com/' \
+          .to eq('https://bucket-name.s3.amazonaws.com/' \
             "themes/#{theme.id}/assets/shop.js")
       end
     end

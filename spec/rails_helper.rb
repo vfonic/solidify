@@ -28,6 +28,8 @@ require 'factory_girl_rails'
 #
 Dir[Liquor::Engine.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+ENV['AWS_S3_BUCKET_NAME'] = 'bucket-name'
+
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!

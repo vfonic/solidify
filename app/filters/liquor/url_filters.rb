@@ -13,22 +13,18 @@ module Liquor
       theme = @context.registers[:theme]
       'https://' + ENV.fetch('AWS_S3_BUCKET_NAME') +
         ".s3.amazonaws.com/themes/#{theme.id}/assets/#{asset_name}"
-      "/assets/#{asset_name}"
     end
 
     def customer_login_link(text)
-      link_to(text,
-              Rails.application.routes.url_helpers.new_customer_session_path)
+      link_to(text, '/account/login')
     end
 
     def customer_logout_link(text)
-      link_to(text,
-              Rails.application.routes.url_helpers.destroy_customer_session_path)
+      link_to(text, '/account/logout')
     end
 
     def customer_register_link(text)
-      link_to(text,
-              Rails.application.routes.url_helpers.new_customer_registration_path)
+      link_to(text, '/account/register')
     end
 
     def global_asset_url(asset_name)
