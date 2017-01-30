@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'carrierwave'
   spec.add_dependency "rails", "~> 4.2.7.1"
   spec.add_dependency 'redis'
   spec.add_dependency 'sass', '~> 3.2.0'
