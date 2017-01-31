@@ -4,6 +4,7 @@ namespace :liquor do
     task download_theme: :environment do
       assets = Liquor::Asset.where(theme_id: Setting.active_theme_id)
       assets.each do |asset|
+        puts "Downloading #{asset.key}"
         local_asset_path = Rails.root.join(
           'app', 'views', 'themes', asset.theme_id.to_s, asset.key
         )
