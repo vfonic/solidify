@@ -1,0 +1,197 @@
+<script>
+//<![CDATA[
+      var Shopify = Shopify || {};
+      Shopify.shop = "shopify-split.myshopify.com";
+      Shopify.theme = {"name":"skeleton-theme","id":157890822,"theme_store_id":null,"role":"main"};
+
+//]]>
+</script>
+
+
+
+<script id="__st">
+//<![CDATA[
+var __st={"a":16965583,"offset":25200,"reqid":"ec070123-942f-47cb-a7e4-c32e06db8af5","pageurl":"shopify-split.myshopify.com\/pages\/contact","s":"pages-235063494","u":"b99ea16bd7d5","cid":5454178566,"p":"page","rtyp":"page","rid":235063494};
+//]]>
+</script>
+<script>
+//<![CDATA[
+      (function() {
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+        s.src = '//cdn.shopify.com/s/javascripts/shopify_stats.js?v=6';
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      })();
+
+//]]>
+</script>
+
+      <script type="text/javascript">
+
+      window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+      window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+      window.ShopifyAnalytics.meta.currency = 'THB';
+      var meta = {};
+      for (var attr in meta) {
+        window.ShopifyAnalytics.meta[attr] = meta[attr];
+      }
+
+      </script>
+
+      <script type="text/javascript">
+        window.ShopifyAnalytics.merchantGoogleAnalytics = function() {
+
+        };
+      </script>
+
+      <script type="text/javascript" class="analytics">
+
+
+
+        (function () {
+          var customDocumentWrite = function(content) {
+            var jquery = null;
+
+            if (window.jQuery) {
+              jquery = window.jQuery;
+            } else if (window.Checkout && window.Checkout.$) {
+              jquery = window.Checkout.$;
+            }
+
+            if (jquery) {
+              jquery('body').append(content);
+            }
+          };
+
+          var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+          if (trekkie.integrations) {
+            return;
+          }
+          trekkie.methods = [
+            'identify',
+            'page',
+            'ready',
+            'track',
+            'trackForm',
+            'trackLink'
+          ];
+          trekkie.factory = function(method) {
+            return function() {
+              var args = Array.prototype.slice.call(arguments);
+              args.unshift(method);
+              trekkie.push(args);
+              return trekkie;
+            };
+          };
+          for (var i = 0; i < trekkie.methods.length; i++) {
+            var key = trekkie.methods[i];
+            trekkie[key] = trekkie.factory(key);
+          }
+          trekkie.load = function(config) {
+            trekkie.config = config;
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.onerror = function(e) {
+              (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load';
+            };
+            script.async = true;
+            script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2016.12.06.1';
+            var first = document.getElementsByTagName('script')[0];
+            first.parentNode.insertBefore(script, first);
+          };
+          trekkie.load(
+            {"Trekkie":{"appName":"storefront","environment":"production","defaultAttributes":{"shopId":16965583}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":0.01}}
+          );
+
+          var loaded = false;
+          trekkie.ready(function() {
+            if (loaded) return;
+            loaded = true;
+
+            window.ShopifyAnalytics.lib = window.trekkie;
+
+
+            var originalDocumentWrite = document.write;
+            document.write = customDocumentWrite;
+            try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+            document.write = originalDocumentWrite;
+
+
+        window.ShopifyAnalytics.lib.page(
+          null,
+          {"pageType":"page","customerId":5454178566,"resourceType":"page","resourceId":235063494}
+        );
+
+
+          });
+
+
+      var eventsListenerScript = document.createElement('script');
+      eventsListenerScript.async = true;
+      eventsListenerScript.src = "//cdn.shopify.com/s/assets/shop_events_listener-37861b7e433c159ab7ac8932b47d1b8813173005dff35ce87a5900b43e3492ed.js";
+      document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+        })();
+      </script>
+
+<script type="text/javascript">
+        function getStyle(el,styleProp) {
+          var x=el;
+          if (x.currentStyle)
+            var y = x.currentStyle[styleProp];
+          else if (window.getComputedStyle)
+            var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+          return y;
+        }
+
+        function doShift(down){
+          var allElements = document.getElementsByTagName('*');
+          for (var i=0; i<allElements.length; i++) {
+            if (allElements[i].id != "admin_bar_iframe" && getStyle(allElements[i],"position") == "fixed")
+              allElements[i].style.top = parseInt(getStyle(allElements[i], "top"),10) + (down ? 40 : -40) + "px";
+          }
+        }
+        window.onload = function() {
+          doShift(true);
+        }
+
+        if (window.addEventListener){ addEventListener("message", receiveABMessage, false); }
+        else { window.attachEvent("onmessage", receiveABMessage) }
+
+        function setABVCookie(value) {
+          var ex=new Date();
+          ex.setDate(ex.getDate() + 720);
+          document.cookie = "_abv="+value+";expires="+ex.toUTCString()+";path=/";
+        }
+
+        function receiveABMessage(event) {
+          if(event.origin != 'https://shopify-split.myshopify.com') {
+            return;
+          }
+
+          if(event.data == '1') {
+            document.body.style.position = 'relative';
+            document.documentElement.style.paddingTop = "40px";
+            doShift(true);
+            var element = document.getElementById("admin_bar_iframe");
+            element.style.width = '100%';
+            element.style.backgroundColor = '#191919';
+            element.style.right = 'auto';
+            element.style.left = 0;
+            setABVCookie('1');
+          } else if(event.data == '0') {
+            document.body.style.position = 'relative';
+            document.documentElement.style.paddingTop = "0px";
+            doShift(false);
+            var element = document.getElementById("admin_bar_iframe");
+            element.style.backgroundColor = 'transparent';
+            element.style.right = '0px';
+            element.style.left = 'auto';
+            element.style.width = '40px';
+            setABVCookie('0');
+          }
+        }
+      </script>
+<style type="text/css">html {  padding-top:40px; } body { position:relative;} </style>
+
+
+<link rel="stylesheet" media="all" href="//cdn.shopify.com/s/assets/storefront/additional-checkout-buttons-e666b0b8a20c90d1eaafcc0f38897f2b4ab8af21f68426b37926e48a2ae452c2.css" />
