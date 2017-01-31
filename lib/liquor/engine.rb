@@ -2,6 +2,7 @@ require 'rails/engine'
 
 module Liquor
   class Engine < ::Rails::Engine
+    config.autoload_paths << Liquor::Engine.root.join('app', 'controllers', 'liquor', 'responders')
     isolate_namespace Liquor
     engine_name 'liquor'
 
