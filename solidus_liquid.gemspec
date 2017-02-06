@@ -31,11 +31,15 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'liquid-rails'
 
   spec.add_development_dependency "bundler", "~> 1.13"
+  spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency "factory_girl_rails"
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'rspec-rails'
+  spec.add_development_dependency 'rubocop', '0.37.2'
+  spec.add_development_dependency 'rubocop-rspec', '1.4.0'
+  spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'sqlite3'
 end
