@@ -88,5 +88,9 @@ module SolidusLiquid
 
       "#{theme_dir}/#{template_path}"
     end
+
+    def current_customer
+      spree_current_user
+    end
   end
 end
