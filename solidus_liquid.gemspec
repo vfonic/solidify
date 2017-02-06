@@ -9,10 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Viktor Fonic"]
   spec.email         = ["viktor.fonic@gmail.com"]
 
-  spec.summary       = 'Contains theme and asset models for liquid files'
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = 'Solidus meets Shopify liquid theme files'
+  spec.description   = 'Solidus extension for using Shopify liquid theme files'
   spec.homepage      = 'https://github.com/vfonic/solidus_liquid'
-  spec.license       = "MIT"
+  spec.license       = 'MIT'
+  spec.email         = 'viktor.fonic+solidus_liquid@gmail.com'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
