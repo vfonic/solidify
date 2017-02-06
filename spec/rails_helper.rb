@@ -26,7 +26,7 @@ require 'factory_girl_rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Liquor::Engine.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[SolidusLiquid::Engine.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ENV['AWS_S3_BUCKET_NAME'] ||= 'bucket-name'
 

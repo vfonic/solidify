@@ -1,8 +1,8 @@
-namespace :liquor do
+namespace :solidus_liquid do
   namespace :themes do
     desc 'Download active theme from AWS'
-    task download_theme: :environment do
-      assets = Liquor::Asset.where(theme_id: Setting.active_theme_id)
+    task download_all_themes: :environment do
+      assets = SolidusLiquid::Asset.all
       assets.each do |asset|
         puts "Downloading #{asset.key}"
         local_asset_path = Rails.root.join(

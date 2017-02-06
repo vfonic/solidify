@@ -1,4 +1,4 @@
-module Liquor
+module SolidusLiquid
   # rubocop:disable Metrics/BlockLength
   FactoryGirl.define do
     factory :asset, class: Asset do
@@ -7,7 +7,7 @@ module Liquor
       file do
         Rack::Test::UploadedFile.new(
           File.join(
-            Liquor::Engine.root, 'spec', 'data', 'simple.liquid'
+            SolidusLiquid::Engine.root, 'spec', 'data', 'simple.liquid'
           )
         )
       end
@@ -17,7 +17,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'assets', 'shop.js.liquid'
+              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'shop.js.liquid'
             )
           )
         end
@@ -28,7 +28,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'snippets', 'open-graph-tags.liquid'
+              SolidusLiquid::Engine.root, 'spec', 'data', 'snippets', 'open-graph-tags.liquid'
             )
           )
         end
@@ -39,7 +39,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss.liquid'
+              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss.liquid'
             )
           )
         end
@@ -50,7 +50,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'assets',
+              SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
               'style_with_asset_url_filter.scss.liquid'
             )
           )
@@ -62,7 +62,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss'
+              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss'
             )
           )
         end
@@ -73,7 +73,7 @@ module Liquor
         file do
           Rack::Test::UploadedFile.new(
             File.join(
-              Liquor::Engine.root, 'spec', 'data', 'assets', 'style.scss.css'
+              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss.css'
             )
           )
         end

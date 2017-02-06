@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Liquor::Engine => "/liquor"
+  mount SolidusLiquid::Engine => "/solidus_liquid"
 end

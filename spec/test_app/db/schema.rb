@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20170130114818) do
 
-  create_table "liquor_assets", force: :cascade do |t|
+  create_table "solidus_liquid_assets", force: :cascade do |t|
     t.integer  "theme_id"
     t.string   "key"
     t.string   "file"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20170130114818) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "liquor_assets", ["key"], name: "index_liquor_assets_on_key"
-  add_index "liquor_assets", ["theme_id"], name: "index_liquor_assets_on_theme_id"
+  add_index "solidus_liquid_assets", ["key"], name: "index_solidus_liquid_assets_on_key"
+  add_index "solidus_liquid_assets", ["theme_id"], name: "index_solidus_liquid_assets_on_theme_id"
 
-  create_table "liquor_themes", force: :cascade do |t|
+  create_table "solidus_liquid_themes", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

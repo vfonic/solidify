@@ -13,7 +13,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # watch /app files
-  watch(%r{^app/(.+)/liquor/(.+).rb$}) do |m|
+  watch(%r{^app/(.+)/solidus_liquid/(.+).rb$}) do |m|
     "spec/#{m[1]}/#{m[2]}_spec.rb"
   end
 end
