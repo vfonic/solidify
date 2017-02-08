@@ -27,8 +27,9 @@ module SolidusLiquid
     end
 
     def theme
-      cookies = request.cookies unless cookies.present?
-      @theme ||= Theme.find(1)#cookies['active_theme_id'])
+      active_theme_id = cookies.try(:[], 'active_theme_id')
+      active_theme_id ||= request.cookies['active_theme_id']
+      @theme ||= Theme.find(cookies['active_theme_id'])
     end
 
     def theme_dir
