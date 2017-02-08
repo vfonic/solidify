@@ -43,7 +43,7 @@ module SolidusLiquid
     # rubocop:disable Metrics/MethodLength
     def liquid_assigns
       {
-        'cart' => current_customer.try(:cart) || SolidusLiquid.configuration.cart_class.new,
+        'cart' => current_customer.try(:cart) || Spree::Order.new,
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,
