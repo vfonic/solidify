@@ -1,5 +1,7 @@
-class Search
-  include Liquid::Rails::Droppable
+module SolidusLiquid
+  class Search
+    include ::Liquid::Rails::Droppable
 
-  attr_accessor :performed, :results, :results_count, :terms
+    attr_accessor :performed, :results, :results_count, :terms
+  end
 end
