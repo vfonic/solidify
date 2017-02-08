@@ -69,7 +69,7 @@ module SolidusLiquid
     end
 
     def set_active_theme
-      cookies['active_theme_id'] ||= '1'#shop_settings['active_theme_id']
+      cookies['active_theme_id'] ||= shop_settings['active_theme_id']
       theme
     end
 

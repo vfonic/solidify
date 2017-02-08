@@ -6,6 +6,7 @@ module SolidusLiquid
       self.responder = SolidusLiquid::LiquidResponder
 
       include LiquidHelper
+      include ShopHelper
       prepend_before_action :set_active_theme
       before_action :set_liquid_assigns
 
