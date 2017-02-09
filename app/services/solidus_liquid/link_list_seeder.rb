@@ -7,15 +7,15 @@ module SolidusLiquid
           title: 'Main menu',
           handle: 'main-menu',
           links: [
-            Link.new(title: 'Home', url: '/'),
-            Link.new(title: 'Catalog', url: '/collections/all')
+            Link.new(title: 'Home', handle: '/'),
+            Link.new(title: 'Catalog', handle: '/collections/all')
           ]
         },
         {
           title: 'Footer',
           handle: 'footer',
           links: [
-            Link.new(title: 'Search', url: '/search')
+            Link.new(title: 'Search', handle: '/search')
           ]
         }
       ]

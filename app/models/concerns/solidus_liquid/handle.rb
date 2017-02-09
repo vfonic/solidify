@@ -1,6 +1,8 @@
 module SolidusLiquid
   module Handle
     extend ActiveSupport::Concern
+    include ActionDispatch::Routing::PolymorphicRoutes
+    include Rails.application.routes.url_helpers
 
     included do
       extend FriendlyId
@@ -11,6 +13,10 @@ module SolidusLiquid
         self.all.inject({}) do |hash, record|
           hash.merge(record.handle => record)
         end
+      end
+
+      def url
+        polymorphic_path(self)
       end
     end
   end
