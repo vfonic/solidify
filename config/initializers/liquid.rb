@@ -1,6 +1,51 @@
 # Liquid::Template.error_mode = :strict
 
 module Liquid
+  # Context keeps the variable stack and resolves variables, as well as keywords
+  #
+  #   context['variable'] = 'testing'
+  #   context['variable'] #=> 'testing'
+  #   context['true']     #=> true
+  #   context['10.2232']  #=> 10.2232
+  #
+  #   context.stack do
+  #      context['bob'] = 'bobsen'
+  #   end
+  #
+  #   context['bob']  #=> nil  class Context
+  class Context
+    # Fetches an object starting at the local scope and then moving up the hierachy
+    def find_variable(key)
+      # This was changed from find() to find_index() because this is a very hot
+      # path and find_index() is optimized in MRI to reduce object allocation
+      index = @scopes.find_index { |s| s.key?(key) }
+      scope = @scopes[index] if index
+
+      variable = nil
+
+      if scope.nil?
+        variable_is_nil = @environments.any? { |e| e.has_key?(key) && e[key].nil? }
+        unless variable_is_nil
+          @environments.each do |e|
+            variable = lookup_and_evaluate(e, key)
+            unless variable.nil?
+              scope = e
+              break
+            end
+          end
+        end
+      end
+
+      scope ||= @environments.last || @scopes.last
+      variable ||= lookup_and_evaluate(scope, key) unless variable_is_nil
+
+      variable = variable.to_liquid
+      variable.context = self if variable.respond_to?(:context=)
+
+      variable
+    end
+  end
+
   # Include allows templates to relate with other templates
   #
   # Simply include another template:
