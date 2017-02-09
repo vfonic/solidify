@@ -5,6 +5,8 @@ namespace :solidus_liquid do
       theme = SolidusLiquid::ThemeMechanic.new.create
 
       SolidusLiquid::ShopSettingsSeeder.new(theme.id).seed
+
+      SolidusLiquid::LinkListSeeder.new.seed
     end
   end
 end
