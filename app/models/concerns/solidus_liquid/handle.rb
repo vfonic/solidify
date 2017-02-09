@@ -2,7 +2,7 @@ module SolidusLiquid
   module Handle
     extend ActiveSupport::Concern
     include ActionDispatch::Routing::PolymorphicRoutes
-    include Rails.application.routes.url_helpers
+    include SolidusLiquid::Engine.routes.url_helpers
 
     included do
       extend FriendlyId
