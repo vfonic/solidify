@@ -142,7 +142,7 @@ module Liquid
           # keywords either. The only thing we got left is to return nil or
           # raise an exception if `strict_variables` option is set to true
         else
-          return nil unless context.strict_variables && name != 'settings'
+          return nil unless context.strict_variables && ['settings', 'linklists'].exclude?(name)
           raise Liquid::UndefinedVariable, "undefined variable #{key}"
         end
 
