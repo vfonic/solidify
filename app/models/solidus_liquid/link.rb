@@ -1,6 +1,7 @@
 module SolidusLiquid
   class Link < ActiveRecord::Base
-    include SolidusLiquid::Handle
+    extend FriendlyId
+    friendly_id :title, use: [:finders, :slugged], slug_column: :url
 
     belongs_to :link_list
   end

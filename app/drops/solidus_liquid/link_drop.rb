@@ -7,5 +7,9 @@ module SolidusLiquid
     def active
       false
     end
+
+    def type
+      nil
+    end
   end
 end

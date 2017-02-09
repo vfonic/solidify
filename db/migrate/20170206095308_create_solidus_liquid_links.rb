@@ -2,7 +2,7 @@ class CreateSolidusLiquidLinks < ActiveRecord::Migration[5.0]
   def change
     create_table :solidus_liquid_links do |t|
       t.string :title
-      t.string :handle
+      t.string :url
       t.integer :link_list_id
 
       t.timestamps
