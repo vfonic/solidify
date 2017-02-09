@@ -1,4 +1,5 @@
 module SolidusLiquid
-  class Page < ApplicationRecord
+  class Page < ActiveRecord::Base
+    include SolidusLiquid::Handle
   end
 end

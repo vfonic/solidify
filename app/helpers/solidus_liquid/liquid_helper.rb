@@ -50,7 +50,7 @@ module SolidusLiquid
         'customer' => current_customer,
         'linklists' => LinkList.handle_to_link_list,
         'page_description' => nil,
-        'pages' => Page.all,
+        'pages' => Page.handle_to_link_list,
         'powered_by_link' =>
           %(<a target="_blank" rel="nofollow" href="https://www.splitshop.com">
               Powered by Split
