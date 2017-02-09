@@ -1,11 +1,7 @@
 module SolidusLiquid
   class LinkList < ActiveRecord::Base
-    has_many :links
+    include SolidusLiquid::Handle
 
-    def self.handle_to_link_list
-      LinkList.includes(:links).all.inject({}) do |hash, ll|
-        hash.merge(ll.handle => ll)
-      end
-    end
+    has_many :links
   end
 end
