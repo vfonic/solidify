@@ -3,8 +3,6 @@ SolidusLiquid::Engine.routes.draw do
   get 'pages/:id', to: 'pages#show', as: :page
 end
 
-require 'spree/core'
-
 Spree::Core::Engine.routes.draw do
   if (
     Spree::Auth::Engine.frontend_available? &&
