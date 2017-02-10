@@ -4,7 +4,7 @@ module Spree
     has_many :orders
 
     def errors
-      ErrorsDrop.new(@object.errors)
+      SolidusLiquid::ErrorsDrop.new(@object.errors)
     end
   end
 end
