@@ -7,11 +7,11 @@ module SolidusLiquid
     def seed
       {
         'active_theme_id' => @theme_id,
-        'name' => 'Split',
         # these two should be false to achieve parity with shopify
         'customer_accounts_enabled' => true,
         'customer_accounts_optional' => true,
-        'enabled_payment_types' => nil
+        'enabled_payment_types' => nil,
+        'name' => 'Split'
       }.each do |k, v|
         SolidusLiquid::Setting[k] = v
       end
