@@ -42,12 +42,19 @@ module SolidusLiquid
 
     # rubocop:disable Metrics/MethodLength
     def liquid_assigns
+      controller_action ||= "#{controller_name}##{action_name}"
+      case controller_action
+      when 'sessions#new'
+        form = Spree::User.new
+      end
+
       {
         'cart' => current_customer.try(:cart) || Spree::Order.new,
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,
         'customer' => current_customer,
+        'form' => form,
         'linklists' => LinkList.handle_to_link_list,
         'page_description' => nil,
         'pages' => Page.handle_to_link_list,
