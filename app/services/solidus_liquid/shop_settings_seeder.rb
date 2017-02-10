@@ -8,6 +8,7 @@ module SolidusLiquid
       {
         'active_theme_id' => @theme_id,
         # these two should be false to achieve parity with shopify
+        'checkout' => { 'guest_login' => false },
         'customer_accounts_enabled' => true,
         'customer_accounts_optional' => true,
         'enabled_payment_types' => nil,

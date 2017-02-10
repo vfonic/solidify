@@ -4,7 +4,9 @@ module SolidusLiquid
 
     def set_liquid_assigns
       @liquid_assigns = {
-        'page_title' => 'Log in'
+        'canonical_url' => "#{request.base_url}#{new_customer_session_path}",
+        'page_title' => 'Log in',
+        'template' => 'page'
       }
     end
 

@@ -19,14 +19,14 @@ class FormTag < Liquid::Block
     when 'activate_customer_password'
       # {% form 'activate_customer_password' %}
     when 'create_customer'
-      view.form_for(:customer, url: view.new_spree_user_registration_path) do |_f|
+      view.form_for(:customer, url: view.new_customer_registration_path) do |_f|
         super.html_safe
       end
     when 'customer_address'
       # {% form 'customer_address', customer.new_address %}
       # {% form 'customer_address', address %}
     when 'customer_login'
-      view.form_for(:customer, url: view.new_spree_user_session_path) do |_f|
+      view.form_for(:customer, url: view.new_customer_session_path) do |_f|
         super.html_safe
       end
     when 'guest_login'

@@ -10,10 +10,10 @@ SolidusLiquid::Engine.routes.draw do
     devise_for :spree_user, {
       class_name: 'Spree::User',
       controllers: {
-        sessions: 'spree/sessions',
-        registrations: 'spree/registrations',
-        passwords: 'spree/passwords',
-        confirmations: 'spree/confirmations'
+        sessions: 'solidus_liquid/sessions',
+        registrations: 'solidus_liquid/registrations',
+        passwords: 'solidus_liquid/passwords',
+        confirmations: 'solidus_liquid/confirmations'
       },
       skip: [:unlocks, :omniauth_callbacks],
       path_names: { sign_out: 'logout' },
@@ -23,16 +23,17 @@ SolidusLiquid::Engine.routes.draw do
     resources :users, only: [:edit, :update]
 
     devise_scope :spree_user do
-      get 'account/login', to: 'sessions#new', as: :login
-      post 'account/login', to: 'sessions#create', as: :create_new_session
-      get 'account/logout', to: 'sessions#destroy', as: :logout
+      get 'account/login', to: 'sessions#new', as: :new_customer_session
+      post 'account/login', to: 'sessions#create', as: :customer_session
+      get 'account/logout', to: 'sessions#destroy', as: :destroy_customer_session
       get 'account/signup', to: 'registrations#new', as: :signup
       post 'account/signup', to: 'registrations#create', as: :registration
-      get 'account/password/recover', to: 'passwords#new', as: :recover_password
-      post 'account/password/recover', to: 'passwords#create', as: :reset_password
-      get 'account/password/change', to: 'passwords#edit', as: :edit_password
-      put 'account/password/change', to: 'passwords#update', as: :update_password
-      get 'account/confirm', to: 'confirmations#show', as: :confirmation if Spree::Auth::Config[:confirmable]
+      get 'account/password/recover', to: 'passwords#new', as: :new_customer_password
+      post 'account/password/recover', to: 'passwords#create', as: :reset_password###
+      get 'account/password/change', to: 'passwords#edit', as: :edit_customer_password
+      put 'account/password/change', to: 'passwords#update', as: :customer_password
+      get 'account/register', to: 'registrations#new', as: :new_customer_registration
+      post 'account/register', to: 'registrations#create', as: :customer_registration
     end
 
     get '/checkout/registration', to: 'checkout#registration', as: :checkout_registration
