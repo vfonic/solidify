@@ -1,9 +1,7 @@
 module SolidusLiquid
   class SearchDrop < ::Liquid::Rails::Drop
-    attributes :performed, :results, :results_count, :terms
+    attributes :performed, :results_count, :terms
 
-    def to_s
-      ''
-    end
+    has_many :results
   end
 end

@@ -16,7 +16,7 @@ module SolidusLiquid
       'pages#show' => 'templates/page%{template_suffix}.liquid',
       'products#show' => 'templates/product.liquid',
       'registrations#new' => 'templates/customers/register.liquid',
-      'search#show' => 'templates/search.liquid',
+      'search#index' => 'templates/search.liquid',
       'sessions#new' => 'templates/customers/login.liquid'
     }.freeze
 

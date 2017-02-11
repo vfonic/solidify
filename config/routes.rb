@@ -37,4 +37,5 @@ SolidusLiquid::Engine.routes.draw do
 
   get '/account', to: 'customers#show', as: :customer
   get '/collections/:id', to: 'collections#show', as: :taxon
+  get '/search', to: 'search#index', as: :search
 end

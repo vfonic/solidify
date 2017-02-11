@@ -1,7 +1,5 @@
 module SolidusLiquid
-  class Search
+  class Search < Struct.new(:performed, :results, :results_count, :terms)
     include ::Liquid::Rails::Droppable
-
-    attr_accessor :performed, :results, :results_count, :terms
   end
 end
