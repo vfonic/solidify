@@ -255,9 +255,12 @@ module Liquid
                 hellip_break = false
               end
             end
-            context['paginate'] = pagination
+          else
+            pagination = {}
+            pagination['pages'] = 1
           end
 
+          context['paginate'] = pagination
           super
         end
       end
