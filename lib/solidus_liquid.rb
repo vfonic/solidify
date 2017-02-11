@@ -1,5 +1,5 @@
 require 'solidus_liquid/configuration'
-require "solidus_liquid/version"
+require 'solidus_liquid/version'
 require 'carrierwave'
 require 'devise'
 require 'solidus_liquid/engine'

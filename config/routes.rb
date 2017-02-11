@@ -1,6 +1,7 @@
 SolidusLiquid::Engine.routes.draw do
   root to: 'home#index'
   get 'pages/:id', to: 'pages#show', as: :page
+  get 'account/addresses', to: 'addresses#index', as: :customer_addresses
 
   devise_for :customers,
               path: 'account',
@@ -35,6 +36,4 @@ SolidusLiquid::Engine.routes.draw do
   end
 
   get '/account', to: 'customers#show', as: :customer
-
-  mount Spree::Core::Engine, at: '/'
 end
