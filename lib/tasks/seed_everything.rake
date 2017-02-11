@@ -7,6 +7,8 @@ namespace :solidus_liquid do
       SolidusLiquid::ShopSettingsSeeder.new(theme.id).seed
 
       SolidusLiquid::LinkListSeeder.new.seed
+
+      # TODO seed default 'all' collection
     end
   end
 end
