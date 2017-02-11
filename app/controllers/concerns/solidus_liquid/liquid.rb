@@ -3,8 +3,6 @@ module SolidusLiquid
     extend ActiveSupport::Concern
 
     included do
-      self.responder = SolidusLiquid::LiquidResponder
-
       include LiquidHelper
       include ShopHelper
       prepend_before_action :set_active_theme
