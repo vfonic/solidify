@@ -1,7 +1,11 @@
 module Spree
   class UserDrop < ::Liquid::Rails::Drop
-    attributes :first_name, :last_name, :password, :email
+    attributes :first_name, :last_name, :password, :email, :default_address
     has_many :orders
+
+    def addresses_count
+      @object.addresses.count
+    end
 
     def errors
       SolidusLiquid::ErrorsDrop.new(@object.errors)

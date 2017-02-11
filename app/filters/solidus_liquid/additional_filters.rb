@@ -12,5 +12,8 @@ module SolidusLiquid
         end
       end
     end
+
+    def format_address(address)
+    end
   end
 end
