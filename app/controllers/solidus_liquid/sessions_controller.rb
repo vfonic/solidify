@@ -9,9 +9,5 @@ module SolidusLiquid
         'template' => 'page'
       }
     end
-
-    def new
-      render controller_action_to_liquid_file_path
-    end
   end
 end

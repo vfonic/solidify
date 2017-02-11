@@ -13,6 +13,8 @@ module SolidusLiquid
       controller_name = controller.controller_name
       action_name = DEFAULT_ACTIONS_FOR_VERBS[request.request_method_symbol]
       controller_action = "#{controller_name}##{action_name}"
+
+      render controller_action_to_liquid_file_path(resource, controller_action)
     end
   end
 end

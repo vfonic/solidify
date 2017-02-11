@@ -27,9 +27,9 @@ module SolidusLiquid
     end
 
     def theme
-      active_theme_id = cookies.try(:[], 'active_theme_id')
-      active_theme_id ||= request.cookies['active_theme_id']
-      @theme ||= Theme.find(cookies['active_theme_id'])
+      active_theme_id = request.cookies['active_theme_id']
+      active_theme_id ||= cookies.try(:[], 'active_theme_id')
+      @theme ||= Theme.find(active_theme_id)
     end
 
     def theme_dir
@@ -42,19 +42,12 @@ module SolidusLiquid
 
     # rubocop:disable Metrics/MethodLength
     def liquid_assigns
-      controller_action ||= "#{controller_name}##{action_name}"
-      case controller_action
-      when 'sessions#new'
-        form = Spree::User.new
-      end
-
       {
         'cart' => current_customer.try(:cart) || Spree::Order.new,
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,
         'customer' => current_customer,
-        'form' => form,
         'linklists' => LinkList.handle_to_link_list,
         'page_description' => nil,
         'pages' => Page.handle_to_link_list,
@@ -96,10 +89,6 @@ module SolidusLiquid
       template_path = template_format % ({ template_suffix: template_suffix })
 
       "#{theme_dir}/#{template_path}"
-    end
-
-    def current_customer
-      spree_current_user
     end
   end
 end
