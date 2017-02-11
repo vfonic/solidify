@@ -34,5 +34,7 @@ SolidusLiquid::Engine.routes.draw do
     post 'account/register', to: 'registrations#create'
   end
 
+  get '/account', to: 'customers#show', as: :customer
+
   mount Spree::Core::Engine, at: '/'
 end
