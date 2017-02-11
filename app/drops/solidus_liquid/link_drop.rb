@@ -5,7 +5,7 @@ module SolidusLiquid
     belongs_to :link_list
 
     def active
-      false
+      @context.registers[:controller].request.path == @object.url
     end
 
     def type
