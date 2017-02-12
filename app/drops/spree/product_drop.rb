@@ -18,6 +18,10 @@ module Spree
       false
     end
 
+    def selected_or_first_available_variant
+      @object.master
+    end
+
     def title
       @object.name
     end

@@ -12,7 +12,8 @@ module SolidusLiquid
         'customer_accounts_enabled' => true,
         'customer_accounts_optional' => true,
         'enabled_payment_types' => nil,
-        'name' => 'Split'
+        'name' => 'Split',
+        'url' => ENV.fetch('DOMAIN_NAME')
       }.each do |k, v|
         SolidusLiquid::Setting[k] = v
       end
