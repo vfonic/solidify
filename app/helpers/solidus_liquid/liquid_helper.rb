@@ -45,6 +45,7 @@ module SolidusLiquid
     def liquid_assigns
       {
         'cart' => current_customer.try(:cart) || Spree::Order.new,
+        'collections' => Spree::TaxonDrop.new(Spree::Taxon.all.to_a),
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,

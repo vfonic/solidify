@@ -68,8 +68,12 @@ module Liquid
   class Drop
     # Catch all for the method
     def liquid_method_missing(method)
-      return nil unless @context && @context.strict_variables
-      raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
+      if method.blank?
+        ::SolidusLiquid::NilDrop.new(nil)
+      else
+        return nil unless @context && @context.strict_variables
+        raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
+      end
     end
   end
 

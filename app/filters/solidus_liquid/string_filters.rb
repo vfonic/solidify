@@ -1,7 +1,7 @@
 module SolidusLiquid
   module StringFilters
     def handle(string)
-      string.parameterize
+      string.try(:parameterize)
     end
 
     def pluralize(input, singular, plural)
