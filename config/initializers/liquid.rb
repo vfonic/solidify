@@ -143,7 +143,7 @@ module Liquid
           # raise an exception if `strict_variables` option is set to true
         else
           return nil unless context.strict_variables && ['settings', 'linklists'].exclude?(name)
-          raise Liquid::UndefinedVariable, "undefined variable #{key}"
+          raise Liquid::UndefinedVariable, "undefined variable #{name}.#{key}"
         end
 
         # If we are dealing with a drop here we have to
