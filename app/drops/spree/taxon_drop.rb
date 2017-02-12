@@ -1,6 +1,6 @@
 module Spree
   class TaxonDrop < ::Liquid::Rails::Drop
-    attributes :title
+    attributes :handle, :title
 
     has_many :products
 
