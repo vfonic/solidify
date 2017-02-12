@@ -2,7 +2,7 @@ module SolidusLiquid
   module LiquidHelper
     CONTROLLER_ACTION_TO_LIQUID_MAPPING = {
       'addresses#index' => 'templates/customers/addresses.liquid',
-      # TODO: add 404.liquid
+      'home#missing' => 'templates/404.liquid',
       'articles#show' => 'templates/article.liquid',
       # TODO: add blog.grid.liquid
       'blogs#show' => 'templates/blog.liquid',

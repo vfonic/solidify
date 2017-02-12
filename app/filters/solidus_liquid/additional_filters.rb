@@ -15,5 +15,9 @@ module SolidusLiquid
 
     def format_address(address)
     end
+
+    def json(resource)
+      resource.to_json
+    end
   end
 end

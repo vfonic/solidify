@@ -8,6 +8,7 @@ module Spree
   #   +#destroy+ will only soft-destroy records and the default scope hides
   #   soft-destroyed records using +WHERE deleted_at IS NULL+.
   class Product < Spree::Base
+    include ::RailsSettings::Extend
     include ::SolidusLiquid::Handle
 
     def title

@@ -1,6 +1,7 @@
 class CreateSolidusLiquidSettings < ActiveRecord::Migration
   def self.up
-    create_table :solidus_liquid_settings do |t|
+    # create_table :solidus_liquid_settings do |t|
+    create_table :settings do |t|
       t.string  :var,        null: false
       t.text    :value,      null: true
       t.integer :thing_id,   null: true
@@ -8,13 +9,13 @@ class CreateSolidusLiquidSettings < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :solidus_liquid_settings,
+    add_index :settings,
               %i(thing_type thing_id var),
               unique: true,
-              name: 'index_solidus_liquid_settings_on_thing_and_var'
+              name: 'index_settings_on_thing_and_var'
   end
 
   def self.down
-    drop_table :solidus_liquid_settings
+    drop_table :settings
   end
 end

@@ -1,6 +1,6 @@
 module Spree
   class VariantDrop < ::Liquid::Rails::Drop
-    # attributes :id, :available, :description, :price
+    attributes :price
 
     def featured_image
       @object.images.first
