@@ -59,7 +59,7 @@ module SolidusLiquid
             </a>),
         'search' => Search.new,
         'settings' => theme_settings,
-        'shop' => ShopDrop.new(nil)
+        'shop' => shop_settings
       }
     end
     # rubocop:enable Metrics/MethodLength
