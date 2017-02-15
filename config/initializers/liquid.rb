@@ -184,6 +184,13 @@ module Liquid
       object
     end
   end
+
+  module StandardFilters
+    require 'cgi'
+    def escape(input)
+      CGI.escapeHTML(input.to_s).untaint unless input.nil?
+    end
+  end
 end
 
 module Liquid
