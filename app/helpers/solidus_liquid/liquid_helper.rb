@@ -43,6 +43,17 @@ module SolidusLiquid
 
     # rubocop:disable Metrics/MethodLength
     def liquid_assigns
+      shop = shop_settings.merge({
+        'collections_count' => Spree::Taxon.count,
+        'locale' => I18n.locale.to_s,
+        'permanent_domain' => shop_settings[:domain],
+        'products_count' => Spree::Product.available.count,
+        'secure_url' => "https://#{shop_settings[:domain]}",
+        'types' => [],
+        'url' => "https://#{shop_settings[:domain]}",
+        'vendors' => []
+      })
+
       {
         'cart' => current_customer.try(:cart) || Spree::Order.new,
         'collections' => Spree::TaxonDrop.new(Spree::Taxon.all.to_a),
@@ -59,7 +70,7 @@ module SolidusLiquid
             </a>),
         'search' => Search.new,
         'settings' => theme_settings,
-        'shop' => shop_settings
+        'shop' => shop
       }
     end
     # rubocop:enable Metrics/MethodLength

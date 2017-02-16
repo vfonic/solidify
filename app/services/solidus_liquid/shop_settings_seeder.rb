@@ -7,14 +7,16 @@ module SolidusLiquid
     def seed
       {
         'active_theme_id' => @theme_id,
-        # these two should be false to achieve parity with shopify
         'checkout' => { 'guest_login' => false },
         'currency' => 'USD',
         'customer_accounts_enabled' => true,
         'customer_accounts_optional' => true,
+        'description' => '',
+        'domain' => ENV.fetch('DOMAIN_NAME'),
         'enabled_payment_types' => nil,
-        'name' => 'Split',
-        'url' => ENV.fetch('DOMAIN_NAME')
+        'money_format' => '€{{amount}}',
+        'money_with_currency_format' => '€{{amount}} EUR',
+        'name' => 'Split'
       }.each do |k, v|
         SolidusLiquid::Setting[k] = v
       end
