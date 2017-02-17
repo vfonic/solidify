@@ -2,7 +2,7 @@ module Spree
   class ProductDrop < ::Liquid::Rails::Drop
     attributes :id, :available, :description, :price
 
-    has_many :images, :variants
+    has_many :images
 
     def content
       @object.description
@@ -16,6 +16,10 @@ module Spree
 
     def metafields
       ::RailsSettings::ScopedSettingsDrop.new(@object.settings)
+    end
+
+    def options
+      @object.option_types
     end
 
     def price_varies
@@ -32,6 +36,10 @@ module Spree
 
     def url
       @object.slug
+    end
+
+    def variants
+      @object.variants_including_master
     end
 
     def vendor

@@ -1,22 +1,22 @@
 module SolidusLiquid
   module LiquidHelper
     CONTROLLER_ACTION_TO_LIQUID_MAPPING = {
-      'addresses#index' => 'templates/customers/addresses.liquid',
-      'home#missing' => 'templates/404.liquid',
-      'articles#show' => 'templates/article.liquid',
+      'addresses#index' => 'templates/customers/addresses.liquid', # TODO implement
+      'home#missing' => 'templates/404.liquid', # TODO implement
+      'articles#show' => 'templates/article.liquid', # TODO implement
       # TODO: add blog.grid.liquid
-      'blogs#show' => 'templates/blog.liquid',
+      'blogs#show' => 'templates/blog.liquid', # TODO implement
       'carts#show' => 'templates/cart.liquid',
       # TODO: add activate_account.liquid
-      'customers#show' => 'templates/customers/account.liquid',
-      'collections#index' => 'templates/list-collections.liquid',
+      'customers#show' => 'templates/customers/account.liquid', # TODO implement
+      'collections#index' => 'templates/list-collections.liquid', # TODO implement
       # TODO; add collection.list.liquid
-      'collections#show' => 'templates/collection%{template_suffix}.liquid',
+      'collections#show' => 'templates/collection%{template_suffix}.liquid', # TODO implement
       'home#index' => 'templates/index.liquid',
-      'pages#show' => 'templates/page%{template_suffix}.liquid',
+      'pages#show' => 'templates/page%{template_suffix}.liquid', # TODO implement
       'products#show' => 'templates/product.liquid',
-      'registrations#new' => 'templates/customers/register.liquid',
-      'search#index' => 'templates/search.liquid',
+      'registrations#new' => 'templates/customers/register.liquid', # TODO implement
+      'search#index' => 'templates/search.liquid', # TODO implement
       'sessions#new' => 'templates/customers/login.liquid'
     }.freeze
 

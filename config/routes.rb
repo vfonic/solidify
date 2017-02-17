@@ -41,4 +41,7 @@ SolidusLiquid::Engine.routes.draw do
 
   get '/collections/:taxon_id/products/:id', to: 'products#show'
   get '/products/:id', to: 'products#show', as: :product
+
+  post '/cart/add', to: 'orders#populate'
+  get '/cart', to: 'carts#show', as: :cart
 end

@@ -17,7 +17,11 @@ module SolidusLiquid
     end
 
     def json(resource)
-      resource.to_json
+      if resource.respond_to?(:to_ary)
+        resource.to_ary.to_json
+      else
+        resource.to_json
+      end
     end
   end
 end
