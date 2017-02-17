@@ -1,9 +1,5 @@
 module SolidusLiquid
   class ProductsController < LiquidController
-    include ::Spree::Core::ControllerHelpers::Auth
-    include ::Spree::Core::ControllerHelpers::Pricing
-    include ::Spree::Core::ControllerHelpers::Store
-
     before_action :load_collection
     rescue_from ActiveRecord::RecordNotFound, with: :render_404_page
 
