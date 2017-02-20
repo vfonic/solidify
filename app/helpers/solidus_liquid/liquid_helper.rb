@@ -55,7 +55,7 @@ module SolidusLiquid
       })
 
       {
-        'cart' => current_customer.try(:cart) || Spree::Order.new,
+        'cart' => current_customer.try(:cart) || find_order_by_token_or_user,
         'collections' => Spree::TaxonDrop.new(Spree::Taxon.all.to_a),
         'content_for_header' => content_for_header,
         'current_page' => 1,
