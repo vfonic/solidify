@@ -55,15 +55,16 @@ module SolidusLiquid
       })
 
       {
+        'all_products' => Spree::Product.handle_to_records_array,
         'cart' => current_customer.try(:cart) || find_order_by_token_or_user,
         'collections' => Spree::TaxonDrop.new(Spree::Taxon.all.to_a),
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,
         'customer' => current_customer,
-        'linklists' => LinkList.handle_to_link_list,
+        'linklists' => LinkList.handle_to_records_array,
         'page_description' => nil,
-        'pages' => Page.handle_to_link_list,
+        'pages' => Page.handle_to_records_array,
         'powered_by_link' =>
           %(<a target="_blank" rel="nofollow" href="https://www.splitshop.com">
               Powered by Split

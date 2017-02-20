@@ -9,7 +9,7 @@ module SolidusLiquid
       friendly_id :name, use: [:finders, :slugged], slug_column: :slug
 
 
-      def self.handle_to_link_list
+      def self.handle_to_records_array
         self.all.inject({}) do |hash, record|
           hash.merge(record.handle => record)
         end
