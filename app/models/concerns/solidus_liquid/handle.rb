@@ -6,7 +6,7 @@ module SolidusLiquid
 
     included do
       extend FriendlyId
-      friendly_id :title, use: [:finders, :slugged], slug_column: :handle
+      friendly_id :name, use: [:finders, :slugged], slug_column: :slug
 
 
       def self.handle_to_link_list
@@ -18,6 +18,9 @@ module SolidusLiquid
       def url
         polymorphic_path(self)
       end
+
+      alias_attribute :handle, :slug
+      alias_attribute :title, :name
     end
   end
 end

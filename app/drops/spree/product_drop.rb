@@ -1,6 +1,6 @@
 module Spree
   class ProductDrop < ::Liquid::Rails::Drop
-    attributes :id, :available, :description, :price, :url
+    attributes :id, :available, :description, :handle, :price, :title, :url
 
     has_many :images
 
@@ -32,10 +32,6 @@ module Spree
 
     def selected_or_first_available_variant
       @object.master
-    end
-
-    def title
-      @object.name
     end
 
     def variants
