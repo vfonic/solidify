@@ -19,6 +19,8 @@ module SolidusLiquid
         # => { nested: { one: 1, two: 2 } }
         super.merge(@liquid_assigns)
       end
+
+      alias customer current_customer
     end
   end
 end

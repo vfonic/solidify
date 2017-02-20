@@ -12,7 +12,5 @@ module SolidusLiquid
         'template' => 'customer'
       }
     end
-
-    alias customer current_customer
   end
 end
