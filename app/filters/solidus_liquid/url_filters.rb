@@ -43,7 +43,7 @@ module SolidusLiquid
     end
 
     def within(product_url, collection)
-      "/collections/#{collection.handle}/products/#{product_url}"
+      "/collections/#{collection.handle}#{product_url}"
     end
   end
 end

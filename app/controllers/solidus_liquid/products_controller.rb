@@ -1,18 +1,8 @@
 module SolidusLiquid
   class ProductsController < LiquidController
     before_action :load_collection
-    rescue_from ActiveRecord::RecordNotFound, with: :render_404_page
 
     def show
-      @variants = product.
-        variants_including_master.
-        display_includes.
-        with_prices(current_pricing_options).
-        includes([:option_values, :images])
-
-      @product_properties = product.product_properties.includes(:property)
-      @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
-
       render controller_action_to_liquid_file_path(product)
     end
 
@@ -33,7 +23,9 @@ module SolidusLiquid
     end
 
     def load_collection
-      @collection = Spree::Taxon.where(handle: params[:taxon_id]).first
+      if params[:taxon_id]
+        @collection = Spree::Taxon.where(handle: params[:taxon_id]).first
+      end
     end
   end
 end
