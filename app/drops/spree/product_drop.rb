@@ -1,8 +1,12 @@
 module Spree
   class ProductDrop < ::Liquid::Rails::Drop
-    attributes :id, :available, :description, :price
+    attributes :id, :available, :description, :price, :url
 
     has_many :images
+
+    def collections
+      @object.taxons
+    end
 
     def content
       @object.description
@@ -32,10 +36,6 @@ module Spree
 
     def title
       @object.name
-    end
-
-    def url
-      @object.slug
     end
 
     def variants
