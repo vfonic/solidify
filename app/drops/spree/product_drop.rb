@@ -15,7 +15,7 @@ module Spree
     alias compare_at_price price
 
     def featured_image
-      @object.images.first
+      @object.images.first || ::SolidusLiquid::NilDrop.new(nil)
     end
 
     def metafields
