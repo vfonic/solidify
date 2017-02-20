@@ -8,6 +8,10 @@ module Spree
       {}
     end
 
+    def items
+      @object.line_items
+    end
+
     # TODO: make sure solidus total shows the same as shopfiy's total_price
     alias total_price total
   end
