@@ -1,64 +1,6 @@
 # Liquid::Template.error_mode = :strict
 
 module Liquid
-  # A drop in liquid is a class which allows you to export DOM like things to liquid.
-  # Methods of drops are callable.
-  # The main use for liquid drops is to implement lazy loaded objects.
-  # If you would like to make data available to the web designers which you don't want loaded unless needed then
-  # a drop is a great way to do that.
-  #
-  # Example:
-  #
-  #   class ProductDrop < Liquid::Drop
-  #     def top_sales
-  #       Shop.current.products.find(:all, :order => 'sales', :limit => 10 )
-  #     end
-  #   end
-  #
-  #   tmpl = Liquid::Template.parse( ' {% for product in product.top_sales %} {{ product.name }} {%endfor%} '  )
-  #   tmpl.render('product' => ProductDrop.new ) # will invoke top_sales query.
-  #
-  # Your drop can either implement the methods sans any parameters
-  # or implement the liquid_method_missing(name) method which is a catch all.
-  class Drop
-    # Catch all for the method
-    def liquid_method_missing(method)
-      if method.blank?
-        ::SolidusLiquid::NilDrop.new(nil)
-      else
-        return nil unless @context && @context.strict_variables
-        raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
-      end
-    end
-  end
-
-  # This implements an abstract file system which retrieves template files
-  # named in a manner similar to Rails partials, ie. with the template name
-  # prefixed with an underscore. The extension ".liquid" is also added.
-  #
-  # For security reasons, template paths are only allowed to contain letters,
-  # numbers, and underscore.
-  #
-  # Example:
-  #
-  # file_system = Liquid::LocalFileSystem.new("/some/path")
-  #
-  # file_system.full_path("mypartial")
-  # # => "/some/path/_mypartial.liquid"
-  # file_system.full_path("dir/mypartial")
-  # # => "/some/path/dir/_mypartial.liquid"
-  #
-  # Optionally in the second argument you can specify a custom pattern for
-  # template filenames.
-  # The Kernel::sprintf format specification is used.
-  # Default pattern is "_%s.liquid".
-  #
-  # Example:
-  #
-  # file_system = Liquid::LocalFileSystem.new("/some/path", "%s.html")
-  #
-  # file_system.full_path("index") # => "/some/path/index.html"
-  #
   class LocalFileSystem
     # rubocop:disable all
     def full_path(template_path)
@@ -126,6 +68,20 @@ end
 
 module Liquid
   module Rails
+    class Drop
+      def liquid_method_missing(method)
+        if method.blank?
+          # This prevents for the case like this: products[nil]
+          # {% assign product_vendor_handle = product.vendor | handle %}
+          # {% assign collection_handle = collections[product_vendor_handle].handle %}
+          ::SolidusLiquid::NilDrop.new(nil)
+        else
+          return nil unless @context && @context.strict_variables
+          raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
+        end
+      end
+    end
+
     class FileSystem < ::Liquid::LocalFileSystem
       def read_template_file(template_path, context)
         @pattern = @pattern.gsub(/^_/, '')
