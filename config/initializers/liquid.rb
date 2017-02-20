@@ -1,51 +1,6 @@
 # Liquid::Template.error_mode = :strict
 
 module Liquid
-  # Context keeps the variable stack and resolves variables, as well as keywords
-  #
-  #   context['variable'] = 'testing'
-  #   context['variable'] #=> 'testing'
-  #   context['true']     #=> true
-  #   context['10.2232']  #=> 10.2232
-  #
-  #   context.stack do
-  #      context['bob'] = 'bobsen'
-  #   end
-  #
-  #   context['bob']  #=> nil  class Context
-  class Context
-    # Fetches an object starting at the local scope and then moving up the hierachy
-    def find_variable(key)
-      # This was changed from find() to find_index() because this is a very hot
-      # path and find_index() is optimized in MRI to reduce object allocation
-      index = @scopes.find_index { |s| s.key?(key) }
-      scope = @scopes[index] if index
-
-      variable = nil
-
-      if scope.nil?
-        variable_is_nil = @environments.any? { |e| e.has_key?(key) && e[key].nil? }
-        unless variable_is_nil
-          @environments.each do |e|
-            variable = lookup_and_evaluate(e, key)
-            unless variable.nil?
-              scope = e
-              break
-            end
-          end
-        end
-      end
-
-      scope ||= @environments.last || @scopes.last
-      variable ||= lookup_and_evaluate(scope, key) unless variable_is_nil
-
-      variable = variable.to_liquid
-      variable.context = self if variable.respond_to?(:context=)
-
-      variable
-    end
-  end
-
   # A drop in liquid is a class which allows you to export DOM like things to liquid.
   # Methods of drops are callable.
   # The main use for liquid drops is to implement lazy loaded objects.
@@ -74,31 +29,6 @@ module Liquid
         return nil unless @context && @context.strict_variables
         raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
       end
-    end
-  end
-
-  # Include allows templates to relate with other templates
-  #
-  # Simply include another template:
-  #
-  #   {% include 'product' %}
-  #
-  # Include a template with a local variable:
-  #
-  #   {% include 'product' with products[0] %}
-  #
-  # Include a template for a collection:
-  #
-  #   {% include 'product' for products %}
-  #
-  class Include < Tag
-    def read_template_from_file_system(context)
-      @variable_name_expr = ''
-      # rubocop:disable all
-      file_system = context.registers[:file_system] || Liquid::Template.file_system
-
-      file_system.read_template_file(context.evaluate(@template_name_expr), context)
-      # rubocop:enable all
     end
   end
 
