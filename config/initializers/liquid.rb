@@ -33,7 +33,6 @@ module Liquid
 
           # if its a proc we will replace the entry with the proc
           res = context.lookup_and_evaluate(object, key)
-          res = res.to_a if res.kind_of? ::ActiveRecord::Associations::CollectionProxy
           object = res.to_liquid
 
           # Some special cases. If the part wasn't in square brackets and
