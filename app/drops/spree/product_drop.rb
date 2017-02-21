@@ -16,6 +16,10 @@ module Spree
 
     alias content description
 
+    def url
+      @object.url
+    end
+
 
     # warning
     def compare_at_price
