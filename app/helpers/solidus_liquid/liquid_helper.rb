@@ -57,7 +57,7 @@ module SolidusLiquid
       {
         'all_products' => Spree::Product.handle_to_records_array,
         'cart' => current_customer.try(:cart) || find_order_by_token_or_user,
-        'collections' => Spree::TaxonDrop.new(Spree::Taxon.all.to_a),
+        'collections' => Spree::Taxon.handle_to_records_array,
         'content_for_header' => content_for_header,
         'current_page' => 1,
         'current_tags' => nil,
