@@ -42,6 +42,10 @@ module SolidusLiquid
       end
     end
 
+    def url_for_vendor(vendor)
+      "/collections/vendors?q=#{vendor}"
+    end
+
     def within(product_url, collection)
       "/collections/#{collection.handle}#{product_url}"
     end
