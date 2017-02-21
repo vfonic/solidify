@@ -45,7 +45,7 @@ module Liquid
           # keywords either. The only thing we got left is to return nil or
           # raise an exception if `strict_variables` option is set to true
         else
-          return nil unless context.strict_variables && ['settings', 'linklists'].exclude?(name)
+          return nil unless context.strict_variables && ['collections', 'linklists', 'settings'].exclude?(name)
           raise Liquid::UndefinedVariable, "undefined variable #{name}.#{key}"
         end
 
@@ -70,7 +70,7 @@ module Liquid
     class Drop
       def liquid_method_missing(method)
         if method.blank?
-          # This prevents for the case like this: products[nil]
+          # This prevents for the case like this: collections[nil]
           # {% assign product_vendor_handle = product.vendor | handle %}
           # {% assign collection_handle = collections[product_vendor_handle].handle %}
           ::SolidusLiquid::NilDrop.new(nil)
