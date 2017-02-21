@@ -1,21 +1,77 @@
 module Spree
   class ProductDrop < ::Liquid::Rails::Drop
-    attributes :id, :available, :description, :handle, :price, :title, :url
+    attributes :id, :available, :content, :compare_at_price, :compare_at_price_max,
+               :compare_at_price_min, :compare_at_price_varies, :created_at,
+               :description, :featured_image, :handle, :images, :options, :price, :price_max, :price_min,
+               :price_varies, :published_at, :tags, :title, :type, :variants,
+               :vendor
 
-    has_many :images
+    def available
+      @object.available?
+    end
 
     def collections
       @object.taxons
     end
 
-    def content
-      @object.description
+    alias content description
+
+
+    # warning
+    def compare_at_price
+      nil
     end
 
-    alias compare_at_price price
+    def compare_at_price_max
+      0
+    end
 
+    def compare_at_price_min
+      0
+    end
+
+    def compare_at_price_varies
+      false
+    end
+
+    def price
+      (@object.price * 100).to_i
+    end
+
+    alias price_max price
+    alias price_min price
+
+    def price_varies
+      false
+    end
+
+    def tags
+      []
+    end
+
+    def type
+      ''
+    end
+
+    def vendor
+      SolidusLiquid::Setting['name']
+    end
+
+    # shopify json returns datetime in shop's timezone
+    alias published_at created_at
+
+
+    # error
+    # display_image just shows first image
+    # probably producing many queries on the db
     def featured_image
-      @object.images.first || ::SolidusLiquid::NilDrop.new(nil)
+      @object.display_image.attachment.url
+    end
+
+    # TODO: check if shopify returns variant images as well
+    # Spree::Product.images delegates to master variant
+    def images
+      @object.images.map(&:attachment).map(&:url)
     end
 
     def metafields
@@ -23,23 +79,11 @@ module Spree
     end
 
     def options
-      @object.option_types
-    end
-
-    def price_varies
-      false
+      @object.option_types.map(&:presentation)
     end
 
     def selected_or_first_available_variant
-      @object.master
-    end
-
-    def variants
-      @object.variants_including_master
-    end
-
-    def vendor
-      nil
+      @object.variants.first
     end
   end
 end
