@@ -691,8 +691,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script type="text/javascript">
-    var propertiesTotal = $('.properties .btn').length;
-    var propertiesFinished = propertiesTotal - $('.properties .btn-danger').length;
+    var propertiesTotal = $('.properties .btn').length - $('.properties .btn-default').length;
+    var propertiesFinished = propertiesTotal - $('.properties .btn-danger, .properties .btn-warning').length;
     var progressBarPercentage = propertiesFinished / propertiesTotal * 100;
     var $progressBar = $('.progress-bar');
     $progressBar.width(progressBarPercentage + '%');
