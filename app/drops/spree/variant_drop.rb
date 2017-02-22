@@ -76,7 +76,7 @@ module Spree
 
     # error
     def featured_image
-      @object.images.first.attachment.url
+      @object.images.first.try(:attachment).try(:url)
     end
   end
 end
