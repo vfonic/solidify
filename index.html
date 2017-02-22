@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+    <h1>Split, ready!</h1>
+    <hr>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated"
+      style="display: none;"></div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Legend</h2>
+        <span class="badge badge-pill badge-default">Skipped</span>
+        <span class="badge badge-pill badge-primary">Implemented</span>
+        <span class="badge badge-pill badge-info">Implemented partially</span>
+        <span class="badge badge-pill badge-warning">Not MVP</span>
+        <span class="badge badge-pill badge-danger">Not implemented</span>
+      </div>
+
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/tags/theme-tags">Theme Tags</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#form">Forms</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">activate_customer_password</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">new_comment</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">contact</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">create_customer</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer_login</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">guest_login</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">recover_customer_password</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">reset_customer_password</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">storefront_password</button></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default"><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#javascript">javascript</a></button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning"><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#layout">layout</a></button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default"><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#schema">schema</a></button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default"><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#section">section</a></button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default"><a href="https://help.shopify.com/themes/liquid/tags/theme-tags#stylesheet">stylesheet</a></button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br>Liquid Objects</h2></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects#global-objects">Global Objects</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">additional_checkout_buttons</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">all_products</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blogs</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">canonical_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">cart</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">collections</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">content_for_additional_checkout_buttons</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">content_for_header</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">content_for_index</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">content_for_layout</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">country_option_tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">current_page</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">current_tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">customer</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">linklists</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">pages</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">page_description</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">page_title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">request.host</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">scripts</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">settings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">shop</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">template</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">theme</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/address">Addresses</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">address | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.first_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.last_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.address1</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.address2</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.street</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.company</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.city</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.province</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.province_code</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.zip</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.country</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.country_code</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">address.phone</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/article">Article</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.author</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.comments</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.comments_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.comments_enabled?</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.comment_post_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.content</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.created_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.excerpt</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.excerpt_or_content</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.image.src</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.moderated?</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.published_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.account_owner</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.bio</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.first_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.last_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">article.user.homepage</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/block">Block</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">block | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">block.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">block.settings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">block.shopify_attributes</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">block.type?</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/blog">Blog</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.all_tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.articles</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.articles_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.comments_enabled??</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.moderated?</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.next_article</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.previous_article</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">blog.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/cart">Cart</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">cart | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">cart.attributes</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">cart.item_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">cart.items</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">cart.note</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">cart.original_total_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">cart.total_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">cart.total_weight</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/checkout">Checkout</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">checkout | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.applied_gift_cards</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.attributes</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.billing_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.buyer_accepts_marketing</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.discounts</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.discounts_amount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.discounts_savings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.gift_cards_amount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">checkout.line_items</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.note</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.order</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.order_id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.order_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.order_number</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.requires_shipping</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">checkout.shipping_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.shipping_method</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.shipping_methods</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.shipping_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.subtotal_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.tax_lines</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.tax_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">checkout.total_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">checkout.transactions</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">Deprecated properties</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/collection">Collection</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.all_tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.all_types</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.all_products_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.all_vendors</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.current_type</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.current_vendor</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.default_sort_by</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.description</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.next_product</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.previous_product</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.products</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.products_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.published_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.template_suffix</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection.tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">collection.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/comment">Comment</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.author</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.content</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.status</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">comment.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/customer">Customer</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">customer | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.accepts_marketing</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.addresses</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.addresses_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.default_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.first_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.has_account</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.last_name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.last_order</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.orders</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.orders_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer.total_spent</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/discount">Discount</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.code</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.amount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.total_amount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.savings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.total_savings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">discount.type</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/form">Form</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">form | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">form.author</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">form.body</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">form.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">form.errors</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">form.posted_primaryfully?</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/fulfillment">Fulfillment</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment.tracking_company</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment.tracking_number</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment.tracking_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment.fulfillment_line_items</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">fulfillment.item_count?</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/gift-card">Gift Card</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.balance</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.code</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.currency</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.customer</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.enabled?</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.expired</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.expires_on</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.initial_value</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.properties</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">gift_card.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/image">Image</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">image | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.alt</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.attached_to_variant?</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.product_id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.position</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.src</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">image.variants</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/line_item">Line Item</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">line_item | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.discounts</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.fulfillment</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.fulfillment_service</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.gift_card</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.grams</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.key</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.line_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.message</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.original_line_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.original_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.product</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.product_id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.properties</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.quantity</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.requires_shipping</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.sku</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.primaryfully_fulfilled_quantity</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.taxable</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.total_discount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.variant</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.variant_id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.vendor</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">line_item.id</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/link">Link</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">link | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link.active</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link.object</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link.type</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/linklist">Link List</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">linklist | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">linklist.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">linklist.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">linklist.links</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">linklist.title</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/metafield">Metafields</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">metafield | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">metafield.namespace</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">metafield.key</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">metafield.value</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/order">Order</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">order | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.billing_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.cancelled</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.cancelled_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.cancel_reason</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.cancel_reason_label</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.created_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.customer</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.customer_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.discounts</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.financial_status</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.financial_status_label</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.fulfillment_status</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.fulfillment_status_label</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.line_items</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.location</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.note</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.order_number</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.shipping_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.shipping_methods</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.shipping_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.subtotal_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.tax_lines</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.tax_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.total_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.transactions</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">order.tags</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/page">Page</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.author</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.content</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.published_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.template_suffix</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">page.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/paginate">Paginate</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.current_page</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.current_offset</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.items</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.parts</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.next</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.previous</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.page_size</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">paginate.pages</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/part">Paginate Part</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">part | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">part.is_link</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">part.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">part.url</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/product">Product</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">product | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.available</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.collections</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.compare_at_price_max</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.compare_at_price_min</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.compare_at_price_varies</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.content</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.description</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.featured_image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.first_available_variant</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.images</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.options</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.options_with_values</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.price_max</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.price_min</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.price_varies</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.selected_variant</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.selected_or_first_available_variant</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.tags</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.template_suffix</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.type</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.variants</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product.vendor</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/product_option">Product Option</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product_option | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product_option.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product_option.values</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product_option.selected_value</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/script">Script</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">script | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">script.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">script.id</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/search">Search</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">search | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">search.performed</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">search.results</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">search.results_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">search.terms</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/section">Section</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">section | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">section.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">section.settings</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">section.blocks</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/shipping_method">Shipping Method</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">shipping_method | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">shipping_method.handle</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">shipping_method.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">shipping_method.title</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/shop">Shop</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.collections_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.currency</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.description</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.domain</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.email</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.enabled_payment_types</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.metafields</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.money_format</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.money_with_currency_format</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.password_message</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.permanent_domain</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.products_count</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.types</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.secure_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.vendors</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shop.locale</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/tax_line">Tax Line</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.rate</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.rate_percentage</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.rate</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.rate_percentage</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">tax_line.price</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/template">Template</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">template | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">template.directory</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">template.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-danger">template.suffix</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/theme">Theme</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">theme | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">theme.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">theme.name</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/transaction">Transaction</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.amount</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.name</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.status</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.status_label</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.created_at</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.receipt</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.kind</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.gateway</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-default">transaction.payment_details</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/objects/variant">Variant</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">variant | json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.available</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.barcode</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.compare_at_price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.id</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.image</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.incoming</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.inventory_management</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.inventory_policy</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.inventory_quantity</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.next_incoming_date</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.option1</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.option2</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.option3</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.price</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.requires_shipping</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.selected</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.sku</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.taxable</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.title</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.weight</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.weight_unit</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">variant.weight_in_unit</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br>Types</h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">EmptyDrop</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br>Liquid Filters</h2></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/array-filters">Array Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">index</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/color-filters">Color Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_to_rgb</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_to_hsl</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_to_hex</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_extract</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_brightness</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_modify</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_lighten</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_darken</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_saturate</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_desaturate</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">color_mix</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/html-filters">HTML Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">img_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">script_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">stylesheet_tag</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/money-filters">Money Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">money</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">money_with_currency</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">money_without_trailing_zeros</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">money_without_currency</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/string-filters">String Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">append</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">camelcase</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">capitalize</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">downcase</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">escape</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-info">handle/handleize</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">md5</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">sha1</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">sha256</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">hmac_sha1</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">hmac_sha256</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">newline_to_br</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">pluralize</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">prepend</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">remove</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">remove_first</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">replace</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">replace_first</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">slice</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">split</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">strip</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">lstrip</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">rstrip</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">strip_html</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">strip_newlines</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">truncate</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">truncatewords</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">upcase</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">url_encode</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">url_escape</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">url_param_escape</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/url-filters">URL Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">asset_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">asset_img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">file_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">file_img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">customer_login_link</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">global_asset_url/handleize</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to_vendor</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to_type</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to_add_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">link_to_remove_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">payment_type_img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">product_img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">collection_img_url</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">shopify_asset_url/handleize</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">url_for_type</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">url_for_vendor</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">within</button></div>
+</div><div class="row properties">
+<div class="col-sm-12"><h2><br><a href="https://help.shopify.com/themes/liquid/filters/additional-filters">Additional Filters</a></h2></div>
+</div><div class="row properties">
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">date</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">time_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-primary">default</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">default_errors</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">default_pagination</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">format_address</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">hex_to_rgba</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">highlight</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">highlight_active_tag</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">json</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">weight_with_unit</button></div>
+<div class="col-sm-4" style="margin-bottom: 5px"><button type="button" class="btn btn-warning">placeholder_svg_tag</button></div>
+
+</div><!-- row properties -->
+</div><!-- container -->
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var propertiesTotal = $('.properties .btn').length;
+    var propertiesFinished = propertiesTotal - $('.properties .btn-danger').length;
+    var progressBarPercentage = propertiesFinished / propertiesTotal * 100;
+    var $progressBar = $('.progress-bar');
+    $progressBar.width(progressBarPercentage + '%');
+    $progressBar.text(progressBarPercentage.toFixed(1)+'%');
+    var progressBarProgressStatus = ['bg-danger', 'bg-warning', 'bg-success'];
+    $progressBar.addClass(progressBarProgressStatus[Math.floor(progressBarPercentage / 33)]);
+    $progressBar.show();
+    </script>
+  </body>
+</html>
