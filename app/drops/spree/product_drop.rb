@@ -20,6 +20,12 @@ module Spree
       @object.url
     end
 
+    def variants
+      @object.variants.to_a.map do |v|
+        Spree::VariantDrop.new(v)
+      end
+    end
+
 
     # warning
     def compare_at_price
