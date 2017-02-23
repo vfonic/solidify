@@ -4,13 +4,11 @@ addons:
 after_success:
   - bundle exec codeclimate-test-reporter
 cache: bundler
-before_script:
-  - psql -c 'create database split_test;' -U postgres
 language: ruby
 rvm: 2.3.3
 script:
   - bundle exec rubocop
   - bundle exec rspec
 services:
-  - postgresql
+  - redis-server
 sudo: false
