@@ -18,7 +18,7 @@ require File.expand_path('../test_app/config/environment.rb', __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
 require 'factory_girl'
-# require 'ffaker'
+require 'pry'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -34,6 +34,7 @@ Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 # Requires factories defined in lib/solidus_liquid/factories.rb
 require 'solidus_liquid/factories'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -86,9 +87,10 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  # Capybara javascript drivers require transactional fixtures set to false, and we use DatabaseCleaner
-  # to cleanup after each test instead.  Without transactional fixtures set to false the records created
-  # to setup a test will be unavailable to the browser, which runs under a separate server instance.
+  # Capybara javascript drivers require transactional fixtures set to false, and
+  # we use DatabaseCleaner to cleanup after each test instead.  Without
+  # transactional fixtures set to false the records created to setup a test will
+  # be unavailable to the browser, which runs under a separate server instance.
   config.use_transactional_fixtures = false
 
   # Ensure Suite is set to use transactions for speed.
@@ -97,9 +99,14 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
-  # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
+  # Before each spec check if it is a Javascript test and switch between using
+  # database transactions or not where necessary.
   config.before :each do
-    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = if RSpec.current_example.metadata[:js]
+                                 :truncation
+                               else
+                                 :transaction
+                               end
     DatabaseCleaner.start
   end
 

@@ -10,6 +10,7 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
     - '**/Guardfile'
+  TargetRubyVersion: 2.3
 Documentation:
   Enabled: false
 Metrics/AbcSize:

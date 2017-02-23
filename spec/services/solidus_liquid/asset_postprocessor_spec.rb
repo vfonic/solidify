@@ -34,11 +34,10 @@ module SolidusLiquid
           allow_any_instance_of(Theme).to receive(:settings) {
             { 'base_font_size' => '16px' }
           }
-          create(:asset, :stylesheet_css, theme: theme)
+          asset = create(:asset, :stylesheet_scss_css, theme: theme)
 
           expect { create(:asset, :stylesheet_liquid, theme: theme) }
-            .to change(Asset, :count).by(1)
-          expect(theme.assets.where(key: 'assets/style.scss.css').count).to eq(1)
+            .to change { asset.reload.updated_at }
         end
       end
     end
@@ -56,11 +55,10 @@ module SolidusLiquid
         it 'does not create new Asset record for style.scss.css' do
           theme = create(:theme)
           allow_any_instance_of(Theme).to receive(:settings)
-          create(:asset, :stylesheet_css, theme: theme)
+          asset = create(:asset, :stylesheet_scss_css, theme: theme)
 
           expect { create(:asset, :stylesheet_scss, theme: theme) }
-            .to change(Asset, :count).by(1)
-          expect(theme.assets.where(key: 'assets/style.scss.css').count).to eq(1)
+            .to change { asset.reload.updated_at }
         end
       end
     end

@@ -68,7 +68,7 @@ module SolidusLiquid
         end
       end
 
-      trait :stylesheet_css do
+      trait :stylesheet_scss_css do
         key 'assets/style.scss.css'
         file do
           Rack::Test::UploadedFile.new(
