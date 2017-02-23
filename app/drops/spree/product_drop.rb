@@ -72,12 +72,6 @@ module Spree
 
 
     # error
-    # display_image just shows first image
-    # probably producing many queries on the db
-    def featured_image
-      @object.display_image.attachment.url
-    end
-
     # TODO: check if shopify returns variant images as well
     # Spree::Product.images delegates to master variant
     def images
