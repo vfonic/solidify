@@ -46,4 +46,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec', '1.4.0'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'sqlite3'
+  # solidus_auth_devise dependencies
+  spec.add_development_dependency 'sass-rails'
+  spec.add_development_dependency 'coffee-rails'
 end
