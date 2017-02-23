@@ -1,5 +1,11 @@
 # Solidus Liquid
 
+[![Build Status](https://travis-ci.org/vfonic/solidus_liquid.svg?branch=master)](https://travis-ci.org/vfonic/solidus_liquid)
+[![Code Climate](https://codeclimate.com/github/vfonic/solidus_liquid/badges/gpa.svg)](https://codeclimate.com/github/vfonic/solidus_liquid)
+[![Test Coverage](https://codeclimate.com/github/vfonic/solidus_liquid/badges/coverage.svg)](https://codeclimate.com/github/vfonic/solidus_liquid/coverage)
+[![security](https://hakiri.io/github/vfonic/solidus_liquid/master.svg)](https://hakiri.io/github/vfonic/solidus_liquid/master)
+[![git.legal](https://git.legal/projects/3620/badge.svg?key=5c097d05a251758abac3 "Number of libraries approved")](https://git.legal/projects/3620)
+
 Rails meets Shopify liquid theme files.
 
 ## Installation

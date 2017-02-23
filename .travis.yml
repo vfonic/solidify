@@ -1,5 +1,16 @@
-sudo: false
+addons:
+  code_climate:
+    repo_token: 341434bb91c704341aff79848c22e2c605ddd6f99c213d7166953c46436ad6cf
+after_success:
+  - bundle exec codeclimate-test-reporter
+cache: bundler
+before_script:
+  - psql -c 'create database split_test;' -U postgres
 language: ruby
-rvm:
-  - 2.3.3
-before_install: gem install bundler -v 1.13.7
+rvm: 2.3.3
+script:
+  - bundle exec rubocop
+  - bundle exec rspec
+services:
+  - postgresql
+sudo: false
