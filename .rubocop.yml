@@ -4,6 +4,7 @@ AllCops:
    - 'bin/*'
    - 'db/schema.rb'
    - 'vendor/bundle/**/*'
+   - 'spec/test_app/**/*'
   Include:
     - 'lib/tasks/**/*'
     - '**/Gemfile'
