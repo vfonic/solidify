@@ -22,14 +22,14 @@ class FormTag < Liquid::Block
       # {% form 'activate_customer_password' %}
     when 'create_customer'
       view.form_for(:customer, url: view.new_customer_registration_path) do |_f|
-        super.html_safe
+        safe_join[super]
       end
     when 'customer_address'
       # {% form 'customer_address', customer.new_address %}
       # {% form 'customer_address', address %}
     when 'customer_login'
       view.form_for(:customer, url: view.new_customer_session_path) do |_f|
-        super.html_safe
+        safe_join[super]
       end
     when 'guest_login'
     when 'new_comment'
