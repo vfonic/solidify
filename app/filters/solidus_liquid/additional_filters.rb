@@ -13,8 +13,7 @@ module SolidusLiquid
       end
     end
 
-    def format_address(address)
-    end
+    def format_address(address); end
 
     def json(resource)
       JSON.dump(resource)

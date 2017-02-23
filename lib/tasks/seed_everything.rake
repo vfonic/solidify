@@ -8,7 +8,7 @@ namespace :solidus_liquid do
 
       SolidusLiquid::LinkListSeeder.new.seed
 
-      # TODO seed default 'all' collection
+      # TODO: seed default 'all' collection
     end
   end
 end

@@ -26,7 +26,6 @@ module Spree
       end
     end
 
-
     # warning
     def compare_at_price
       nil
@@ -69,7 +68,6 @@ module Spree
 
     # shopify json returns datetime in shop's timezone
     alias published_at created_at
-
 
     # error
     # TODO: check if shopify returns variant images as well

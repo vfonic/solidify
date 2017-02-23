@@ -2,8 +2,8 @@ module Spree
   class AddressDrop < ::Liquid::Rails::Drop
     attributes :id, :address1, :address2, :city, :company, :country,
                :country_code, :default, :first_name, :last_name, :latitude,
-              :longitude, :name, :phone, :province, :province_code, :street,
-              :zip
+               :longitude, :name, :phone, :province, :province_code, :street,
+               :zip
 
     def country
       @object.country.name

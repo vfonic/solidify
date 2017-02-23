@@ -1,3 +1,4 @@
+# rubocop disable:all
 module Sass
   module Selector
     class SimpleSequence < AbstractSequence
@@ -11,3 +12,4 @@ module Sass
     end
   end
 end
+# rubocop enable:all

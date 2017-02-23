@@ -18,6 +18,7 @@ module Liquid
   end
 
   class VariableLookup
+    # rubocop:disable all
     def evaluate(context)
       name = context.evaluate(@name)
       object = context.find_variable(name)
@@ -45,7 +46,8 @@ module Liquid
           # keywords either. The only thing we got left is to return nil or
           # raise an exception if `strict_variables` option is set to true
         else
-          return nil unless context.strict_variables && ['collections', 'linklists', 'settings'].exclude?(name)
+    # rubocop:enable all
+          return nil unless context.strict_variables && %w(collections linklists settings).exclude?(name)
           raise Liquid::UndefinedVariable, "undefined variable #{name}.#{key}"
         end
 

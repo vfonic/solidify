@@ -7,11 +7,11 @@ if SolidusLiquid::Theme.table_exists?
     settings_data = JSON.parse(
       File.read(settings_file)
     )
-    if settings_data['current'].is_a? String
-      settings = settings_data['presets'][settings_data['current']].to_json
-    else
-      settings = settings_data['current'].to_json
-    end
+    settings = if settings_data['current'].is_a? String
+                 settings_data['presets'][settings_data['current']].to_json
+               else
+                 settings_data['current'].to_json
+               end
     Redis.current.set("solidus_liquid_themes_#{theme.id}", settings)
   end
 end
@@ -20,9 +20,9 @@ settings_file = SolidusLiquid::Engine.root.join(
   'app', 'views', 'solidus_liquid', 'themes', 'skeleton-theme', 'config', 'settings_data.json'
 )
 settings_data = JSON.parse(File.read(settings_file))
-if settings_data['current'].is_a? String
-  settings = settings_data['presets'][settings_data['current']].to_json
-else
-  settings = settings_data['current'].to_json
-end
-Redis.current.set("solidus_liquid_themes_", settings)
+settings = if settings_data['current'].is_a? String
+             settings_data['presets'][settings_data['current']].to_json
+           else
+             settings_data['current'].to_json
+           end
+Redis.current.set('solidus_liquid_themes_', settings)

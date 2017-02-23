@@ -8,7 +8,6 @@ module Spree
                :public_title, :requires_shipping, :sku, :taxable, :title,
                :weight
 
-
     # warning
     def barcode
       ''
@@ -72,7 +71,6 @@ module Spree
     def weight
       @object.weight.to_i
     end
-
 
     # error
     def featured_image

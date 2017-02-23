@@ -4,22 +4,22 @@ SolidusLiquid::Engine.routes.draw do
   get 'account/addresses', to: 'addresses#index', as: :customer_addresses
 
   devise_for :customers,
-              path: 'account',
-              class_name: 'Spree::User',
-              # module: :devise,
-              path_names: {
-                registration: 'register',
-                sign_up: '',
-                sign_in: 'login',
-                sign_out: 'logout',
-                password: 'recover',
-                confirmation: 'verification',
-                edit: ''
-              },
-              controllers: {
-                registrations: 'solidus_liquid/registrations',
-                sessions: 'solidus_liquid/sessions'
-              }
+             path: 'account',
+             class_name: 'Spree::User',
+             # module: :devise,
+             path_names: {
+               registration: 'register',
+               sign_up: '',
+               sign_in: 'login',
+               sign_out: 'logout',
+               password: 'recover',
+               confirmation: 'verification',
+               edit: ''
+             },
+             controllers: {
+               registrations: 'solidus_liquid/registrations',
+               sessions: 'solidus_liquid/sessions'
+             }
 
   devise_scope :customer do
     get 'account/login', to: 'sessions#new'

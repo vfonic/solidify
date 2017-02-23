@@ -18,11 +18,11 @@ module SolidusLiquid
     def search
       return @search if @search.present?
 
-      if params[:q].blank?
-        @search = Search.new
-      else
-        @search = perform_search
-      end
+      @search = if params[:q].blank?
+                  Search.new
+                else
+                  perform_search
+                end
     end
 
     def perform_search

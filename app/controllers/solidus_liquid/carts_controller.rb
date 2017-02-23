@@ -6,7 +6,7 @@ module SolidusLiquid
 
     def set_liquid_assigns
       @liquid_assigns = {
-        'canonical_url' => "#{request.base_url}",
+        'canonical_url' => request.base_url.to_s,
         'page_title' => 'cart',
         'template' => 'cart'
       }

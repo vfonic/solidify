@@ -20,7 +20,7 @@ module SolidusLiquid
         super.merge(@liquid_assigns)
       end
 
-      alias customer current_customer
+      alias_method :customer, :current_customer
     end
   end
 end

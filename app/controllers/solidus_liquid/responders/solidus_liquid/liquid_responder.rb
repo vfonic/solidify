@@ -10,7 +10,7 @@ module SolidusLiquid
       liquid_assigns = controller.instance_variable_get(:@liquid_assigns)
       liquid_assigns['form'] = resource
 
-      redirect_to options[:location] and return if options[:location].present?
+      redirect_to(options[:location]) && return if options[:location].present?
 
       controller_name = controller.controller_name
       action_name = DEFAULT_ACTIONS_FOR_VERBS[request.request_method_symbol]

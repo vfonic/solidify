@@ -1,6 +1,5 @@
 module SolidusLiquid
   class HomeController < LiquidController
-
     def index
       render controller_action_to_liquid_file_path
     end

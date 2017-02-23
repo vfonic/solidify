@@ -1,7 +1,7 @@
 module SolidusLiquid
   module LiquidHelper
     CONTROLLER_ACTION_TO_LIQUID_MAPPING = {
-      'addresses#index' => 'templates/customers/addresses.liquid', # TODO implement
+      'addresses#index' => 'templates/customers/addresses.liquid', # TODO: implement
       'home#missing' => 'templates/404.liquid', # TODO implement
       'articles#show' => 'templates/article.liquid', # TODO implement
       # TODO: add blog.grid.liquid
@@ -13,9 +13,9 @@ module SolidusLiquid
       # TODO; add collection.list.liquid
       'collections#show' => 'templates/collection%{template_suffix}.liquid', # TODO implement
       'home#index' => 'templates/index.liquid',
-      'pages#show' => 'templates/page%{template_suffix}.liquid', # TODO implement
+      'pages#show' => 'templates/page%{template_suffix}.liquid', # TODO: implement
       'products#show' => 'templates/product.liquid',
-      'registrations#new' => 'templates/customers/register.liquid', # TODO implement
+      'registrations#new' => 'templates/customers/register.liquid', # TODO: implement
       'search#index' => 'templates/search.liquid', # TODO implement
       'sessions#new' => 'templates/customers/login.liquid'
     }.freeze
@@ -43,16 +43,14 @@ module SolidusLiquid
 
     # rubocop:disable Metrics/MethodLength
     def liquid_assigns
-      shop = shop_settings.merge({
-        'collections_count' => Spree::Taxon.count,
-        'locale' => I18n.locale.to_s,
-        'permanent_domain' => shop_settings[:domain],
-        'products_count' => Spree::Product.available.count,
-        'secure_url' => "https://#{shop_settings[:domain]}",
-        'types' => [],
-        'url' => "https://#{shop_settings[:domain]}",
-        'vendors' => []
-      })
+      shop = shop_settings.merge('collections_count' => Spree::Taxon.count,
+                                 'locale' => I18n.locale.to_s,
+                                 'permanent_domain' => shop_settings[:domain],
+                                 'products_count' => Spree::Product.available.count,
+                                 'secure_url' => "https://#{shop_settings[:domain]}",
+                                 'types' => [],
+                                 'url' => "https://#{shop_settings[:domain]}",
+                                 'vendors' => [])
 
       {
         'all_products' => Spree::Product.handle_to_records_array,

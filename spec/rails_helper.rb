@@ -7,7 +7,7 @@ ActiveRecord::Migrator.migrations_paths = [
 ActiveRecord::Migrator
   .migrations_paths << File.expand_path('../db/migrate', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
 require 'factory_girl_rails'

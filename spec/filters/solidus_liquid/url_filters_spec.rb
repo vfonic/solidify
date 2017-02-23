@@ -3,7 +3,6 @@ require 'rails_helper'
 module SolidusLiquid
   RSpec.describe UrlFilters, type: :helper do
     describe '#asset_url' do
-
       it 'returns correct asset_url for theme' do
         theme = create(:theme)
         context = double('@context', registers: { theme: theme })
