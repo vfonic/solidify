@@ -1,5 +1,10 @@
 module Spree
   class ImageDrop < ::Liquid::Rails::Drop
-    attributes :alt, :attachment
+    attributes :id, :alt, :attached_to_variant?, :attachment, :position,
+               :product_id, :src, :variants
+
+    def to_json(_json)
+      @object.try(:attachment).try(:url).try(:to_json)
+    end
   end
 end

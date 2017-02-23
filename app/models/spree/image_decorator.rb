@@ -1,0 +1,19 @@
+module Spree
+  Image.class_eval do
+    def attached_to_variant?
+      !viewable.is_master?
+    end
+
+    def product_id
+      viewable.try(:product_id)
+    end
+
+    def src
+      attachment.try(:url)
+    end
+
+    def variants
+      [viewable]
+    end
+  end
+end
