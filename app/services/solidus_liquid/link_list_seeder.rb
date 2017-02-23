@@ -1,5 +1,6 @@
 module SolidusLiquid
   class LinkListSeeder
+    # rubocop:disable Metrics/MethodLength
     def seed
       LinkList.create(
         [

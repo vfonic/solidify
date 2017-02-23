@@ -2,7 +2,9 @@ require 'rails/engine'
 
 module SolidusLiquid
   class Engine < ::Rails::Engine
-    config.autoload_paths << Engine.root.join('app', 'controllers', 'solidus_liquid', 'responders')
+    config.autoload_paths << Engine.root.join(
+      'app', 'controllers', 'solidus_liquid', 'responders'
+    )
     isolate_namespace SolidusLiquid
     engine_name 'solidus_liquid'
 
@@ -12,11 +14,11 @@ module SolidusLiquid
     end
 
     def self.activate
-      Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
+      Dir.glob(File.join(__dir__, '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
 
-    config.to_prepare &method(:activate).to_proc
+    config.to_prepare(&method(:activate).to_proc)
   end
 end

@@ -37,7 +37,8 @@ module SolidusLiquid
 
         theme.settings
 
-        expect(redis).to have_received(:get).with("solidus_liquid_themes_#{theme.id}")
+        expect(redis)
+          .to have_received(:get).with("solidus_liquid_themes_#{theme.id}")
       end
     end
 

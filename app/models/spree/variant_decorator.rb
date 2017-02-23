@@ -7,7 +7,9 @@ module Spree
     # variant with no variant.inventory_management is also considered available.
     def available
       true
-      # inventory_management.blank? || inventory_policy == INVENTORY_POLICY_ALLOW || inventory_quantity(??? check VariantDrop) > 0
+      # inventory_management.blank? ||
+      # inventory_policy == INVENTORY_POLICY_ALLOW ||
+      # inventory_quantity(??? check VariantDrop) > 0
     end
   end
 end

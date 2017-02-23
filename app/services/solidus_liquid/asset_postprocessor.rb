@@ -31,10 +31,8 @@ module SolidusLiquid
       if key.end_with?('.scss')
         process_scss(asset: asset, key: key, template: rendered_liquid)
       else
-        new_asset = Asset.where(key: key, theme: asset.theme).first_or_initialize
-        new_asset.update_attributes(
-          file: AppSpecificStringIO.new(key, rendered_liquid)
-        )
+        update_or_create_asset(key: key,
+                               theme: asset.theme, contents: rendered_liquid)
       end
     end
 
@@ -45,6 +43,11 @@ module SolidusLiquid
       new_asset.update_attributes(
         file: AppSpecificStringIO.new("#{key}.css", rendered_css)
       )
+    end
+
+    def update_or_create_asset(key:, theme:, contents:)
+      new_asset = Asset.where(key: key, theme: theme).first_or_initialize
+      new_asset.update_attributes(file: AppSpecificStringIO.new(key, contents))
     end
   end
 end

@@ -1,22 +1,19 @@
 module SolidusLiquid
   module LiquidHelper
     CONTROLLER_ACTION_TO_LIQUID_MAPPING = {
-      'addresses#index' => 'templates/customers/addresses.liquid', # TODO: implement
-      'home#missing' => 'templates/404.liquid', # TODO implement
-      'articles#show' => 'templates/article.liquid', # TODO implement
-      # TODO: add blog.grid.liquid
-      'blogs#show' => 'templates/blog.liquid', # TODO implement
+      'addresses#index' => 'templates/customers/addresses.liquid',
+      'home#missing' => 'templates/404.liquid',
+      'articles#show' => 'templates/article.liquid',
+      'blogs#show' => 'templates/blog.liquid',
       'carts#show' => 'templates/cart.liquid',
-      # TODO: add activate_account.liquid
-      'customers#show' => 'templates/customers/account.liquid', # TODO implement
-      'collections#index' => 'templates/list-collections.liquid', # TODO implement
-      # TODO; add collection.list.liquid
-      'collections#show' => 'templates/collection%{template_suffix}.liquid', # TODO implement
+      'customers#show' => 'templates/customers/account.liquid',
+      'collections#index' => 'templates/list-collections.liquid',
+      'collections#show' => 'templates/collection%{template_suffix}.liquid',
       'home#index' => 'templates/index.liquid',
-      'pages#show' => 'templates/page%{template_suffix}.liquid', # TODO: implement
+      'pages#show' => 'templates/page%{template_suffix}.liquid',
       'products#show' => 'templates/product.liquid',
-      'registrations#new' => 'templates/customers/register.liquid', # TODO: implement
-      'search#index' => 'templates/search.liquid', # TODO implement
+      'registrations#new' => 'templates/customers/register.liquid',
+      'search#index' => 'templates/search.liquid',
       'sessions#new' => 'templates/customers/login.liquid'
     }.freeze
 
@@ -41,16 +38,18 @@ module SolidusLiquid
       "../#{theme_dir}/layout/theme"
     end
 
-    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
     def liquid_assigns
-      shop = shop_settings.merge('collections_count' => Spree::Taxon.count,
-                                 'locale' => I18n.locale.to_s,
-                                 'permanent_domain' => shop_settings[:domain],
-                                 'products_count' => Spree::Product.available.count,
-                                 'secure_url' => "https://#{shop_settings[:domain]}",
-                                 'types' => [],
-                                 'url' => "https://#{shop_settings[:domain]}",
-                                 'vendors' => [])
+      shop = shop_settings.merge(
+        'collections_count' => Spree::Taxon.count,
+        'locale' => I18n.locale.to_s,
+        'permanent_domain' => shop_settings[:domain],
+        'products_count' => Spree::Product.available.count,
+        'secure_url' => "https://#{shop_settings[:domain]}",
+        'types' => [],
+        'url' => "https://#{shop_settings[:domain]}",
+        'vendors' => []
+      )
 
       {
         'all_products' => Spree::Product.handle_to_records_array,
@@ -75,7 +74,9 @@ module SolidusLiquid
     # rubocop:enable Metrics/MethodLength
 
     def theme_settings
-      @theme_settings ||= JSON.parse(Redis.current.get("solidus_liquid_themes_#{theme.id}"))
+      @theme_settings ||= JSON.parse(
+        Redis.current.get("solidus_liquid_themes_#{theme.id}")
+      )
     end
 
     def liquid_filters

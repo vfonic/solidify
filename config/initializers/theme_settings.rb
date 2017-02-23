@@ -17,7 +17,8 @@ if SolidusLiquid::Theme.table_exists?
 end
 
 settings_file = SolidusLiquid::Engine.root.join(
-  'app', 'views', 'solidus_liquid', 'themes', 'skeleton-theme', 'config', 'settings_data.json'
+  'app', 'views', 'solidus_liquid', 'themes', 'skeleton-theme', 'config',
+  'settings_data.json'
 )
 settings_data = JSON.parse(File.read(settings_file))
 settings = if settings_data['current'].is_a? String

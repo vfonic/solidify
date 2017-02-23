@@ -26,11 +26,14 @@ module SolidusLiquid
     end
 
     def perform_search
-      product_scope = Spree::Product.accessible_by(Spree::Ability.new(current_spree_user), :read)
+      product_scope = Spree::Product.accessible_by(
+        Spree::Ability.new(current_spree_user), :read
+      )
+      search_result = product_scope.ransack(params[:q]).result
       Search.new(
         true,
-        product_scope.ransack(params[:q]).result,
-        product_scope.ransack(params[:q]).result.count,
+        search_result,
+        search_result.count,
         params[:q]
       )
     end

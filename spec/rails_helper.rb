@@ -7,7 +7,9 @@ ActiveRecord::Migrator.migrations_paths = [
 ActiveRecord::Migrator
   .migrations_paths << File.expand_path('../db/migrate', __dir__)
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+if Rails.env.production?
+  abort('The Rails environment is running in production mode!')
+end
 require 'spec_helper'
 require 'rspec/rails'
 require 'factory_girl_rails'
@@ -26,7 +28,9 @@ require 'factory_girl_rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[SolidusLiquid::Engine.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[SolidusLiquid::Engine.root.join('spec/support/**/*.rb')].each do |f|
+  require f
+end
 
 ENV['AWS_S3_BUCKET_NAME'] ||= 'bucket-name'
 

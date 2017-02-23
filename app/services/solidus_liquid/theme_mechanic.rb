@@ -2,7 +2,9 @@ module SolidusLiquid
   class ThemeMechanic
     def initialize(
       name: 'Simple',
-      path: SolidusLiquid::Engine.root.join('app', 'views', 'solidus_liquid', 'themes', 'skeleton-theme'),
+      path: SolidusLiquid::Engine.root.join(
+        'app', 'views', 'solidus_liquid', 'themes', 'skeleton-theme'
+      ),
       skip_file_upload: false
     )
       @name = name

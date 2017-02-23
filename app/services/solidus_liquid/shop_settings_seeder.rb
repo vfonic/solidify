@@ -4,6 +4,7 @@ module SolidusLiquid
       @theme_id = theme_id
     end
 
+    # rubocop:disable Metrics/MethodLength
     def seed
       {
         'active_theme_id' => @theme_id,

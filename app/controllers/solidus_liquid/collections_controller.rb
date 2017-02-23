@@ -16,7 +16,7 @@ module SolidusLiquid
     private
 
     def collection
-      @collection ||= Spree::Taxon.where(handle: params[:id]).first_or_initialize
+      @collection ||= Spree::Taxon.find(params[:id])
     end
   end
 end

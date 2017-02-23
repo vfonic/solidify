@@ -3,12 +3,11 @@ module SolidusLiquid
   FactoryGirl.define do
     factory :asset, class: Asset do
       theme_id 1
-      key 'simple'
+      key 'simple.liquid'
       file do
         Rack::Test::UploadedFile.new(
-          File.join(
-            SolidusLiquid::Engine.root, 'spec', 'data', 'simple.liquid'
-          )
+          File.join(SolidusLiquid::Engine.root, 'spec', 'data',
+                    'simple.liquid')
         )
       end
 
@@ -16,9 +15,8 @@ module SolidusLiquid
         key 'assets/shop.js.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'shop.js.liquid'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+                      'shop.js.liquid')
           )
         end
       end
@@ -27,9 +25,8 @@ module SolidusLiquid
         key 'snippets/open-graph-tags.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'snippets', 'open-graph-tags.liquid'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'snippets',
+                      'open-graph-tags.liquid')
           )
         end
       end
@@ -38,9 +35,8 @@ module SolidusLiquid
         key 'assets/style.scss.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss.liquid'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+                      'style.scss.liquid')
           )
         end
       end
@@ -49,10 +45,8 @@ module SolidusLiquid
         key 'assets/style_with_asset_url_filter.scss.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
-              'style_with_asset_url_filter.scss.liquid'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+                      'style_with_asset_url_filter.scss.liquid')
           )
         end
       end
@@ -61,9 +55,8 @@ module SolidusLiquid
         key 'assets/style.scss'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+                      'style.scss')
           )
         end
       end
@@ -72,9 +65,8 @@ module SolidusLiquid
         key 'assets/style.scss.css'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(
-              SolidusLiquid::Engine.root, 'spec', 'data', 'assets', 'style.scss.css'
-            )
+            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+                      'style.scss.css')
           )
         end
       end

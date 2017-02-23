@@ -1,10 +1,11 @@
 module Spree
   class ProductDrop < ::Liquid::Rails::Drop
-    attributes :id, :available, :content, :compare_at_price, :compare_at_price_max,
-               :compare_at_price_min, :compare_at_price_varies, :created_at,
-               :description, :featured_image, :handle, :images, :options, :price, :price_max, :price_min,
-               :price_varies, :published_at, :tags, :title, :type, :variants,
-               :vendor
+    attributes :id, :available, :content, :compare_at_price,
+               :compare_at_price_max, :compare_at_price_min,
+               :compare_at_price_varies, :created_at, :description,
+               :featured_image, :handle, :images, :options, :price, :price_max,
+               :price_min, :price_varies, :published_at, :tags, :title, :type,
+               :variants, :vendor
 
     def available
       @object.available?

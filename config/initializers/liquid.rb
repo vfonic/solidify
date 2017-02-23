@@ -18,6 +18,8 @@ module Liquid
   end
 
   class VariableLookup
+    PERMITTED_NILLABLE = %w(collections linklists setting).freeze
+
     # rubocop:disable all
     def evaluate(context)
       name = context.evaluate(@name)
@@ -47,7 +49,9 @@ module Liquid
           # raise an exception if `strict_variables` option is set to true
         else
     # rubocop:enable all
-          return nil unless context.strict_variables && %w(collections linklists settings).exclude?(name)
+          if !context.strict_variables || PERMITTED_NILLABLE.include?(name)
+            return nil
+          end
           raise Liquid::UndefinedVariable, "undefined variable #{name}.#{key}"
         end
 
@@ -70,6 +74,7 @@ end
 module Liquid
   module Rails
     class Drop
+      # rubocop:disable all
       def liquid_method_missing(method)
         if method.blank?
           # This prevents for the case like this: collections[nil]
@@ -81,6 +86,7 @@ module Liquid
           raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"
         end
       end
+      # rubocop:enable all
     end
 
     class FileSystem < ::Liquid::LocalFileSystem

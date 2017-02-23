@@ -13,6 +13,8 @@ class FormTag < Liquid::Block
     end
   end
 
+  # rubocop:disable Lint/EmptyWhen,Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/MethodLength
   def render(context)
     view = context.registers[:view]
     case @form_name

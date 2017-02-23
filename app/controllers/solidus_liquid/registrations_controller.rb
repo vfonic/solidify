@@ -4,6 +4,7 @@ module SolidusLiquid
 
     self.responder = SolidusLiquid::LiquidResponder
 
+    # rubocop:disable Metrics/LineLength
     def set_liquid_assigns
       @liquid_assigns = {
         'canonical_url' => "#{request.base_url}#{new_customer_registration_path}",

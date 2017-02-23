@@ -11,7 +11,9 @@ module SolidusLiquid
     def compile
       liquid = ::Liquid::Template.parse(@template)
       assigns = { 'settings' => @settings }
-      liquid.render(assigns, filters: [UrlFilters], registers: { theme: @theme })
+      liquid.render(assigns,
+                    filters: [UrlFilters],
+                    registers: { theme: @theme })
     end
   end
 end

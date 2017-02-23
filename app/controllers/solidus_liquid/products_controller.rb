@@ -23,9 +23,8 @@ module SolidusLiquid
     end
 
     def load_collection
-      if params[:taxon_id]
-        @collection = Spree::Taxon.where(handle: params[:taxon_id]).first
-      end
+      return unless params[:taxon_id].present?
+      @collection ||= Spree::Taxon.where(handle: params[:taxon_id]).first
     end
   end
 end

@@ -12,8 +12,9 @@ module SolidusLiquid
       %(<script src="#{url}" type="text/javascript"></script>)
     end
 
+    # rubocop:disable Metrics/LineLength
     def stylesheet_tag(url, media = 'all')
-      %(<link href="#{url}" rel="stylesheet" type="text/css"  media="#{media}" />)
+      %(<link href="#{url}" rel="stylesheet" type="text/css" media="#{media}" />)
     end
   end
 end
