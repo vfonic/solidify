@@ -40,6 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "factory_girl_rails"
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-rspec'
+  spec.add_development_dependency 'liquid4-rails5'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'rspec-rails'
