@@ -34,11 +34,13 @@ module SolidusLiquid
     alias shopify_asset_url global_asset_url
 
     def img_url(drop, size)
-      case drop.class
+      case drop
       when ::Spree::ProductDrop
-        product.images.first.attachment.url
+        drop.featured_image.try(:attachment).try(:url)
       when ::Spree::ImageDrop
         attachment.url
+      else
+        drop.to_s
       end
     end
 
