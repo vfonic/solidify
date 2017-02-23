@@ -1,7 +1,7 @@
 module SolidusLiquid
   FactoryGirl.define do
     factory :theme, class: Theme do
-      title 'MyString'
+      name 'MyString'
     end
   end
 end
