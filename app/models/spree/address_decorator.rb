@@ -4,7 +4,7 @@ module Spree
     include ::SolidusLiquid::FullName
 
     def default
-      user_address.default
+      user_addresses.first.try(:default)
     end
 
     def province
