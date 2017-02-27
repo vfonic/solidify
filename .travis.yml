@@ -3,8 +3,6 @@ addons:
     repo_token: 341434bb91c704341aff79848c22e2c605ddd6f99c213d7166953c46436ad6cf
 after_success:
   - bundle exec codeclimate-test-reporter
-before_script:
-  - bin/rails db:migrate RAILS_ENV=test
 cache: bundler
 language: ruby
 rvm: 2.3.3
