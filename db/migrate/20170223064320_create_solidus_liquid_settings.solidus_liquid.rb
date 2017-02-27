@@ -1,5 +1,5 @@
 # This migration comes from solidus_liquid (originally 20170208021602)
-class CreateSolidusLiquidSettings < ActiveRecord::Migration
+class CreateSolidusLiquidSettings < ActiveRecord::Migration[5.0]
   def self.up
     # create_table :solidus_liquid_settings do |t|
     create_table :settings do |t|
