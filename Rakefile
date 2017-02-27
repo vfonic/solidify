@@ -22,6 +22,9 @@ task :default do
     Rake::Task[:test_app].invoke
     Dir.chdir('../../')
   end
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new
+  Rake::Task[:rubocop].invoke
   Rake::Task[:spec].invoke
 end
 
