@@ -8,7 +8,7 @@ language: ruby
 rvm: 2.3.3
 script:
   - bundle exec rubocop
-  - bundle exec rspec
+  - bundle exec rake
 services:
   - redis-server
 sudo: false
