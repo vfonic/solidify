@@ -26,7 +26,10 @@ guard :rspec, cmd: 'rspec' do
 
   # watch /app files
   watch(%r{^app/(.+)/solidus_liquid/(.+).rb$}) do |m|
-    "spec/#{m[1]}/#{m[2]}_spec.rb"
+    "spec/#{m[1]}/solidus_liquid/#{m[2]}_spec.rb"
+  end
+  watch(%r{^app/(.+)/spree/(.+).rb$}) do |m|
+    "spec/#{m[1]}/spree/#{m[2]}_spec.rb"
   end
 end
 
