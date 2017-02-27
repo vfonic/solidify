@@ -17,6 +17,10 @@ module SolidusLiquid
       'sessions#new' => 'templates/customers/login.liquid'
     }.freeze
 
+    LIQUID_FILTERS = [
+      AdditionalFilters, HtmlFilters, MoneyFilters, StringFilters, UrlFilters
+    ].freeze
+
     def content_for_header
       ApplicationController.new.render_to_string(
         template: 'solidus_liquid/global/content_for_header',
@@ -80,7 +84,7 @@ module SolidusLiquid
     end
 
     def liquid_filters
-      [AdditionalFilters, HtmlFilters, MoneyFilters, StringFilters, UrlFilters]
+      LIQUID_FILTERS
     end
 
     def set_active_theme
