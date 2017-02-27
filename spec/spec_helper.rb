@@ -1,7 +1,7 @@
 # Run Coverage report
 require 'simplecov'
 SimpleCov.start do
-  add_filter 'spec/test_app'
+  add_filter 'spec/dummy'
   add_group 'Controllers', 'app/controllers'
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
@@ -13,7 +13,7 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../test_app/config/environment.rb', __FILE__)
+require File.expand_path('../dummy/config/environment.rb', __FILE__)
 
 require 'rspec/rails'
 require 'database_cleaner'
