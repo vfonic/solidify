@@ -18,9 +18,9 @@ desc 'Run all specs in spec directory (excluding plugin specs)'
 RSpec::Core::RakeTask.new
 
 task :default do
-  if Dir["spec/dummy"].empty?
+  if Dir['spec/dummy'].empty?
     Rake::Task[:test_app].invoke
-    Dir.chdir("../../")
+    Dir.chdir('../../')
   end
   Rake::Task[:spec].invoke
 end
@@ -28,5 +28,5 @@ end
 desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'solidus_liquid'
-  Rake::Task['common:test_app'].invoke("Spree::User")
+  Rake::Task['common:test_app'].invoke('Spree::User')
 end
