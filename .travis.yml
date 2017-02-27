@@ -7,7 +7,7 @@ cache: bundler
 language: ruby
 rvm: 2.3.3
 script:
-  - bundle exec rake db:migrate
+  - bin/rails db:migrate RAILS_ENV=test
   - bundle exec rake
 services:
   - redis-server
