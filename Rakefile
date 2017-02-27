@@ -24,7 +24,7 @@ task :default do
   end
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
-  Rake::Task[:rubocop].invoke
+  Rake::Task['rubocop:auto_correct'].invoke
   Rake::Task[:spec].invoke
 end
 
