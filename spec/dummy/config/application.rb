@@ -4,7 +4,7 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups(:assets => %w(development test)))
 
-require 'solidus/auth'
+require 'solidus_liquid'
 
 module Dummy
   class Application < Rails::Application
