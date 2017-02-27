@@ -31,10 +31,10 @@ module SolidusLiquid
       )
       search_result = product_scope.ransack(params[:q]).result
       Search.new(
-        true,
-        search_result,
-        search_result.count,
-        params[:q]
+        performed: true,
+        results: search_result,
+        results_count: search_result.count,
+        terms: params[:q]
       )
     end
   end
