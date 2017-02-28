@@ -42,6 +42,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-bundler'
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'guard-rubocop'
+  spec.add_development_dependency 'guard-spring'
   spec.add_development_dependency 'liquid4-rails5'
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
@@ -49,6 +50,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'spring-commands-rspec'
+  spec.add_development_dependency 'spring-commands-rubocop'
   spec.add_development_dependency 'sqlite3'
   # solidus_auth_devise dependencies
   spec.add_development_dependency 'sass-rails'

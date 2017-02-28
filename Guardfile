@@ -10,7 +10,7 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
-guard :rspec, cmd: 'rspec' do
+guard :rspec, cmd: 'spring rspec' do
   require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
@@ -37,4 +37,12 @@ guard :rubocop, cli: '-Sa' do
   watch(/.+\.rb$/)
   watch(/.+\.rake$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+end
+
+guard 'spring', bundler: true do
+  watch('Gemfile.lock')
+  watch(%r{^config/})
+  watch(%r{^lib/})
+  watch(%r{^spec/(support|factories)/})
+  watch(%r{^spec/factory.rb})
 end
