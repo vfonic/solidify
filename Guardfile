@@ -33,7 +33,7 @@ guard :rspec, cmd: 'spring rspec' do
   end
 end
 
-guard :rubocop, cli: '-Sa' do
+guard :rubocop, all_on_start: false, cli: '-aDERS' do
   watch(/.+\.rb$/)
   watch(/.+\.rake$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
