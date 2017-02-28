@@ -7,7 +7,7 @@ module Spree
     has_many :users, through: :user_addresses
 
     def default
-      user_addresses.first.try(:default)
+      user_addresses.first.try(:default) || false
     end
 
     def province

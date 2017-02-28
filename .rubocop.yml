@@ -20,10 +20,14 @@ Metrics/BlockLength:
   Exclude:
     - config/environments/production.rb
     - '**/*_spec.rb'
-    - 'spec/shared/**'
+    - 'spec/shared_examples/**'
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/**'
+Metrics/ModuleLength:
+  Exclude:
+    - '**/*_spec.rb'
+    - 'spec/shared_examples/**'
 Lint/Debugger:
   Enabled: false
 Lint/DefEndAlignment:
