@@ -12,7 +12,8 @@ require 'factory_girl_rails'
 
 require 'spree/testing_support/factories'
 
-Dir[SolidusLiquid::Engine.root.join('spec/support/**/*.rb')].each do |f|
+Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), 'shared_examples/**/*.rb')].each do |f|
   require f
 end
 

@@ -19,6 +19,7 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'factory_girl'
 require 'pry'
+require 'rails_helper'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
