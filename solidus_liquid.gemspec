@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails-settings-cached'
   spec.add_dependency 'redis'
   spec.add_dependency 'sass'
-  spec.add_dependency 'liquid-rails'
+  spec.add_dependency 'liquid4-rails5'
   spec.add_dependency 'responders'
   spec.add_dependency 'solidus_core', '~> 2.1'
   spec.add_dependency 'solidus_auth_devise', '~> 1.6.2'
