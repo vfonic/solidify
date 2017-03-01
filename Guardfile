@@ -31,6 +31,9 @@ guard :rspec, cmd: 'spring rspec' do
   watch(%r{^app/(.+)/spree/(.+).rb$}) do |m|
     "spec/#{m[1]}/spree/#{m[2]}_spec.rb"
   end
+  watch(%r{^app/(.+)/spree/(.+)_decorator.rb$}) do |m|
+    "spec/#{m[1]}/spree/#{m[2]}_spec.rb"
+  end
 end
 
 guard :rubocop, all_on_start: false, cli: '-aDERS' do
