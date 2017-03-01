@@ -18,7 +18,7 @@ module Liquid
   end
 
   class VariableLookup
-    PERMITTED_NILLABLE = %w(collections linklists setting).freeze
+    PERMITTED_NILLABLE = %w(collections linklists settings).freeze
 
     # rubocop:disable all
     def evaluate(context)
