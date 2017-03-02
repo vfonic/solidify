@@ -27,3 +27,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 end
+
+Spree.config do |config|
+  config.address_requires_state = false
+  config.company = true
+end

@@ -1,6 +1,6 @@
 Liquid::Template.error_mode = :strict
 
-def render_liquid(template, assigns, strict)
+def render_liquid(template, assigns, strict = true)
   options = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS }
   if strict
     options[:strict_variables] = true
