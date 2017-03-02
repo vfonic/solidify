@@ -4,7 +4,7 @@ module Spree
   RSpec.describe AddressDrop do
     let(:address_attributes) do
       {
-        id: '5',
+        id: 5,
         first_name: 'Arthur',
         last_name: 'Dent',
         address1: '155',
@@ -24,6 +24,8 @@ module Spree
     let(:strict) { true }
 
     subject { render_liquid(template, assigns, strict) }
+
+    it_behaves_like 'drop for nil', 'address', AddressFields::METHODS
 
     describe 'json' do
       let(:address) { build(:address, address_attributes) }
@@ -87,31 +89,6 @@ module Spree
         let(:expected) { '155, Country Lane' }
       end
       it_behaves_like('drop', 'zip') { let(:expected) { '21000' } }
-    end
-
-    context 'Address is nil' do
-      let(:address) { nil }
-      let(:strict) { false }
-
-      describe 'json' do
-        let(:template) { '{{ address | json }}' }
-
-        it 'returns null' do
-          expect(subject).to eq('null')
-        end
-      end
-
-      describe 'methods' do
-        AddressFields::METHODS.each do |method|
-          describe "##{method}" do
-            let(:template) { "{{ address.#{method} }}" }
-
-            it 'returns empty string' do
-              expect(subject).to eq('')
-            end
-          end
-        end
-      end
     end
   end
 end
