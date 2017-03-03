@@ -23,11 +23,23 @@ module Spree
     end
     # rubocop:enable Style/PredicateName
 
+    def last_order
+      @object.orders.complete.by_completed_at.last
+    end
+
+    def orders_count
+      @object.orders.complete.size
+    end
+
     def password_needed
       true
     end
 
     def tags; end
+
+    def total_spent
+      0
+    end
 
     def to_json(_json)
       { "error": 'json not allowed for this object' }.to_json

@@ -8,6 +8,10 @@ module Spree
       {}
     end
 
+    def created_at
+      @object.completed_at
+    end
+
     def items
       @object.line_items
     end

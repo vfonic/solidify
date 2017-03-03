@@ -51,15 +51,21 @@ module Spree
           user.addresses << build(:address)
           user.addresses << build(:address)
 
-          expect(subject).to eq('Spree::AddressDrop' * 2)
+          expect(subject).to eq('AddressDrop' * 2)
         end
 
         it_behaves_like('drop', 'addresses_count', 'customer') do
-          before(:each) do
-            user.addresses << build(:address)
-          end
+          let(:user) { build(:user, addresses: [build(:address)]) }
 
           let(:expected) { '1' }
+        end
+        it_behaves_like('drop', 'default_address', 'customer') do
+          before(:each) do
+            user.save
+            user.default_address = create(:address)
+          end
+
+          let(:expected) { 'AddressDrop' }
         end
       end
 
@@ -78,8 +84,54 @@ module Spree
       it_behaves_like('drop', 'name', 'customer') do
         let(:expected) { 'Arthur Dent' }
       end
+
+      context 'orders' do
+        let(:template) { '{{ customer.last_order.created_at }}' }
+        it 'returns last_order' do
+          user.orders << build(:order, state: OrderState::COMPLETE,
+                                       completed_at: 1.week.ago)
+          expected = 1.minute.ago
+          user.orders << build(:order, state: OrderState::COMPLETE,
+                                       completed_at: expected)
+          user.save
+
+          expect(subject).to eq(expected.to_s)
+        end
+
+        it_behaves_like('drop', 'orders', 'customer') do
+          let(:user) do
+            create(:user, orders: [
+                     create(:order, state: OrderState::COMPLETE),
+                     create(:order, state: OrderState::COMPLETE)
+                   ])
+          end
+
+          let(:expected) { 'OrderDrop' * 2 }
+        end
+        it_behaves_like('drop', 'orders_count', 'customer') do
+          let(:user) do
+            create(:user, orders: [build(:order, state: OrderState::COMPLETE)])
+          end
+
+          let(:expected) { '1' }
+        end
+
+        context 'for cart order' do
+          it_behaves_like('drop', 'orders_count', 'customer') do
+            let(:user) do
+              create(:user, orders: [build(:order, state: OrderState::CART)])
+            end
+
+            let(:expected) { '0' }
+          end
+        end
+      end
+
       it_behaves_like('drop', 'tags', 'customer') do
         let(:expected) { '' }
+      end
+      it_behaves_like('drop', 'total_spent', 'customer') do
+        let(:expected) { '0' }
       end
     end
   end
