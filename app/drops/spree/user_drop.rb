@@ -10,7 +10,7 @@ module Spree
     end
 
     def addresses_count
-      @object.addresses.count
+      @object.addresses.size
     end
 
     def errors
