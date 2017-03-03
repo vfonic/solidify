@@ -43,13 +43,26 @@ module Spree
       it_behaves_like('drop', 'accepts_marketing', 'customer') do
         let(:expected) { 'false' }
       end
-      it_behaves_like('drop', 'addresses_count', 'customer') do
-        before(:each) do
+
+      context 'addresses' do
+        let(:template) { '{{ customer.addresses }}' }
+
+        it 'returns array of AddressDrops for addresses method' do
           user.addresses << build(:address)
+          user.addresses << build(:address)
+
+          expect(subject).to eq('Spree::AddressDrop' * 2)
         end
 
-        let(:expected) { '1' }
+        it_behaves_like('drop', 'addresses_count', 'customer') do
+          before(:each) do
+            user.addresses << build(:address)
+          end
+
+          let(:expected) { '1' }
+        end
       end
+
       it_behaves_like('drop', 'email', 'customer') do
         let(:expected) { 'arthur.dent@example.com' }
       end
