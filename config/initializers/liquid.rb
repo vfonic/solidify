@@ -87,6 +87,10 @@ module Liquid
         end
       end
       # rubocop:enable all
+
+      def to_s
+        self.class.name.demodulize
+      end
     end
 
     class FileSystem < ::Liquid::LocalFileSystem
