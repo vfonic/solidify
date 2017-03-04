@@ -49,7 +49,7 @@ module Spree
 
         context 'with one variant' do
           before(:each) do
-            image.viewable = build(:variant)
+            image.viewable = build(:base_variant)
           end
 
           it_behaves_like 'drop', 'attached_to_variant?' do
