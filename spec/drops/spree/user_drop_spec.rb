@@ -1,5 +1,3 @@
-# require 'rails_helper'
-
 module Spree
   RSpec.describe UserDrop do
     let(:user_attributes) do

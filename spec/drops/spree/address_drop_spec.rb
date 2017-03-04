@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 module Spree
   RSpec.describe AddressDrop do
     let(:address_attributes) do
