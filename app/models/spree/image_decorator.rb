@@ -1,7 +1,7 @@
 module Spree
   Image.class_eval do
     def attached_to_variant?
-      !viewable.is_master?
+      viewable.present? && !viewable.is_master?
     end
 
     def product_id
@@ -10,10 +10,6 @@ module Spree
 
     def src
       attachment.try(:url)
-    end
-
-    def variants
-      [viewable]
     end
   end
 end
