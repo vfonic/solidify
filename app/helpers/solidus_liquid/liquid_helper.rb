@@ -103,7 +103,7 @@ module SolidusLiquid
       template_format =
         CONTROLLER_ACTION_TO_LIQUID_MAPPING.fetch(controller_action)
 
-      template_path = template_format % ({ template_suffix: template_suffix })
+      template_path = format(template_format, template_suffix: template_suffix)
 
       "#{theme_dir}/#{template_path}"
     end

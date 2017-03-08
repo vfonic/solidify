@@ -5,7 +5,7 @@ module SolidusLiquid
     belongs_to :link_list
 
     def active
-      @context.registers[:controller].request.path == @object.url
+      @context.registers[:view].current_page?(@object.url)
     end
 
     def type
