@@ -43,5 +43,53 @@ module SolidusLiquid
         expect(subject).to eq(expected)
       end
     end
+
+    describe '#map' do
+      let(:variant1) do
+        build(:base_variant,
+              option_values: [
+                build(:option_value, presentation: 'Depressed'),
+                build(:option_value, presentation: 'Green eyes')
+              ])
+      end
+      let(:variant2) do
+        build(:base_variant,
+              option_values: [
+                build(:option_value, presentation: 'Two Heads'),
+                build(:option_value, presentation: 'President')
+              ])
+      end
+      let(:assigns) { { 'variants' => [variant1, variant2] } }
+      let(:expected) { 'Depressed / Green eyes' + 'Two Heads / President' }
+
+      it_behaves_like 'filter', 'variants', 'map', '"title"'
+    end
+
+    describe '#reverse' do
+      let(:expected) { 'apple orange banana'.split(' ').reverse.join }
+      it_behaves_like 'filter', 'fruits', 'reverse'
+    end
+
+    describe '#size' do
+      let(:expected) { '3' }
+      it_behaves_like 'filter', 'fruits', 'size'
+    end
+
+    describe '#sort' do
+      let(:variant1) { build(:base_variant, price: 16.99) }
+      let(:variant2) { build(:base_variant, price: 15.99) }
+      let(:assigns) { { 'variants' => [variant1, variant2] } }
+      let(:expected) { '1599' + '1699' }
+
+      it_behaves_like 'filter', 'variants', 'sort', '"price" | map: "price"'
+    end
+
+    describe '#uniq' do
+      let(:assigns) do
+        { 'fruits' => %w(apple banana apples apple orange banana) }
+      end
+      let(:expected) { 'apple banana apples orange'.delete(' ') }
+      it_behaves_like 'filter', 'fruits', 'uniq'
+    end
   end
 end
