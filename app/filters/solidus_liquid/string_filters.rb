@@ -33,7 +33,7 @@ module SolidusLiquid
     end
 
     def pluralize(input, singular, plural)
-      input == 1 ? singular : plural
+      input.try(:to_i) == 1 ? singular : plural
     end
   end
 end

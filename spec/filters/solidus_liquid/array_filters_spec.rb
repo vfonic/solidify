@@ -75,6 +75,21 @@ module SolidusLiquid
       it_behaves_like 'filter', 'fruits', 'size'
     end
 
+    describe '#slice' do
+      it_behaves_like('filter', 'fruits', 'slice', '0') do
+        let(:expected) { 'apple' }
+      end
+      it_behaves_like('filter', 'fruits', 'slice', '1') do
+        let(:expected) { 'orange' }
+      end
+      it_behaves_like('filter', 'fruits', 'slice', '1, 2') do
+        let(:expected) { 'orange banana'.delete(' ') }
+      end
+      it_behaves_like('filter', 'fruits', 'slice', '-1, 1') do
+        let(:expected) { 'banana' }
+      end
+    end
+
     describe '#sort' do
       let(:variant1) { build(:base_variant, price: 16.99) }
       let(:variant2) { build(:base_variant, price: 15.99) }
