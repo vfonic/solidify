@@ -44,6 +44,10 @@ module SolidusLiquid
       end
     end
 
+    def link_to(link, url, title = '')
+      %(<a href="#{url}" title="#{title}">#{link}</a>)
+    end
+
     def url_for_vendor(vendor)
       "/collections/vendors?q=#{vendor}"
     end
