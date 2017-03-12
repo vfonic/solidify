@@ -37,6 +37,11 @@ module SolidusLiquid
       end
     end
 
+    describe '#first' do
+      let(:expected) { 'a' }
+      it_behaves_like 'filter', '"apple"', 'first'
+    end
+
     describe '#handle' do
       it_behaves_like('filter', '"100% M & Ms!!!"', 'handle') do
         let(:expected) { '100-m-ms' }
@@ -47,6 +52,11 @@ module SolidusLiquid
       it_behaves_like('filter', '"100% M & Ms!!!"', 'handleize') do
         let(:expected) { '100-m-ms' }
       end
+    end
+
+    describe '#last' do
+      let(:expected) { 'e' }
+      it_behaves_like 'filter', '"apple"', 'last'
     end
 
     describe '#md5' do
@@ -258,15 +268,13 @@ module SolidusLiquid
     end
 
     describe '#url_escape' do
-      it_behaves_like('filter',
-                      '"<hello> & <shopify>"', 'url_escape') do
+      it_behaves_like('filter', '"<hello> & <shopify>"', 'url_escape') do
         let(:expected) { '%3Chello%3E%20&%20%3Cshopify%3E' }
       end
     end
 
     describe '#url_param_escape' do
-      it_behaves_like('filter',
-                      '"<hello> & <shopify>"', 'url_param_escape') do
+      it_behaves_like('filter', '"<hello> & <shopify>"', 'url_param_escape') do
         let(:expected) { '%3Chello%3E%20%26%20%3Cshopify%3E' }
       end
     end

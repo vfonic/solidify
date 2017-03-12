@@ -35,5 +35,13 @@ module SolidusLiquid
     def pluralize(input, singular, plural)
       input.try(:to_i) == 1 ? singular : plural
     end
+
+    def url_escape(input)
+      URI.escape(input)
+    end
+
+    def url_param_escape(input)
+      ERB::Util.url_encode(input)
+    end
   end
 end
