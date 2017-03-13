@@ -11,36 +11,40 @@ module SolidusLiquid
     let(:strict) { true }
 
     describe '#join' do
-      let(:expected) { 'apple orange banana' }
-      it_behaves_like 'filter', 'fruits', 'join'
+      it_behaves_like 'filter', 'fruits', 'join' do
+        let(:expected) { 'apple orange banana' }
+      end
 
       context 'with params' do
-        let(:expected) { 'apple,orange,banana' }
-        it_behaves_like 'filter', 'fruits', 'join', '","'
+        it_behaves_like 'filter', 'fruits', 'join', '","' do
+          let(:expected) { 'apple,orange,banana' }
+        end
       end
     end
 
     describe '#first' do
-      let(:expected) { 'apple' }
-      it_behaves_like 'filter', 'fruits', 'first'
+      it_behaves_like 'filter', 'fruits', 'first' do
+        let(:expected) { 'apple' }
+      end
     end
 
     describe '#last' do
-      let(:expected) { 'banana' }
-      it_behaves_like 'filter', 'fruits', 'last'
+      it_behaves_like 'filter', 'fruits', 'last' do
+        let(:expected) { 'banana' }
+      end
     end
 
     describe '#concat' do
-      let(:expected) { 'apple orange banana potato kale spinach'.delete(' ') }
-      it_behaves_like 'filter', 'fruits', 'concat', 'vegetables'
+      it_behaves_like 'filter', 'fruits', 'concat', 'vegetables' do
+        let(:expected) { 'apple orange banana potato kale spinach'.delete(' ') }
+      end
     end
 
     describe '#index' do
-      let(:expected) { 'banana' }
       let(:template) { '{{ fruits[2] }}' }
 
       it 'returns correct result' do
-        expect(subject).to eq(expected)
+        expect(subject).to eq('banana')
       end
     end
 
@@ -60,19 +64,22 @@ module SolidusLiquid
               ])
       end
       let(:assigns) { { 'variants' => [variant1, variant2] } }
-      let(:expected) { 'Depressed / Green eyes' + 'Two Heads / President' }
 
-      it_behaves_like 'filter', 'variants', 'map', '"title"'
+      it_behaves_like 'filter', 'variants', 'map', '"title"' do
+        let(:expected) { 'Depressed / Green eyes' + 'Two Heads / President' }
+      end
     end
 
     describe '#reverse' do
-      let(:expected) { 'apple orange banana'.split(' ').reverse.join }
-      it_behaves_like 'filter', 'fruits', 'reverse'
+      it_behaves_like 'filter', 'fruits', 'reverse' do
+        let(:expected) { 'apple orange banana'.split(' ').reverse.join }
+      end
     end
 
     describe '#size' do
-      let(:expected) { '3' }
-      it_behaves_like 'filter', 'fruits', 'size'
+      it_behaves_like 'filter', 'fruits', 'size' do
+        let(:expected) { '3' }
+      end
     end
 
     describe '#slice' do
@@ -94,17 +101,20 @@ module SolidusLiquid
       let(:variant1) { build(:base_variant, price: 16.99) }
       let(:variant2) { build(:base_variant, price: 15.99) }
       let(:assigns) { { 'variants' => [variant1, variant2] } }
-      let(:expected) { '1599' + '1699' }
 
-      it_behaves_like 'filter', 'variants', 'sort', '"price" | map: "price"'
+      it_behaves_like 'filter', 'variants', 'sort', '"price" | map: "price"' do
+        let(:expected) { '1599' + '1699' }
+      end
     end
 
     describe '#uniq' do
       let(:assigns) do
         { 'fruits' => %w(apple banana apples apple orange banana) }
       end
-      let(:expected) { 'apple banana apples orange'.delete(' ') }
-      it_behaves_like 'filter', 'fruits', 'uniq'
+
+      it_behaves_like 'filter', 'fruits', 'uniq' do
+        let(:expected) { 'apple banana apples orange'.delete(' ') }
+      end
     end
   end
 end

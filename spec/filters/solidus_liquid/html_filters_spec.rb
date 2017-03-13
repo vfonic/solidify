@@ -6,28 +6,42 @@ module SolidusLiquid
     let(:strict) { true }
 
     describe '#img_tag' do
-      let(:expected) { '<img src="https://example.com" alt="" />' }
-      it_behaves_like 'filter', 'url', 'img_tag'
+      it 'renders img tag' do
+        expect(helper.img_tag('https://example.com'))
+          .to eq('<img src="https://example.com" alt="" />')
+      end
 
       context 'with alt' do
-        let(:expected) { '<img src="https://example.com" alt="ALT" />' }
-        it_behaves_like 'filter', 'url', 'img_tag', '"ALT"'
+        it 'renders img tag' do
+          expect(helper.img_tag('https://example.com', 'ALT'))
+            .to eq('<img src="https://example.com" alt="ALT" />')
+        end
       end
     end
 
     describe '#script_tag' do
-      let(:expected) do
-        '<script src="https://example.com" type="text/javascript"></script>'
+      it 'renders script tag' do
+        expect(helper.script_tag('https://example.com'))
+          .to eq(
+            '<script src="https://example.com" type="text/javascript"></script>'
+          )
       end
-      it_behaves_like 'filter', 'url', 'script_tag'
     end
 
     describe '#stylesheet_tag' do
-      let(:expected) do
-        %w(<link href="https://example.com" rel="stylesheet"
-           type="text/css" media="all" />).join(' ')
+      it 'renders stylesheet tag' do
+        expect(helper.stylesheet_tag('https://example.com'))
+          .to eq(%w(<link href="https://example.com" rel="stylesheet"
+                    type="text/css" media="all" />).join(' '))
       end
-      it_behaves_like 'filter', 'url', 'stylesheet_tag'
+
+      context 'with media' do
+        it 'render stylesheet tag' do
+          expect(helper.stylesheet_tag('https://example.com', 'MEDIA'))
+            .to eq(%w(<link href="https://example.com" rel="stylesheet"
+                      type="text/css" media="MEDIA" />).join(' '))
+        end
+      end
     end
   end
 end

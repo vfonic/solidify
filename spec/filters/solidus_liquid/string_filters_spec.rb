@@ -38,8 +38,9 @@ module SolidusLiquid
     end
 
     describe '#first' do
-      let(:expected) { 'a' }
-      it_behaves_like 'filter', '"apple"', 'first'
+      it_behaves_like 'filter', '"apple"', 'first' do
+        let(:expected) { 'a' }
+      end
     end
 
     describe '#handle' do
@@ -55,8 +56,9 @@ module SolidusLiquid
     end
 
     describe '#last' do
-      let(:expected) { 'e' }
-      it_behaves_like 'filter', '"apple"', 'last'
+      it_behaves_like 'filter', '"apple"', 'last' do
+        let(:expected) { 'e' }
+      end
     end
 
     describe '#md5' do
