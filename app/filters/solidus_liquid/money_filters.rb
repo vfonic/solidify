@@ -24,15 +24,14 @@ module SolidusLiquid
 
     def render_money(price_in_cents, format, options = {})
       price = price_in_cents.to_f / 100
-      template = Liquid::Template.parse(format)
-      template.render(
-        'amount' =>
-        number_with_precision(price, options.reverse_merge(precision: 2)),
+      Liquid::Template.parse(format).render(
+        'amount' => number_with_precision(price, options.merge(precision: 2)),
         'amount_no_decimals' =>
-        number_with_precision(price, options.reverse_merge(precision: 0)),
+          number_with_precision(price, options.merge(precision: 0)),
         'amount_with_comma_separator' =>
-        number_with_precision(price, options.reverse_merge(precision: 2))
-        .tr('.', ',')
+          number_with_precision(price,
+                                options.merge(precision: 2,
+                                              delimiter: '.', separator: ','))
       )
     end
   end
