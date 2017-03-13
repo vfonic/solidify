@@ -1,12 +1,20 @@
-Liquid::Template.error_mode = :strict
+STRICT_OPTIONS = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS,
+                   strict_variables: true,
+                   strict_filters: true }.freeze
+LAX_OPTIONS = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS,
+                strict_variables: false,
+                strict_filters: false }.freeze
 
 def render_liquid(template, assigns, strict = true)
-  options = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS }
   if strict
-    options[:strict_variables] = true
-    options[:strict_filters] = true
+    Liquid::Template.error_mode = :strict
+    options = STRICT_OPTIONS
+    render_method = :render!
+  else
+    Liquid::Template.error_mode = :lax
+    options = LAX_OPTIONS
+    render_method = :render
   end
 
-  liquid = ::Liquid::Template.parse(template)
-  liquid.render!(assigns, options)
+  Liquid::Template.parse(template).send(render_method, assigns, options)
 end
