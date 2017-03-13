@@ -16,5 +16,5 @@ def render_liquid(template, assigns, strict = true)
     render_method = :render
   end
 
-  Liquid::Template.parse(template).send(render_method, assigns, options)
+  Liquid::Template.parse(template).public_send(render_method, assigns, options)
 end
