@@ -5,7 +5,7 @@ RSpec.shared_examples 'filter' do |variable, method, parameter, expected_param|
   end
 
   it 'returns correct result' do
-    if defined? expected_param
+    unless expected_param.nil?
       expect(subject).to eq(expected_param)
     else
       expect(subject).to eq(expected)
