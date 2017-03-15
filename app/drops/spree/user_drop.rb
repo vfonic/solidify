@@ -14,7 +14,7 @@ module Spree
     end
 
     def errors
-      SolidusLiquid::ErrorsDrop.new(@object.errors)
+      Solidify::ErrorsDrop.new(@object.errors)
     end
 
     # rubocop:disable Style/PredicateName

@@ -1,9 +1,9 @@
 module Spree
   Address.class_eval do
-    extend SolidusLiquid::ValidationCancel
+    extend Solidify::ValidationCancel
     cancel_validates :country_id
-    include ::SolidusLiquid::Address
-    include ::SolidusLiquid::FullName
+    include ::Solidify::Address
+    include ::Solidify::FullName
 
     has_many :user_addresses, -> { active }
     has_many :users, through: :user_addresses

@@ -1,8 +1,8 @@
-namespace :solidus_liquid do
+namespace :solidify do
   namespace :themes do
-    desc 'Seed default skeleton-theme theme and assets from solidus_liquid gem'
+    desc 'Seed default skeleton-theme theme and assets from solidify gem'
     task seed_default_theme: :environment do
-      SolidusLiquid::ThemeMechanic.new.create
+      Solidify::ThemeMechanic.new.create
     end
   end
 end

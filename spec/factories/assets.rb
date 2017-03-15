@@ -1,4 +1,4 @@
-module SolidusLiquid
+module Solidify
   # rubocop:disable Metrics/BlockLength
   FactoryGirl.define do
     factory :asset, class: Asset do
@@ -6,7 +6,7 @@ module SolidusLiquid
       key 'simple.liquid'
       file do
         Rack::Test::UploadedFile.new(
-          File.join(SolidusLiquid::Engine.root, 'spec', 'data',
+          File.join(Solidify::Engine.root, 'spec', 'data',
                     'simple.liquid')
         )
       end
@@ -15,7 +15,7 @@ module SolidusLiquid
         key 'assets/shop.js.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'assets',
                       'shop.js.liquid')
           )
         end
@@ -25,7 +25,7 @@ module SolidusLiquid
         key 'snippets/open-graph-tags.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'snippets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'snippets',
                       'open-graph-tags.liquid')
           )
         end
@@ -35,7 +35,7 @@ module SolidusLiquid
         key 'assets/style.scss.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'assets',
                       'style.scss.liquid')
           )
         end
@@ -45,7 +45,7 @@ module SolidusLiquid
         key 'assets/style_with_asset_url_filter.scss.liquid'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'assets',
                       'style_with_asset_url_filter.scss.liquid')
           )
         end
@@ -55,7 +55,7 @@ module SolidusLiquid
         key 'assets/style.scss'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'assets',
                       'style.scss')
           )
         end
@@ -65,7 +65,7 @@ module SolidusLiquid
         key 'assets/style.scss.css'
         file do
           Rack::Test::UploadedFile.new(
-            File.join(SolidusLiquid::Engine.root, 'spec', 'data', 'assets',
+            File.join(Solidify::Engine.root, 'spec', 'data', 'assets',
                       'style.scss.css')
           )
         end

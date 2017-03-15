@@ -64,7 +64,7 @@ module Spree
     end
 
     def vendor
-      SolidusLiquid::Setting['name']
+      Solidify::Setting['name']
     end
 
     # shopify json returns datetime in shop's timezone

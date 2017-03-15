@@ -32,8 +32,8 @@ Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 # require 'spree/testing_support/factories'
 # require 'spree/testing_support/url_helpers'
 
-# Requires factories defined in lib/solidus_liquid/factories.rb
-require 'solidus_liquid/factories'
+# Requires factories defined in lib/solidify/factories.rb
+require 'solidify/factories'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.configure do |config|

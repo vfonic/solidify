@@ -1,6 +1,6 @@
 module Spree
   User.class_eval do
-    include ::SolidusLiquid::FullName
+    include ::Solidify::FullName
     include Spree::OrderState
 
     has_many :orders

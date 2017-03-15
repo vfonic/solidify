@@ -80,7 +80,7 @@ module Liquid
           # This prevents for the case like this: collections[nil]
           # {% assign product_vendor_handle = product.vendor | handle %}
           # {% assign collection_handle = collections[product_vendor_handle].handle %}
-          ::SolidusLiquid::NilDrop.new(nil)
+          ::Solidify::NilDrop.new(nil)
         else
           return nil unless @context && @context.strict_variables
           raise Liquid::UndefinedDropMethod, "undefined method #{method} for #{self.class}"

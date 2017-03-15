@@ -1,7 +1,7 @@
 module Spree
   Product.class_eval do
     include ::RailsSettings::Extend
-    include ::SolidusLiquid::Handle
+    include ::Solidify::Handle
 
     def available
       variants.any?(&:available)

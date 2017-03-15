@@ -1,5 +1,5 @@
 # rubocop:disable Metrics/BlockLength
-SolidusLiquid::Engine.routes.draw do
+Solidify::Engine.routes.draw do
   root to: 'home#index'
   get 'pages/:id', to: 'pages#show', as: :page
   get 'account/addresses', to: 'addresses#index', as: :customer_addresses
@@ -18,8 +18,8 @@ SolidusLiquid::Engine.routes.draw do
                edit: ''
              },
              controllers: {
-               registrations: 'solidus_liquid/registrations',
-               sessions: 'solidus_liquid/sessions'
+               registrations: 'solidify/registrations',
+               sessions: 'solidify/sessions'
              }
 
   devise_scope :customer do

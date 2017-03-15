@@ -1,5 +1,5 @@
 module Spree
   Taxon.class_eval do
-    include ::SolidusLiquid::Handle
+    include ::Solidify::Handle
   end
 end

@@ -1,6 +1,6 @@
 module Spree
   class VariantDrop < ::Liquid::Rails::Drop
-    include SolidusLiquid::InventoryPolicy
+    include Solidify::InventoryPolicy
 
     attributes :id, :available, :barcode, :compare_at_price, :featured_image,
                :inventory_management, :inventory_policy, :inventory_quantity,
@@ -41,7 +41,7 @@ module Spree
     end
 
     def inventory_policy
-      SolidusLiquid::InventoryPolicy::INVENTORY_POLICY_DENY
+      Solidify::InventoryPolicy::INVENTORY_POLICY_DENY
     end
 
     def inventory_quantity
@@ -95,8 +95,8 @@ module Spree
     alias public_title title
 
     def url
-      SolidusLiquid::Engine.routes.url_helpers
-                           .variant_path(@object.product, @object)
+      Solidify::Engine.routes.url_helpers
+                      .variant_path(@object.product, @object)
     end
 
     def weight

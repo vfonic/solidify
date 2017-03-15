@@ -1,12 +1,12 @@
-namespace :solidus_liquid do
+namespace :solidify do
   namespace :shop do
-    desc 'Seed default theme and shop settings from solidus_liquid gem'
+    desc 'Seed default theme and shop settings from solidify gem'
     task seed_everything: :environment do
-      theme = SolidusLiquid::ThemeMechanic.new.create
+      theme = Solidify::ThemeMechanic.new.create
 
-      SolidusLiquid::ShopSettingsSeeder.new(theme.id).seed
+      Solidify::ShopSettingsSeeder.new(theme.id).seed
 
-      SolidusLiquid::LinkListSeeder.new.seed
+      Solidify::LinkListSeeder.new.seed
 
       # TODO: seed default 'all' collection
     end

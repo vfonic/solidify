@@ -25,8 +25,8 @@ guard :rspec, cmd: 'spring rspec' do
   dsl.watch_spec_files_for(ruby.lib_files)
 
   # watch /app files
-  watch(%r{^app/(.+)/solidus_liquid/(.+).rb$}) do |m|
-    "spec/#{m[1]}/solidus_liquid/#{m[2]}_spec.rb"
+  watch(%r{^app/(.+)/solidify/(.+).rb$}) do |m|
+    "spec/#{m[1]}/solidify/#{m[2]}_spec.rb"
   end
   watch(%r{^app/(.+)/spree/(.+).rb$}) do |m|
     "spec/#{m[1]}/spree/#{m[2]}_spec.rb"

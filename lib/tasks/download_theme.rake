@@ -1,8 +1,8 @@
-namespace :solidus_liquid do
+namespace :solidify do
   namespace :themes do
     desc 'Download active theme from AWS'
     task download_all_themes: :environment do
-      assets = SolidusLiquid::Asset.all
+      assets = Solidify::Asset.all
       assets.each do |asset|
         puts "Downloading #{asset.key}"
         local_asset_path = Rails.root.join(

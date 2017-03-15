@@ -40,7 +40,7 @@ module Spree
         expect(result_map['featured_image']).to eq(variant.images.first.src)
         expect(result_map['inventory_management']).to eq('shopify')
         expect(result_map['inventory_policy']).to eq(
-          SolidusLiquid::InventoryPolicy::INVENTORY_POLICY_DENY
+          Solidify::InventoryPolicy::INVENTORY_POLICY_DENY
         )
         expect(result_map['inventory_quantity']).to eq('0')
         expect(result_map['name'])

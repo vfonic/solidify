@@ -1,7 +1,7 @@
-STRICT_OPTIONS = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS,
+STRICT_OPTIONS = { filters: Solidify::LiquidHelper::LIQUID_FILTERS,
                    strict_variables: true,
                    strict_filters: true }.freeze
-LAX_OPTIONS = { filters: SolidusLiquid::LiquidHelper::LIQUID_FILTERS,
+LAX_OPTIONS = { filters: Solidify::LiquidHelper::LIQUID_FILTERS,
                 strict_variables: false,
                 strict_filters: false }.freeze
 

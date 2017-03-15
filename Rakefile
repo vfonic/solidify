@@ -30,6 +30,6 @@ end
 
 desc 'Generates a dummy app for testing'
 task :test_app do
-  ENV['LIB_NAME'] = 'solidus_liquid'
+  ENV['LIB_NAME'] = 'solidify'
   Rake::Task['common:test_app'].invoke('Spree::User')
 end
