@@ -22,15 +22,16 @@ module SolidusLiquid
 
     private
 
-    def render_money(price_in_cents, format, options = {})
+    def render_money(price_in_cents, template, options = {})
       price = price_in_cents.to_f / 100
-      Liquid::Template.parse(format).render(
-        'amount' => number_with_precision(price, options.merge(precision: 2)),
+      formatter = ActionController::Base.helpers.method(:number_with_precision)
+
+      ::Liquid::Template.parse(template).render(
+        'amount' => formatter.call(price, options.merge(precision: 2)),
         'amount_no_decimals' =>
-          number_with_precision(price, options.merge(precision: 0)),
+          formatter.call(price, options.merge(precision: 0)),
         'amount_with_comma_separator' =>
-          number_with_precision(price,
-                                options.merge(precision: 2,
+          formatter.call(price, options.merge(precision: 2,
                                               delimiter: '.', separator: ','))
       )
     end

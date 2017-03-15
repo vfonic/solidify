@@ -18,7 +18,7 @@ module Liquid
   end
 
   class VariableLookup
-    PERMITTED_NILLABLE = %w(collections linklists settings).freeze
+    PERMITTED_NILLABLE = %w(collections linklists pages settings).freeze
 
     # rubocop:disable all
     def evaluate(context)
@@ -118,8 +118,9 @@ module Liquid
 
         liquid = Liquid::Template.parse(template)
         # rubocop:enable all
-
-        rendered_template = liquid.render(
+        render_method = :render
+        rendered_template = liquid.public_send(
+          render_method,
           assigns,
           filters: filters,
           # strict_variables: true,

@@ -35,7 +35,7 @@ module SolidusLiquid
           let(:strict) { true }
 
           it 'raises error' do
-            expect { subject }.to raise_error Liquid::ZeroDivisionError
+            expect { subject }.to raise_error ::Liquid::ZeroDivisionError
           end
         end
 
