@@ -2,11 +2,11 @@ module Solidify
   module UrlFilters
     GLOBAL_ASSET_URLS = {
       'social/social-icons.css' =>
-        'https://shopify-split.s3.amazonaws.com/global/social/font-awesome.min.css',
+        'https://solidify.s3.amazonaws.com/global/social/font-awesome.min.css',
       'shopify_common.js' =>
-        'https://shopify-split.s3.amazonaws.com/global/shopify_common.js',
+        'https://solidify.s3.amazonaws.com/global/shopify_common.js',
       'option_selection.js' =>
-        'https://shopify-split.s3.amazonaws.com/global/option_selection.js'
+        'https://solidify.s3.amazonaws.com/global/option_selection.js'
     }.freeze
 
     def asset_url(asset_name)

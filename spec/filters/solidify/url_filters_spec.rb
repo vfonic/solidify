@@ -31,7 +31,7 @@ module Solidify
     xdescribe '#global_asset_url' do
       it 'fetches global_asset_url from url mapping' do
         expect(helper.global_asset_url('shopify_common.js'))
-          .to eq('https://shopify-split.s3.amazonaws.com/global/shopify_common.js')
+          .to eq('https://solidify.s3.amazonaws.com/global/shopify_common.js')
       end
     end
 
