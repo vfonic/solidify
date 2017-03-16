@@ -16,7 +16,11 @@ module Solidify
     private
 
     def collection
-      @collection ||= Spree::Taxon.find(params[:id])
+      @collection ||= if params[:id] == 'all'
+                        Spree::Taxon.find_or_create_collections_all
+                      else
+                        Spree::Taxon.find(params[:id])
+                      end
     end
   end
 end

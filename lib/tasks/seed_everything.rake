@@ -7,8 +7,6 @@ namespace :solidify do
       Solidify::ShopSettingsSeeder.new(theme.id).seed
 
       Solidify::LinkListSeeder.new.seed
-
-      # TODO: seed default 'all' collection
     end
   end
 end
