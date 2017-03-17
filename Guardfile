@@ -10,7 +10,7 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
-guard :rspec, cmd: 'spring rspec' do
+guard :rspec, cmd: 'spring rspec', failed_mode: :keep do
   require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
