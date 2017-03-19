@@ -4,15 +4,11 @@ module Spree
 
     class << self
       def find_or_create_collections_all
-        collection = Spree::Taxon.find_or_initialize_by(handle: 'all')
+        collection = Spree::Taxon.find_by(handle: 'all')
 
-        unless collection.persisted?
-          collection.permalink = 'all'
-          collection.title = 'Products'
-          collection.save
+        unless collection.present?
+          collection = ::Solidify::CollectionsAllBuilder.create!
         end
-
-        collection.products = Spree::Product.all if collection.products.empty?
 
         collection
       end
