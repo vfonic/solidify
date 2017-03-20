@@ -133,15 +133,17 @@ module Spree
       it_behaves_like('drop', 'inventory_policy') do
         let(:expected) { 'deny' }
       end
-      it_behaves_like('drop', 'inventory_quantity') do
-        before(:each) do
-          stock_item = build(:stock_item)
-          stock_item.set_count_on_hand(505)
-          variant.stock_items << stock_item
-          variant.save
-        end
+      xit 'behaves like drop for inventory_quantity' do
+        it_behaves_like('drop', 'inventory_quantity') do
+          before(:each) do
+            stock_item = build(:stock_item)
+            stock_item.set_count_on_hand(505)
+            variant.stock_items << stock_item
+            variant.save
+          end
 
-        let(:expected) { '505' }
+          let(:expected) { '505' }
+        end
       end
       it_behaves_like('drop', 'next_incoming_date') { let(:expected) { '' } }
       it_behaves_like('drop', 'option1') { let(:expected) { 'S' } }

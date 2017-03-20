@@ -1,14 +1,11 @@
 module Spree
   class ProductDrop < ::Liquid::Rails::Drop
-    attributes :id, :available, :content, :compare_at_price,
-               :compare_at_price_max, :compare_at_price_min,
-               :compare_at_price_varies, :created_at, :description,
-               :featured_image, :handle, :images, :options, :price, :price_max,
-               :price_min, :price_varies, :published_at, :tags, :title, :type,
-               :variants, :vendor
+    attributes(*ProductFields::JSON)
+
+    has_many :images
 
     def available
-      @object.available?
+      !@object.deleted?
     end
 
     def collections
@@ -69,13 +66,6 @@ module Spree
 
     # shopify json returns datetime in shop's timezone
     alias published_at created_at
-
-    # error
-    # TODO: check if shopify returns variant images as well
-    # Spree::Product.images delegates to master variant
-    def images
-      @object.images.map(&:attachment).map(&:url)
-    end
 
     def metafields
       ::RailsSettings::ScopedSettingsDrop.new(@object.settings)

@@ -2,6 +2,7 @@ module Spree
   class UserDrop < ::Liquid::Rails::Drop
     attributes :id, :default_address, :email, :first_name, :last_name, :name,
                :password
+
     has_many :orders
     has_many :addresses
 

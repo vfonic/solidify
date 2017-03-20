@@ -2,11 +2,7 @@ module Spree
   class VariantDrop < ::Liquid::Rails::Drop
     include Solidify::InventoryPolicy
 
-    attributes :id, :available, :barcode, :compare_at_price, :featured_image,
-               :inventory_management, :inventory_policy, :inventory_quantity,
-               :name, :option1, :option2, :option3, :options, :price,
-               :public_title, :requires_shipping, :sku, :taxable, :title,
-               :weight
+    attributes(*VariantFields::JSON)
 
     # For a variant to be available, its variant.inventory_quantity must be
     # greater than zero or variant.inventory_policy must be set to continue. A

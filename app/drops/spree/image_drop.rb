@@ -4,7 +4,11 @@ module Spree
                :product_id, :src, :variants
 
     def variants
-      @object.viewable.present? ? [@object.viewable] : []
+      if @object.viewable.present?
+        [Spree::VariantDrop.new(@object.viewable)]
+      else
+        []
+      end
     end
 
     def to_json(_json)

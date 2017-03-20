@@ -38,7 +38,7 @@ module Solidify
       when ::Spree::ProductDrop
         drop.featured_image.try(:attachment).try(:url)
       when ::Spree::ImageDrop
-        attachment.url
+        drop.attachment.url
       else
         drop.to_s
       end

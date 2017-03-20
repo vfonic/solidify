@@ -4,11 +4,7 @@ module Spree
       {
         id: 3,
         alt: 'Vogon Ship',
-        # attached_to_variant?: true,
-        # product_id: 10,
-        position: 2,
-        # src: 'products/IMG_8472-COLLAGE.jpg'
-        # variants: #
+        position: 2
       }
     end
 
@@ -35,9 +31,7 @@ module Spree
       it_behaves_like('drop', 'alt') { let(:expected) { 'Vogon Ship' } }
       it_behaves_like('drop', 'product_id') { let(:expected) { '' } }
       it_behaves_like('drop', 'position') { let(:expected) { '2' } }
-      it_behaves_like('drop', 'src') do
-        let(:expected) { image.src }
-      end
+      it_behaves_like('drop', 'src') { let(:expected) { image.src } }
 
       describe 'variants' do
         context 'without variants' do
@@ -56,9 +50,9 @@ module Spree
             let(:expected) { 'true' }
           end
 
-          # it_behaves_like('drop', 'variants') do
-          #   let(:expected) { 'VariantDrop' }
-          # end
+          it_behaves_like('drop', 'variants') do
+            let(:expected) { 'VariantDrop' }
+          end
         end
       end
     end
