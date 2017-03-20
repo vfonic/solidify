@@ -52,7 +52,13 @@ module Liquid
           if !context.strict_variables || PERMITTED_NILLABLE.include?(name)
             return nil
           end
-          raise Liquid::UndefinedVariable, "undefined variable #{name}.#{key}"
+
+          variable_name = if @lookups.blank?
+                            "#{name}.#{key}"
+                          else
+                            "#{name}.#{@lookups.join('.')}"
+                          end
+          raise Liquid::UndefinedVariable, "undefined variable #{variable_name}"
         end
 
         # If we are dealing with a drop here we have to
