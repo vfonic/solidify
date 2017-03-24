@@ -3,20 +3,13 @@ module Spree
     let(:user_attributes) do
       {
         id: 15,
-        # accepts_marketing: false,
-        # addresses: '',
-        # default_address: '',
         email: 'arthur.dent@example.com',
         first_name: 'Arthur',
-        # has_account: '',
-        last_name: 'Dent',
-        # last_order: '',
-        # orders: '',
-        # tags: '',
-        # total_spent: ''
+        last_name: 'Dent'
       }
     end
 
+    let(:user) { build(:user, user_attributes) }
     let(:assigns) { { 'customer' => user } }
     let(:strict) { true }
 
@@ -25,7 +18,6 @@ module Spree
     it_behaves_like 'drop for nil', 'customer', UserFields::METHODS
 
     describe 'json' do
-      let(:user) { build(:user, user_attributes) }
       let(:template) { '{{ customer | json }}' }
 
       it 'renders json not allowed for this object' do
@@ -41,15 +33,16 @@ module Spree
       it_behaves_like('drop', 'accepts_marketing', 'customer') do
         let(:expected) { 'false' }
       end
+      it 'Not MVP: accepts_marketing'
 
       context 'addresses' do
-        let(:template) { '{{ customer.addresses }}' }
+        it_behaves_like('drop', 'addresses', 'customer') do
+          before(:each) do
+            user.addresses << build(:address)
+            user.addresses << build(:address)
+          end
 
-        it 'returns array of AddressDrops for addresses method' do
-          user.addresses << build(:address)
-          user.addresses << build(:address)
-
-          expect(subject).to eq('AddressDrop' * 2)
+          let(:expected) { 'AddressDrop' * 2 }
         end
 
         it_behaves_like('drop', 'addresses_count', 'customer') do
@@ -57,6 +50,7 @@ module Spree
 
           let(:expected) { '1' }
         end
+
         it_behaves_like('drop', 'default_address', 'customer') do
           before(:each) do
             user.save
@@ -76,6 +70,7 @@ module Spree
       it_behaves_like('drop', 'has_account', 'customer') do
         let(:expected) { 'true' }
       end
+      it 'Not MVP: has_account'
       it_behaves_like('drop', 'last_name', 'customer') do
         let(:expected) { 'Dent' }
       end
@@ -83,24 +78,36 @@ module Spree
         let(:expected) { 'Arthur Dent' }
       end
 
-      context 'orders' do
-        let(:template) { '{{ customer.last_order.created_at }}' }
-        it 'returns last_order' do
-          user.orders << build(:order, state: OrderState::COMPLETE,
-                                       completed_at: 1.week.ago)
-          expected = 1.minute.ago
-          user.orders << build(:order, state: OrderState::COMPLETE,
-                                       completed_at: expected)
-          user.save
+      context '#last_order' do
+        context 'with orders' do
+          let(:template) { '{{ customer.last_order.created_at }}' }
+          it 'returns last_order' do
+            user.orders << build(:order, state: OrderState::COMPLETE,
+                                         completed_at: 1.week.ago)
+            expected = 1.minute.ago
+            user.orders << build(:order, state: OrderState::COMPLETE,
+                                         completed_at: expected)
+            user.save
 
-          expect(subject).to eq(expected.to_s)
+            expect(subject).to eq(expected.to_s)
+          end
         end
 
+        context 'without orders' do
+          it_behaves_like('drop', 'last_order', 'customer') do
+            let(:expected) { '' }
+          end
+        end
+      end
+
+      context '#orders' do
+        it 'Implemented partially: Add specs for other order states'
         it_behaves_like('drop', 'orders', 'customer') do
           let(:user) do
             create(:user, orders: [
-                     create(:order, state: OrderState::COMPLETE),
-                     create(:order, state: OrderState::COMPLETE)
+                     build(:order, state: OrderState::COMPLETE),
+                     build(:order, state: OrderState::COMPLETE),
+                     build(:order, state: OrderState::CART)
                    ])
           end
 
@@ -117,7 +124,7 @@ module Spree
         context 'for cart order' do
           it_behaves_like('drop', 'orders_count', 'customer') do
             let(:user) do
-              create(:user, orders: [build(:order, state: OrderState::CART)])
+              build(:user, orders: [build(:order, state: OrderState::CART)])
             end
 
             let(:expected) { '0' }
@@ -125,9 +132,7 @@ module Spree
         end
       end
 
-      it_behaves_like('drop', 'tags', 'customer') do
-        let(:expected) { '' }
-      end
+      it_behaves_like('drop', 'tags', 'customer') { let(:expected) { '' } }
       it_behaves_like('drop', 'total_spent', 'customer') do
         let(:expected) { '0' }
       end
