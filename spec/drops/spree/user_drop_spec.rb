@@ -78,7 +78,7 @@ module Spree
         let(:expected) { 'Arthur Dent' }
       end
 
-      context '#last_order' do
+      describe '#last_order' do
         context 'with orders' do
           let(:template) { '{{ customer.last_order.created_at }}' }
           it 'returns last_order' do
@@ -100,7 +100,7 @@ module Spree
         end
       end
 
-      context '#orders' do
+      describe '#orders' do
         it 'Implemented partially: Add specs for other order states'
         it_behaves_like('drop', 'orders', 'customer') do
           let(:user) do
