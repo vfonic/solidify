@@ -1,10 +1,10 @@
 addons:
   code_climate:
-    repo_token: 341434bb91c704341aff79848c22e2c605ddd6f99c213d7166953c46436ad6cf
+    repo_token: d5a9fb48e59e528a86fc65b09dcbd8836b70879f97d56759d0f5a5fe3d8597bc
 after_success:
   - bundle exec codeclimate-test-reporter
 cache: bundler
 language: ruby
-rvm: 2.3.3
+rvm: 2.4.0
 services:
   - redis-server
