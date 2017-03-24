@@ -9,15 +9,23 @@ module Spree
         address2: 'Country Lane',
         company: 'Vogons',
         city: 'Cottington',
-        province: 'Córdoba',
-        province_code: 'X',
-        zip: '21000',
+        state_name: 'Córdoba',
+        state_code: 'X',
+        zipcode: '21000',
         country: 'Argentina',
         country_code: 'AR',
         phone: '+66983824021'
       }
     end
 
+    let(:address) do
+      address = build(:address, address_attributes)
+      address.users << build(:user)
+      address.user_addresses.first.default = true
+      # no idea why state_code can't be set on `build`
+      address.state_code = address_attributes[:state_code]
+      address
+    end
     let(:assigns) { { 'address' => address } }
     let(:strict) { true }
 
@@ -26,7 +34,6 @@ module Spree
     it_behaves_like 'drop for nil', 'address', AddressFields::METHODS
 
     describe 'json' do
-      let(:address) { build(:address, address_attributes) }
       let(:template) { '{{ address | json }}' }
 
       it 'renders correct json attributes' do
@@ -41,7 +48,7 @@ module Spree
         expect(result_map['country']).to eq('Argentina')
         expect(result_map['country_code']).to eq('AR')
         expect(result_map['country_name']).to eq('Argentina')
-        expect(result_map['default']).to eq('')
+        expect(result_map['default']).to eq('true')
         expect(result_map['first_name']).to eq('Arthur')
         expect(result_map['last_name']).to eq('Dent')
         expect(result_map['name']).to eq('Arthur Dent')
@@ -65,8 +72,6 @@ module Spree
     end
 
     describe 'methods' do
-      let(:address) { build(:address, address_attributes) }
-
       it_behaves_like('drop', 'id') { let(:expected) { '5' } }
       it_behaves_like('drop', 'address1') { let(:expected) { '155' } }
       it_behaves_like('drop', 'address2') { let(:expected) { 'Country Lane' } }
@@ -74,11 +79,13 @@ module Spree
       it_behaves_like('drop', 'company') { let(:expected) { 'Vogons' } }
       it_behaves_like('drop', 'country') { let(:expected) { 'Argentina' } }
       it_behaves_like('drop', 'country_code') { let(:expected) { 'AR' } }
-      it_behaves_like('drop', 'default') { let(:expected) { '' } }
+      it_behaves_like('drop', 'default') { let(:expected) { 'true' } }
       it_behaves_like('drop', 'first_name') { let(:expected) { 'Arthur' } }
       it_behaves_like('drop', 'last_name') { let(:expected) { 'Dent' } }
       it_behaves_like('drop', 'latitude') { let(:expected) { '' } }
+      it 'Not MVP: latitude'
       it_behaves_like('drop', 'longitude') { let(:expected) { '' } }
+      it 'Not MVP: longitude'
       it_behaves_like('drop', 'name') { let(:expected) { 'Arthur Dent' } }
       it_behaves_like('drop', 'phone') { let(:expected) { '+66983824021' } }
       it_behaves_like('drop', 'province') { let(:expected) { 'Córdoba' } }

@@ -5,6 +5,18 @@ module Spree
 
     has_many :variants
 
+    def attached_to_variant?
+      @object.viewable.present? && !@object.viewable.is_master?
+    end
+
+    def product_id
+      @object.viewable.try(:product_id)
+    end
+
+    def src
+      @object.try(:attachment).try(:url)
+    end
+
     def variants
       if @object.viewable.present?
         [Spree::VariantDrop.new(@object.viewable)]
@@ -13,8 +25,8 @@ module Spree
       end
     end
 
-    def to_json(_json = nil)
-      @object.try(:attachment).try(:url).try(:to_json)
+    def as_json
+      @object.try(:attachment).try(:url).try(:as_json)
     end
   end
 end

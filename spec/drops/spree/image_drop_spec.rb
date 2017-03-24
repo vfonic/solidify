@@ -20,7 +20,7 @@ module Spree
       let(:template) { '{{ image | json }}' }
 
       it 'renders src as json' do
-        expect(subject).to eq(image.src.to_json)
+        expect(subject).to eq(image.attachment.url.to_json)
       end
     end
 
@@ -39,7 +39,7 @@ module Spree
         let(:expected) { product.id.to_s }
       end
       it_behaves_like('drop', 'position') { let(:expected) { '2' } }
-      it_behaves_like('drop', 'src') { let(:expected) { image.src } }
+      it_behaves_like('drop', 'src') { let(:expected) { image.attachment.url } }
 
       describe 'variants' do
         context 'without variants' do

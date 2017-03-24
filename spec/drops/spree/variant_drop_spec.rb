@@ -37,7 +37,8 @@ module Spree
         expect(result_map['available']).to eq('true')
         expect(result_map['barcode']).to eq('')
         expect(result_map['compare_at_price']).to eq('')
-        expect(result_map['featured_image']).to eq(variant.images.first.src)
+        expect(result_map['featured_image'])
+          .to eq(variant.images.first.attachment.url)
         expect(result_map['inventory_management']).to eq('shopify')
         expect(result_map['inventory_policy']).to eq(
           Solidify::InventoryPolicy::INVENTORY_POLICY_DENY

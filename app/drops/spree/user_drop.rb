@@ -5,7 +5,6 @@ module Spree
     attributes :id, :default_address, :email, :first_name, :last_name, :name,
                :password
 
-    has_many :orders
     has_many :addresses
 
     def accepts_marketing
@@ -28,6 +27,10 @@ module Spree
 
     def last_order
       @object.orders.complete.by_completed_at.last
+    end
+
+    def orders
+      @object.orders.complete
     end
 
     def orders_count
