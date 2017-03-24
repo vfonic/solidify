@@ -3,6 +3,7 @@ module Spree
     attributes :item_count, :total
 
     belongs_to :customer
+    has_many :items
 
     def attributes
       {}

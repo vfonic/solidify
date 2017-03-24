@@ -1,7 +1,5 @@
 module Spree
   class VariantDrop < ::Liquid::Rails::Drop
-    include Solidify::InventoryPolicy
-
     attributes(*VariantFields::JSON)
 
     # For a variant to be available, its variant.inventory_quantity must be
@@ -23,7 +21,7 @@ module Spree
     end
 
     def featured_image
-      @object.images.first.try(:attachment).try(:url)
+      @object.images.first
     end
 
     alias image featured_image

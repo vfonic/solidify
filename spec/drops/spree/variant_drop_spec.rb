@@ -124,7 +124,7 @@ module Spree
           variant.images << build(:image)
         end
 
-        let(:expected) { variant.images.first.src }
+        let(:expected) { 'ImageDrop' }
       end
       it_behaves_like('drop', 'incoming') { let(:expected) { 'false' } }
       it_behaves_like('drop', 'inventory_management') do

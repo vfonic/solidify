@@ -1,8 +1,9 @@
 module Spree
   User.class_eval do
-    include ::Solidify::FullName
-    include Spree::OrderState
+    # include Spree::OrderState
 
-    has_many :orders
+    # has_many :orders, -> { where.not(state: OrderState::CART) }
+    # has_one :cart, -> { where(state: OrderState::CART) },
+    #         class_name: 'Spree::Order'
   end
 end

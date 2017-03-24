@@ -1,5 +1,7 @@
 module Spree
   class UserDrop < ::Liquid::Rails::Drop
+    include ::Solidify::FullName
+
     attributes :id, :default_address, :email, :first_name, :last_name, :name,
                :password
 

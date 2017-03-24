@@ -11,5 +11,9 @@ module Spree
     def src
       attachment.try(:url)
     end
+
+    def as_json(options={})
+      src
+    end
   end
 end
