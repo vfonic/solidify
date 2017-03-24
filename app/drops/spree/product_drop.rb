@@ -6,7 +6,7 @@ module Spree
     has_one :selected_or_first_available_variant
 
     def available
-      !@object.deleted?
+      !@object.deleted? && @object.variants_including_master.any?(&:available)
     end
 
     def collections
@@ -30,6 +30,10 @@ module Spree
     end
 
     alias content description
+
+    def first_available_variant
+      @object.variants.find(&:available)
+    end
 
     def options
       @object.option_types.map(&:presentation)

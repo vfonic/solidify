@@ -9,7 +9,10 @@ module Spree
       # inventory_management.blank? ||
       # inventory_policy == INVENTORY_POLICY_ALLOW ||
       # inventory_quantity(??? check VariantDrop) > 0
-      true
+      # call Variant.available, because ProductDrop calls Variant.available
+      # both should always call the same method
+      # (either in Variant or in VariantDrop)
+      @object.available
     end
 
     def barcode

@@ -8,7 +8,6 @@ module Spree
       }
     end
 
-
     let(:variant) do
       build(:variant,
             variant_attributes.merge(
