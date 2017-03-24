@@ -27,10 +27,10 @@ module Spree
         build(:option_type, presentation: 'Eyes color')
       end
       let(:product) do
-        build(:base_product,
+        build(:product,
               product_attributes.merge(
                 option_types: [option_type_material, option_type_eyes_color],
-                variants: [build(:base_variant,
+                variants: [build(:variant,
                                  images: [build(:image)],
                                  option_values: [
                                    build(:option_value,
@@ -89,7 +89,7 @@ module Spree
     end
 
     describe 'methods' do
-      let(:product) { build(:base_product, product_attributes) }
+      let(:product) { build(:product, product_attributes) }
 
       it_behaves_like('drop', 'id') { let(:expected) { '42' } }
 
@@ -109,9 +109,37 @@ module Spree
           context 'one variant is available' do
             it 'is available'
           end
-          context 'master variant has no effect' do
-          end
+          context 'master variant has no effect'
         end
+      end
+
+      it_behaves_like('drop', 'content') do
+        let(:expected) { 'Once upon a time...' }
+      end
+
+      it_behaves_like('drop', 'description') do
+        let(:expected) { 'Once upon a time...' }
+      end
+
+      it_behaves_like('drop', 'handle') { let(:expected) { product.handle } }
+
+      it_behaves_like('drop', 'options') do
+        let(:product) do
+          build(:product,
+                option_types: [
+                  build(:option_type, presentation: 'Material'),
+                  build(:option_type, presentation: 'Eyes color')
+                ])
+        end
+
+        let(:expected) { 'Material' + 'Eyes color' }
+      end
+
+      it_behaves_like('drop', 'title') { let(:expected) { 'A book' } }
+
+      it_behaves_like('drop', 'url') do
+        let(:product) { create(:product) }
+        let(:expected) { "/products/#{product.handle}" }
       end
     end
   end

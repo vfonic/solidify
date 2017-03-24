@@ -12,19 +12,6 @@ module Spree
       @object.taxons
     end
 
-    alias content description
-
-    def url
-      @object.url
-    end
-
-    def variants
-      @object.variants.to_a.map do |v|
-        Spree::VariantDrop.new(v)
-      end
-    end
-
-    # warning
     def compare_at_price
       nil
     end
@@ -41,6 +28,12 @@ module Spree
       false
     end
 
+    alias content description
+
+    def options
+      @object.option_types.map(&:presentation)
+    end
+
     def price
       (@object.price * 100).to_i
     end
@@ -52,6 +45,10 @@ module Spree
       false
     end
 
+    def selected_or_first_available_variant
+      @object.variants.first
+    end
+
     def tags
       []
     end
@@ -60,23 +57,25 @@ module Spree
       ''
     end
 
+    def url
+      @object.url
+    end
+
+    def variants
+      @object.variants.to_a.map do |v|
+        Spree::VariantDrop.new(v)
+      end
+    end
+
     def vendor
       Solidify::Setting['name']
     end
 
+    # def metafields
+    #   ::RailsSettings::ScopedSettingsDrop.new(@object.settings)
+    # end
+
     # shopify json returns datetime in shop's timezone
     alias published_at created_at
-
-    def metafields
-      ::RailsSettings::ScopedSettingsDrop.new(@object.settings)
-    end
-
-    def options
-      @object.option_types.map(&:presentation)
-    end
-
-    def selected_or_first_available_variant
-      @object.variants.first
-    end
   end
 end
