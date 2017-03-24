@@ -157,8 +157,53 @@ module Spree
       it 'Not MVP: price_max'
       it 'Not MVP: price_min'
       it 'Not MVP: price_varies'
-      it 'Not MVP: selected_variant'
-      it 'Not MVP: selected_or_first_available_variant'
+
+      describe '#selected_variant' do
+        context 'variant selected' do
+          before(:each) do
+            product.selected_variant = variant
+          end
+
+          it_behaves_like('drop', 'selected_variant') do
+            let(:expected) { 'VariantDrop' }
+          end
+        end
+
+        context 'no variant selected' do
+          it_behaves_like('drop', 'selected_variant') do
+            let(:expected) { '' }
+          end
+        end
+      end
+
+      describe '#selected_or_first_available_variant' do
+        context 'variant selected' do
+          before(:each) do
+            product.selected_variant = variant
+          end
+
+          it_behaves_like('drop', 'selected_or_first_available_variant') do
+            let(:expected) { 'VariantDrop' }
+          end
+        end
+
+        context 'no variant selected' do
+          it_behaves_like('drop', 'selected_or_first_available_variant') do
+            let(:expected) { 'VariantDrop' }
+          end
+        end
+
+        context 'no available variants' do
+          before(:each) do
+            product.variants = []
+          end
+
+          it_behaves_like('drop', 'selected_or_first_available_variant') do
+            let(:expected) { '' }
+          end
+        end
+      end
+
       it 'Not MVP: tags'
       it 'Not MVP: template_suffix'
 

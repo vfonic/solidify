@@ -3,8 +3,6 @@ module Spree
     include ::RailsSettings::Extend
     include ::Solidify::Handle
 
-    # display_image just shows first image
-    # probably producing many queries on the db
-    alias_method :featured_image, :display_image
+    attr_accessor :selected_variant
   end
 end

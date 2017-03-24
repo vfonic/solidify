@@ -2,8 +2,7 @@ module Spree
   class ProductDrop < ::Liquid::Rails::Drop
     attributes(*ProductFields::JSON)
 
-    has_many :collections, :images, :variants
-    has_one :selected_or_first_available_variant
+    has_many :images, :variants
 
     def available
       !@object.deleted? && @object.variants_including_master.any?(&:available)
@@ -35,6 +34,12 @@ module Spree
       @object.variants.find(&:available)
     end
 
+    def featured_image
+      # display_image just shows first image
+      # probably producing many queries on the db
+      @object.display_image
+    end
+
     def options
       @object.option_types.map(&:presentation)
     end
@@ -50,8 +55,12 @@ module Spree
       false
     end
 
+    def selected_variant
+      @object.selected_variant
+    end
+
     def selected_or_first_available_variant
-      @object.variants.first
+      selected_variant || first_available_variant
     end
 
     def tags

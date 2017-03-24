@@ -1,30 +1,34 @@
 module Solidify
   class ProductsController < LiquidController
-    before_action :load_collection
-
     def show
       render controller_action_to_liquid_file_path(product)
     end
 
+    # rubocop:disable Metrics/AbcSize
     def set_liquid_assigns
+      if params[:variant_id].present?
+        product.selected_variant = ::Spree::Variant.find(params[:variant_id])
+      end
+
       @liquid_assigns = {
         'canonical_url' => "#{request.base_url}#{product.url}",
-        'collection' => @collection,
+        'collection' => collection,
         'page_title' => product.title,
         'product' => product,
         'template' => 'product'
       }
     end
+    # rubocop:enable Metrics/AbcSize
 
     private
 
     def product
-      @product ||= Spree::Product.available.friendly.find(params[:id])
+      @product ||= ::Spree::Product.available.find(params[:id])
     end
 
-    def load_collection
-      return unless params[:taxon_id].present?
-      @collection ||= Spree::Taxon.where(handle: params[:taxon_id]).first
+    def collection
+      return unless params[:collection_id].present?
+      @collection ||= ::Spree::Taxon.where(handle: params[:collection_id]).first
     end
   end
 end

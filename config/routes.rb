@@ -40,9 +40,11 @@ Solidify::Engine.routes.draw do
   get '/collections/:id', to: 'collections#show', as: :taxon
   get '/search', to: 'search#index', as: :search
 
-  get '/collections/:taxon_id/products/:id', to: 'products#show'
+  get '/collections/:collection_id/products/:id?variant=:variant_id',
+      to: 'products#show'
+  get '/collections/:collection_id/products/:id', to: 'products#show'
+  get '/products/:id?variant=:variant_id', to: 'products#show', as: :variant
   get '/products/:id', to: 'products#show', as: :product
-  get '/products/:product_id?variant=:id', to: 'variants#show', as: :variant
 
   post '/cart/add', to: 'orders#populate'
   get '/cart', to: 'carts#show', as: :cart
