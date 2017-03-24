@@ -29,7 +29,15 @@ module Spree
 
       it_behaves_like('drop', 'id') { let(:expected) { '3' } }
       it_behaves_like('drop', 'alt') { let(:expected) { 'Vogon Ship' } }
-      it_behaves_like('drop', 'product_id') { let(:expected) { '' } }
+      it_behaves_like('drop', 'product_id') do
+        let(:product) { create(:product) }
+
+        before(:each) do
+          image.viewable = build(:variant, product: product)
+        end
+
+        let(:expected) { product.id.to_s }
+      end
       it_behaves_like('drop', 'position') { let(:expected) { '2' } }
       it_behaves_like('drop', 'src') { let(:expected) { image.src } }
 
@@ -43,7 +51,7 @@ module Spree
 
         context 'with one variant' do
           before(:each) do
-            image.viewable = build(:base_variant)
+            image.viewable = build(:variant)
           end
 
           it_behaves_like 'drop', 'attached_to_variant?' do

@@ -17,14 +17,14 @@ module Spree
 
     describe 'json' do
       let(:variant) do
-        build(:base_variant,
+        build(:variant,
               variant_attributes.merge(
                 images: [build(:image)],
                 option_values: [
                   build(:option_value, presentation: 'Depressed'),
                   build(:option_value, presentation: 'Green eyes')
                 ],
-                product: build(:base_product, name: 'Marvin Jersey')
+                product: build(:product, name: 'Marvin Jersey')
               ))
       end
       let(:template) { '{{ variant | json }}' }
@@ -72,7 +72,7 @@ module Spree
     end
 
     describe 'methods' do
-      let(:variant) { build(:base_variant, variant_attributes) }
+      let(:variant) { build(:variant, variant_attributes) }
 
       it_behaves_like('drop', 'id') { let(:expected) { '4' } }
       describe 'available' do
@@ -146,15 +146,43 @@ module Spree
         end
       end
       it_behaves_like('drop', 'next_incoming_date') { let(:expected) { '' } }
-      it_behaves_like('drop', 'option1') { let(:expected) { 'S' } }
-      it_behaves_like('drop', 'option2') { let(:expected) { '' } }
+      it_behaves_like('drop', 'option1') do
+        let(:variant) do
+          build(:variant,
+                option_values: [
+                  build(:option_value, presentation: 'Depressed'),
+                  build(:option_value, presentation: 'Green eyes')
+                ])
+        end
+        let(:expected) { 'Depressed' }
+      end
+      it_behaves_like('drop', 'option2') do
+        let(:variant) do
+          build(:variant,
+                option_values: [
+                  build(:option_value, presentation: 'Depressed'),
+                  build(:option_value, presentation: 'Green eyes')
+                ])
+        end
+        let(:expected) { 'Green eyes' }
+      end
       it_behaves_like('drop', 'option3') { let(:expected) { '' } }
       it_behaves_like('drop', 'price') { let(:expected) { '769' } }
       it_behaves_like('drop', 'requires_shipping') { let(:expected) { 'true' } }
       it_behaves_like('drop', 'selected') { let(:expected) { 'false' } }
       it_behaves_like('drop', 'sku') { let(:expected) { 'SKU-15' } }
       it_behaves_like('drop', 'taxable') { let(:expected) { 'true' } }
-      it_behaves_like('drop', 'title') { let(:expected) { 'S' } }
+      it_behaves_like('drop', 'title') do
+        let(:variant) do
+          build(:variant,
+                option_values: [
+                  build(:option_value, presentation: 'Depressed'),
+                  build(:option_value, presentation: 'Green eyes')
+                ],
+                product: build(:product))
+        end
+        let(:expected) { 'Depressed / Green eyes' }
+      end
       it_behaves_like('drop', 'url') do
         let(:expected) do
           "/products/#{variant.product.handle}?variant=#{variant.id}"
