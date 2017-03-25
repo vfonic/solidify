@@ -78,7 +78,7 @@ module Spree
     end
 
     def selected
-      false
+      @object.product.selected_variant == @object
     end
 
     def taxable

@@ -164,9 +164,22 @@ module Spree
       it_behaves_like('drop', 'option3') { let(:expected) { 'With emotions' } }
       it_behaves_like('drop', 'price') { let(:expected) { '769' } }
       it_behaves_like('drop', 'requires_shipping') { let(:expected) { 'true' } }
+
       it 'Not MVP: requires_shipping'
-      it_behaves_like('drop', 'selected') { let(:expected) { 'false' } }
-      it 'Not MVP: selected'
+
+      describe '#selected' do
+        context 'when selected' do
+          before(:each) do
+            variant.product.selected_variant = variant
+          end
+
+          it_behaves_like('drop', 'selected') { let(:expected) { 'true' } }
+        end
+
+        context 'not selected' do
+          it_behaves_like('drop', 'selected') { let(:expected) { 'false' } }
+        end
+      end
       it_behaves_like('drop', 'sku') { let(:expected) { 'SKU-15' } }
       it_behaves_like('drop', 'taxable') { let(:expected) { 'true' } }
       it 'Not MVP: taxable'
