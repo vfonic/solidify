@@ -1,6 +1,6 @@
 RSpec.shared_examples 'drop' do |method, variable, expected_param|
   let(:template) do
-    variable ||= described_class.name.demodulize.chomp('Drop').downcase
+    variable ||= described_class.name.demodulize.chomp('Drop').underscore
     "{{ #{variable}.#{method} }}"
   end
 

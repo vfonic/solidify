@@ -67,7 +67,7 @@ module Spree
           .to eq(created_at.to_s)
         expect(result_map['description']).to eq('Once upon a time...')
         expect(result_map['featured_image'])
-          .to eq(Spree::ProductDrop.new(product).featured_image.as_json.to_s)
+          .to eq(product.dropify.featured_image.as_json.to_s)
         expect(result_map['handle']).to eq('bar')
         expect(result_map['images'])
           .to eq([image1, image2, image3].map(&:as_json).to_s)
@@ -82,7 +82,7 @@ module Spree
         expect(result_map['title']).to eq('A book')
         expect(result_map['type']).to eq('')
         expect(result_map['variants'])
-          .to eq([Spree::VariantDrop.new(variant).as_json].to_s)
+          .to eq([variant.dropify.as_json].to_s)
         expect(result_map['vendor']).to eq('')
       end
       it 'Not MVP: published_at'
