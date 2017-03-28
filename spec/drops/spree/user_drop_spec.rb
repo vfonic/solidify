@@ -80,16 +80,17 @@ module Spree
 
       describe '#last_order' do
         context 'with orders' do
-          let(:template) { '{{ customer.last_order.created_at }}' }
+          let(:template) { '{{ customer.last_order.order_number }}' }
           it 'returns last_order' do
             user.orders << build(:order, state: OrderState::COMPLETE,
                                          completed_at: 1.week.ago)
             expected = 1.minute.ago
-            user.orders << build(:order, state: OrderState::COMPLETE,
-                                         completed_at: expected)
+            order = create(:order, state: OrderState::COMPLETE,
+                                   completed_at: expected)
+            user.orders << order
             user.save
 
-            expect(subject).to eq(expected.to_s)
+            expect(subject).to eq(order.number)
           end
         end
 

@@ -1,23 +1,30 @@
 module Spree
   class OrderDrop < ::Liquid::Rails::Drop
-    attributes :item_count, :total
+    attributes :billing_address, :shipping_address, :created_at
 
-    belongs_to :customer
-    has_many :items
+    delegate :number, to: :order, prefix: true
+    alias name order_number
 
-    def attributes
-      {}
+    def cancelled
+      order.canceled?
     end
 
-    def created_at
-      @object.completed_at
+    def cancelled_at
+      order.canceled_at
     end
 
-    def items
-      @object.line_items
+    def note
+      order.special_instructions
     end
 
-    # TODO: make sure solidus total shows the same as shopfiy's total_price
-    alias total_price total
+    def to_json(_json)
+      { "error": 'json not allowed for this object' }.to_json
+    end
+
+    private
+
+    def order
+      @object
+    end
   end
 end
