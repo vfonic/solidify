@@ -32,10 +32,10 @@ module Solidify
         asset_url = 'https://bucket-name.s3.amazonaws.com' \
                     "/themes/#{theme.id}/assets/arrow-down.svg"
         expected = <<~HEREDOC
-                body {
-                  background: url(#{asset_url}) right 0.4em center no-repeat;
-                }
-                HEREDOC
+          body {
+            background: url(#{asset_url}) right 0.4em center no-repeat;
+          }
+        HEREDOC
 
         expect(rendered_liquid)
           .to eq(expected)

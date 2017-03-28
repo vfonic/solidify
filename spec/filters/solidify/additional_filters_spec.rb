@@ -2,6 +2,7 @@ module Solidify
   RSpec.describe AdditionalFilters, type: :helper do
     subject { render_liquid(template, assigns, strict) }
     let(:assigns) { Hash.new }
+
     let(:strict) { true }
 
     describe '#date' do
@@ -43,6 +44,7 @@ module Solidify
 
       context 'date from object' do
         let(:assigns) { { 'product' => create(:base_product) } }
+
         it_behaves_like('filter', 'product.published_at', 'date',
                         "'%d/%m/%Y'", Time.zone.today.strftime('%d/%m/%Y'))
       end

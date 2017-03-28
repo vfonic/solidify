@@ -1,5 +1,7 @@
 module Spree
   RSpec.describe LineItemDrop do
+    subject { render_liquid(template, assigns, strict) }
+
     let(:product) do
       build(:product,
             id: 9000,
@@ -24,8 +26,6 @@ module Spree
 
     let(:assigns) { { 'line_item' => line_item } }
     let(:strict) { true }
-
-    subject { render_liquid(template, assigns, strict) }
 
     it_behaves_like 'drop for nil', 'line_item', LineItemFields::METHODS
 

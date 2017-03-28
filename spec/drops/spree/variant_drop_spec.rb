@@ -1,5 +1,7 @@
 module Spree
   RSpec.describe VariantDrop do
+    subject { render_liquid(template, assigns, strict) }
+
     let(:variant_attributes) do
       {
         id: 4,
@@ -22,8 +24,6 @@ module Spree
     end
     let(:assigns) { { 'variant' => variant } }
     let(:strict) { true }
-
-    subject { render_liquid(template, assigns, strict) }
 
     it_behaves_like 'drop for nil', 'variant', VariantFields::METHODS
 

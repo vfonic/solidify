@@ -9,7 +9,7 @@ module Spree
       def find_or_create_collections_all
         collection = Spree::Taxon.find_by(handle: 'all')
 
-        unless collection.present?
+        if collection.blank?
           collection = ::Solidify::CollectionsAllBuilder.create!
         end
 

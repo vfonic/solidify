@@ -1,5 +1,7 @@
 module Spree
   RSpec.describe OrderDrop do
+    subject { render_liquid(template, assigns, strict) }
+
     let(:order) do
       build(:order,
             billing_address: build(:address),
@@ -9,8 +11,6 @@ module Spree
 
     let(:assigns) { { 'order' => order } }
     let(:strict) { true }
-
-    subject { render_liquid(template, assigns, strict) }
 
     it_behaves_like 'drop for nil', 'order', OrderFields::METHODS
 

@@ -19,7 +19,7 @@ module Solidify
 
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up,
-                                        keys: [:first_name, :last_name])
+                                        keys: %i(first_name last_name))
     end
   end
 end

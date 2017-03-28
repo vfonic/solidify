@@ -27,7 +27,7 @@ module Solidify
     end
 
     def collection
-      return unless params[:collection_id].present?
+      return if params[:collection_id].blank?
       @collection ||= ::Spree::Taxon.where(handle: params[:collection_id]).first
     end
   end

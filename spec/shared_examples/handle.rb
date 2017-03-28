@@ -30,9 +30,9 @@ RSpec.shared_examples 'handle' do
       record1 = create(factory_name, handle: 'Wow')
       record2 = create(factory_name, handle: 'Wat')
 
-      expect(described_class.handle_to_records_array.keys).to eq(%w(Wow Wat))
-      expect(described_class.handle_to_records_array['Wow']).to eq(record1)
-      expect(described_class.handle_to_records_array['Wat']).to eq(record2)
+      expect(described_class.handle_to_records_array).to eq(
+        'Wow' => record1, 'Wat' => record2
+      )
     end
   end
 

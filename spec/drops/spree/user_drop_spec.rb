@@ -1,5 +1,7 @@
 module Spree
   RSpec.describe UserDrop do
+    subject { render_liquid(template, assigns, strict) }
+
     let(:user_attributes) do
       {
         id: 15,
@@ -12,8 +14,6 @@ module Spree
     let(:user) { build(:user, user_attributes) }
     let(:assigns) { { 'customer' => user } }
     let(:strict) { true }
-
-    subject { render_liquid(template, assigns, strict) }
 
     it_behaves_like 'drop for nil', 'customer', UserFields::METHODS
 
@@ -81,6 +81,7 @@ module Spree
       describe '#last_order' do
         context 'with orders' do
           let(:template) { '{{ customer.last_order.order_number }}' }
+
           it 'returns last_order' do
             user.orders << build(:order, state: OrderState::COMPLETE,
                                          completed_at: 1.week.ago)

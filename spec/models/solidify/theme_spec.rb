@@ -16,13 +16,13 @@ module Solidify
     end
 
     xdescribe '#role' do
-      it 'should have "main" role if active theme' do
+      it 'has "main" role if active theme' do
         theme = create(:theme)
 
         expect(theme.role).to eq('main')
       end
 
-      it 'should have "unpublished" role if inactive theme' do
+      it 'has "unpublished" role if inactive theme' do
         theme = create(:theme)
 
         expect(theme.role).to eq('unpublished')

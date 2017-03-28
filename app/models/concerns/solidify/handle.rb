@@ -6,7 +6,7 @@ module Solidify
 
     included do
       extend FriendlyId
-      friendly_id :name, use: [:finders, :slugged]
+      friendly_id :name, use: %i(finders slugged)
 
       def self.handle_to_records_array
         all.inject({}) do |hash, record|
