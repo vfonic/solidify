@@ -14,6 +14,27 @@
       font-size: 16px;
       margin-bottom: 5px;
     }
+    @font-face {
+      font-family: 'Prime-Light';
+      src: url("Prime Light.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: 'Prime-Regular';
+      src: url("Prime Regular.otf") format("opentype");
+    }
+    .logo {
+      font-family: 'Prime-Regular';
+      font-style: italic;
+      /*font-size: 22px;
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      display: inline;
+      border-radius: 5px;
+      padding-right: 12px;
+      padding-top: 13px;*/
+    }
     </style>
   </head>
   <body>
@@ -26,7 +47,10 @@
       <hr>
     </div>
     <div class="container" style="margin-top: 80px;">
-    <h1>Solidify ready!</h1>
+    <h1>
+      <span class="logo">Solidify</span>
+      ready!
+    </h1>
     <div class="row">
       <div class="col-sm-12">
         <h2>Legend</h2>
