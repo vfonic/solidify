@@ -57,7 +57,7 @@ module Solidify
 
       {
         'all_products' => Spree::Product.handle_to_records_array,
-        'cart' => current_customer.try(:cart) || find_order_by_token_or_user,
+        'cart' => current_order(create_order_if_necessary: true),
         'collections' => Spree::Taxon.handle_to_records_array,
         'content_for_header' => content_for_header,
         'current_page' => 1,
