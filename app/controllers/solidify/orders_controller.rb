@@ -4,7 +4,8 @@ module Solidify
     def populate
       order = current_order(create_order_if_necessary: true)
       variant  = Spree::Variant.find(params[:id])
-      quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+      quantity = params[:quantity].try(:to_i).try(:positive?)
+      quantity ||= 1
 
       order.contents.add(variant, quantity)
 
