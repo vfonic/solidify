@@ -70,7 +70,7 @@ module Spree
     end
 
     def price
-      (@object.price * 100).to_i
+      @object.price.to_money.cents
     end
 
     def requires_shipping
