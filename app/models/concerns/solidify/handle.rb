@@ -9,8 +9,8 @@ module Solidify
       friendly_id :name, use: %i(finders slugged)
 
       def self.handle_to_records_array
-        all.inject({}) do |hash, record|
-          hash.merge(record.handle => record)
+        all.each_with_object({}) do |record, hash|
+          hash[record.handle] = record
         end
       end
 
