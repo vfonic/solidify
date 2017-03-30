@@ -10,6 +10,12 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
+guard :rubocop, all_on_start: false, cli: '-aDERS' do
+  watch(/.+\.rb$/)
+  watch(/.+\.rake$/)
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+end
+
 guard :rspec, cmd: 'spring rspec', failed_mode: :keep do
   require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
@@ -34,12 +40,6 @@ guard :rspec, cmd: 'spring rspec', failed_mode: :keep do
   watch(%r{^app/(.+)/spree/(.+)_decorator.rb$}) do |m|
     "spec/#{m[1]}/spree/#{m[2]}_spec.rb"
   end
-end
-
-guard :rubocop, all_on_start: false, cli: '-aDERS' do
-  watch(/.+\.rb$/)
-  watch(/.+\.rake$/)
-  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
 
 guard 'spring', bundler: true do
