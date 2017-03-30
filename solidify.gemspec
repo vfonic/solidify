@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'liquid4-rails5'
   spec.add_dependency 'responders'
   spec.add_dependency 'solidus_core', '~> 2.1'
+  spec.add_dependency 'solidus_sample', '~> 2.1'
   spec.add_dependency 'solidus_auth_devise', '~> 1.6.2'
 
   spec.add_development_dependency 'bundler'
