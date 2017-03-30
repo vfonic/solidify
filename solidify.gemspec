@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'solidus_auth_devise', '~> 1.6.2'
 
   spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'codeclimate-test-reporter'
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'factory_girl_rails'
