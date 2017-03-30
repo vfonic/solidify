@@ -26,7 +26,7 @@ To get the necessary migrations into your app, run the following
 (this assumes you have already set `solidus` with `solidus_auth_devise`):
 
 ```sh
-rails generate solidify:install
+$ rails generate solidify:install
 ```
 
 Add these ENV variables so that Carrierwave gem can store your theme files to S3:
@@ -41,9 +41,35 @@ AWS_S3_BUCKET_NAME: 'solid5-shop'
 Run this command to seed the default theme, shop settings and link lists:
 
 ```sh
-rails solidify:shop:seed_everything
+$ rails solidify:shop:seed_everything
 ```
 
-Run `rake solidify:theme:download_all_themes` to download theme files.
+To download theme files, run:
+
+```sh
+$ rails solidify:theme:download_all_themes
+```
+
+## Running tests
+
+To run the tests, you first need to create a test app. This can be done by running:
+
+```sh
+$ bundle exec rake
+```
+
+This will create a dummy app in `/spec/dummy` directory and run rubocop and all rspec tests. To run the tests second time, you don't need to run it through rake, but can run it normally via:
+
+```sh
+$ rspec
+```
+
+or
+
+```sh
+$ spring rspec
+```
+
+## License
 
 [MIT License](http://opensource.org/licenses/MIT)
