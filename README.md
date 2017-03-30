@@ -22,13 +22,12 @@ And then execute:
 
 ## Usage
 
-First run:
+To get the necessary migrations into your app, run the following
+(this assumes you have already set `solidus` with `solidus_auth_devise`):
 
 ```sh
 rails generate solidify:install
 ```
-
-...to get the necessary migrations into your app.
 
 Add these ENV variables so that Carrierwave gem can store your theme files to S3:
 
@@ -39,7 +38,7 @@ AWS_S3_REGION: 'us-east-1'
 AWS_S3_BUCKET_NAME: 'solid5-shop'
 ```
 
-Run this command to seed the default theme, shop settings, link lists and collections:
+Run this command to seed the default theme, shop settings and link lists:
 
 ```sh
 rails solidify:shop:seed_everything
