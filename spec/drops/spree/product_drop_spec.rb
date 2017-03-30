@@ -189,6 +189,7 @@ module Spree
 
         context 'no variant selected' do
           it_behaves_like('drop', 'selected_or_first_available_variant') do
+            # selects first available variant
             let(:expected) { 'VariantDrop' }
           end
         end
@@ -199,7 +200,8 @@ module Spree
           end
 
           it_behaves_like('drop', 'selected_or_first_available_variant') do
-            let(:expected) { '' }
+            # selects master
+            let(:expected) { 'VariantDrop' }
           end
         end
       end

@@ -14,19 +14,27 @@ RSpec.feature 'Product viewing' do
   let(:product) { create(:product, master: master) }
 
   context 'product with no variants' do
-    scenario 'User sees master variant price' do
+    scenario 'Customer sees master variant price' do
       visit product_path(product)
 
       expect(page).to have_selector('.product-price', text: '€69.96')
     end
+
+    scenario 'Renders master in product-select option' do
+      visit product_path(product)
+
+      expect(page).to have_select('product-select', options: [
+                                    "#{master.dropify.title} - €#{master.price}"
+                                  ])
+    end
   end
 
-  xcontext 'product with variants' do
+  context 'product with variants' do
     before(:each) do
       product.variants << build(:variant, price: 9.99)
     end
 
-    scenario 'User sees first variant price' do
+    scenario 'Customer sees first variant price' do
       visit product_path(product)
 
       expect(page).to have_selector('.product-price', text: '€9.99')

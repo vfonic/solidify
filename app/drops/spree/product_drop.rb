@@ -2,7 +2,7 @@ module Spree
   class ProductDrop < ::Liquid::Rails::Drop
     attributes(*ProductFields::JSON)
 
-    has_many :images, :variants
+    has_many :images
 
     def available
       !@object.deleted? && @object.variants_including_master.any?(&:available)
@@ -31,7 +31,7 @@ module Spree
     alias content description
 
     def first_available_variant
-      @object.variants.find(&:available)
+      @object.variants.find(&:available) || @object.master
     end
 
     def featured_image
@@ -73,6 +73,14 @@ module Spree
 
     def url
       @object.url
+    end
+
+    def variants
+      if @object.variants.any?
+        @object.variants
+      else
+        [@object.master]
+      end
     end
 
     def vendor
