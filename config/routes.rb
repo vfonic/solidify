@@ -3,6 +3,7 @@ Solidify::Engine.routes.draw do
   root to: 'home#index'
   get 'pages/:id', to: 'pages#show', as: :page
   get 'account/addresses', to: 'addresses#index', as: :customer_addresses
+  get 'account/orders/:id', to: 'orders#show', as: :customer_order
 
   devise_for :customers,
              path: 'account',
