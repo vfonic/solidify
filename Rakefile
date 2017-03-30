@@ -32,4 +32,11 @@ desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'solidify'
   Rake::Task['common:test_app'].invoke('Spree::User')
+
+  # we can not run this as a Rake::Task because it depends on environment
+  # and environment is not ready from the just created dummy app for some reason
+  # rubocop:disable Metric/LineLength
+  sh 'bundle exec rake solidify:themes:seed_default_theme RAILS_ENV=test AWS_S3_BUCKET_NAME=solidify'
+  # rubocop:enable Metric/LineLength
+  sh 'bundle exec rake solidify:themes:download_all_themes RAILS_ENV=test'
 end
