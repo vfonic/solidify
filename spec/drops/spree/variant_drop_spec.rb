@@ -72,12 +72,6 @@ module Spree
 
         expect(result_map.keys).to eq(VariantFields::JSON)
       end
-
-      it 'does not render any additional attributes' do
-        result_map = JSON.parse(subject)
-
-        expect(result_map.keys - VariantFields::JSON).to be_empty
-      end
     end
 
     describe 'methods' do
