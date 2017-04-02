@@ -1,11 +1,6 @@
 RSpec.feature 'Product viewing' do
   before(:each) do
-    create(:store)
-    allow_any_instance_of(Solidify::LiquidController)
-      .to receive(:spree_current_user).and_return(nil)
-    theme = create(:theme)
-    page.driver.browser.set_cookie("active_theme_id=#{theme.id}")
-
+    setup_basic_store
     allow_any_instance_of(Solidify::ShopHelper).to receive(:shop_settings)
       .and_return('money_format' => '€{{ amount }}')
   end

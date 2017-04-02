@@ -1,11 +1,5 @@
 RSpec.feature 'Cart management' do
-  before(:each) do
-    create(:store)
-    allow_any_instance_of(Solidify::LiquidController)
-      .to receive(:spree_current_user).and_return(nil)
-    theme = create(:theme)
-    page.driver.browser.set_cookie("active_theme_id=#{theme.id}")
-  end
+  before(:each) { setup_basic_store }
 
   scenario 'User sees empty cart' do
     visit root_path
