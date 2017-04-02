@@ -2,6 +2,9 @@ module Spree
   RSpec.describe ImageDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'image' => image } }
+    let(:strict) { true }
+
     let(:image_attributes) do
       {
         id: 3,
@@ -9,9 +12,6 @@ module Spree
         position: 2
       }
     end
-
-    let(:assigns) { { 'image' => image } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'image', ImageFields::METHODS
 

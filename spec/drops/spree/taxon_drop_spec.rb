@@ -2,6 +2,9 @@ module Spree
   RSpec.describe TaxonDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'collection' => taxon } }
+    let(:strict) { true }
+
     let(:created_at) { 2.hours.ago }
     let(:taxon) do
       build(:taxon,
@@ -13,9 +16,6 @@ module Spree
             image: build(:image),
             products: [build(:product), build(:product)])
     end
-
-    let(:assigns) { { 'collection' => taxon } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'collection', TaxonFields::METHODS
 

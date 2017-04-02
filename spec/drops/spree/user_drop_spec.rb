@@ -2,6 +2,9 @@ module Spree
   RSpec.describe UserDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'customer' => user } }
+    let(:strict) { true }
+
     let(:user_attributes) do
       {
         id: 15,
@@ -12,8 +15,6 @@ module Spree
     end
 
     let(:user) { build(:user, user_attributes) }
-    let(:assigns) { { 'customer' => user } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'customer', UserFields::METHODS
 

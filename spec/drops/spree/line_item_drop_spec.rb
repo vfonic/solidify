@@ -2,6 +2,9 @@ module Spree
   RSpec.describe LineItemDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'line_item' => line_item } }
+    let(:strict) { true }
+
     let(:product) do
       build(:product,
             id: 9000,
@@ -23,9 +26,6 @@ module Spree
     let(:line_item) do
       build(:line_item, id: 1337, quantity: 7, variant: variant)
     end
-
-    let(:assigns) { { 'line_item' => line_item } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'line_item', LineItemFields::METHODS
 

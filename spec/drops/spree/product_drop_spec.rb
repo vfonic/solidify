@@ -2,6 +2,9 @@ module Spree
   RSpec.describe ProductDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'product' => product } }
+    let(:strict) { true }
+
     let(:created_at) { 1.hour.ago }
 
     let(:option_type_material) do
@@ -43,9 +46,6 @@ module Spree
             variants: [variant],
             variants_including_master: [master, variant])
     end
-
-    let(:assigns) { { 'product' => product } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'product', ProductFields::METHODS
 

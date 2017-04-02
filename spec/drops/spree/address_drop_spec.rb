@@ -2,6 +2,9 @@ module Spree
   RSpec.describe AddressDrop do
     subject { render_liquid(template, assigns, strict) }
 
+    let(:assigns) { { 'address' => address } }
+    let(:strict) { true }
+
     let(:address_attributes) do
       {
         id: 5,
@@ -28,8 +31,6 @@ module Spree
       address.state_code = address_attributes[:state_code]
       address
     end
-    let(:assigns) { { 'address' => address } }
-    let(:strict) { true }
 
     it_behaves_like 'drop for nil', 'address', AddressFields::METHODS
 
