@@ -1,6 +1,8 @@
 module Spree
   class OrderDrop < ::Liquid::Rails::Drop
-    attributes :billing_address, :shipping_address, :created_at
+    attributes(*OrderFields::JSON)
+
+    delegate :billing_address, :shipping_address, :created_at, to: :order
 
     delegate :number, to: :order, prefix: true
     alias name order_number
@@ -28,16 +30,25 @@ module Spree
       order.special_instructions
     end
 
+    def requires_shipping
+      true
+    end
+
     def subtotal_price
       order.item_total - order.adjustment_total
+    end
+
+    def total_discount
+      0
     end
 
     def total_price
       order.total.to_money.cents
     end
+    alias original_total_price total_price
 
-    def to_json(_json)
-      { "error": 'json not allowed for this object' }.to_json
+    def total_weight
+      0
     end
 
     private

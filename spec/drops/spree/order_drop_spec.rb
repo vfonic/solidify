@@ -2,20 +2,6 @@ module Spree
   RSpec.describe OrderDrop do
     subject { render_liquid(template, assigns, strict) }
 
-    let(:variant1) { create(:variant, price: 9.00) }
-    let(:variant2) { create(:variant, price: 1.25) }
-    let(:order) do
-      build(:order,
-            email: 'viktor.fonic@gmail.com',
-            billing_address: build(:address),
-            shipping_address: build(:address),
-            line_items: [
-              build(:line_item, variant: variant1),
-              build(:line_item, variant: variant2)
-            ],
-            special_instructions: 'Please bring in one piece')
-    end
-
     let(:assigns) { { 'order' => order } }
     let(:strict) { true }
 
@@ -23,15 +9,52 @@ module Spree
 
     describe 'json' do
       let(:template) { '{{ order | json }}' }
+      let(:order) do
+        create(:order_with_line_items,
+               line_items_count: 2,
+               line_items_price: 9.99, special_instructions: 'Order note')
+      end
 
-      it 'renders json not allowed for this object' do
-        expected = { "error": 'json not allowed for this object' }.to_json
+      it 'renders correct json attributes' do
+        result_map = JSON.parse(subject)
+        result_map.transform_values!(&:to_s)
 
-        expect(subject).to eq(expected)
+        expect(result_map['item_count']).to eq('2')
+        expect(result_map['items']).to eq(order.line_items.as_json.to_s)
+        expect(result_map['note']).to eq('Order note')
+        expect(result_map['original_total_price']).to eq((999 * 2).to_s)
+        expect(result_map['requires_shipping']).to eq('true')
+        expect(result_map['total_discount']).to eq('0')
+        expect(result_map['total_price']).to eq((999 * 2).to_s)
+        expect(result_map['total_weight']).to eq('0')
+      end
+
+      it 'renders all json attributes' do
+        result_map = JSON.parse(subject)
+
+        expect(result_map.keys).to eq(OrderFields::JSON)
+      end
+
+      context '#attributes' do
+        it 'outputs "attributes" attribute'
       end
     end
 
     describe 'methods' do
+      let(:variant1) { build(:variant, price: 9.00) }
+      let(:variant2) { build(:variant, price: 1.25) }
+      let(:line_item1) { build(:line_item, variant: variant1) }
+      let(:line_item2) { build(:line_item, variant: variant2) }
+      let(:order) do
+        build(:order,
+              id: 8,
+              email: 'viktor.fonic@gmail.com',
+              billing_address: build(:address),
+              shipping_address: build(:address),
+              line_items: [line_item1, line_item2],
+              special_instructions: 'Please bring in one piece')
+      end
+
       it_behaves_like('drop', 'billing_address') do
         let(:expected) { 'AddressDrop' }
       end
@@ -56,7 +79,7 @@ module Spree
 
           it 'behaves like drop for cancelled_at' do
             expect(Time.zone.parse(subject))
-              .to be_within(1.second).of(Time.now.utc)
+              .to be_within(2.seconds).of(Time.now.utc)
           end
         end
         context 'order not cancelled' do
@@ -73,7 +96,7 @@ module Spree
 
         it 'behaves like drop for created_at' do
           expect(Time.zone.parse(subject))
-            .to be_within(1.second).of(Time.now.utc)
+            .to be_within(2.seconds).of(Time.now.utc)
         end
       end
 
